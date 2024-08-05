@@ -7,14 +7,13 @@ import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Resume Wongsaphat Puangsorn (NooobtimeX)",
+  title: "Portfolio | Wongsaphat Puangsorn",
   abstract:
-    "Resume of Wongsaphat Puangsorn (NooobtimeX) - Thammasat University Student and Software Developer from Thailand",
-
+    "Portfolio of Wongsaphat Puangsorn - Thammasat University Student and Software Developer from Thailand",
   description:
-    "Resume of Wongsaphat Puangsorn (NooobtimeX) - Thammasat University Student and Software Developer from Thailand",
+    "Portfolio of Wongsaphat Puangsorn - Thammasat University Student and Software Developer from Thailand",
   keywords:
-    "Wongsaphat Puangsorn, NooobtimeX, Thammasat University, Software Developer, Thailand",
+    "Wongsaphat Puangsorn, NooobtimeX, Thammasat University, Software Developer, Thailand, Portfolio, Resume",
   icons: "/favicon.ico",
   robots: "index, follow",
 };

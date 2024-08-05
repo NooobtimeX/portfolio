@@ -8,7 +8,6 @@ import {
 
 export default function Footer() {
   const iconStyle = { fontSize: "2rem" };
-
   const socialIcons = [
     {
       component: <FaGithub style={iconStyle} />,
@@ -30,20 +29,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="footer bg-neutral text-neutral-content p-10 my-4">
-      <aside>
-        <p>Wongsaphat Puangsorn</p>
-      </aside>
-      <nav>
-        <h6 className="footer-title">Social</h6>
-        <div className="grid grid-flow-col gap-4">
-          {socialIcons.map((icon, index) => (
-            <a key={index} href={icon.link}>
-              {icon.component}
-            </a>
-          ))}
-        </div>
-      </nav>
+    <footer className="footer bg-neutral text-neutral-content p-5 mt-4 flex justify-center items-center fixed bottom-0 w-full">
+      <div className="flex justify-center items-center gap-4">
+        {socialIcons.map((icon, index) => (
+          <a key={index} href={icon.link}>
+            {icon.component}
+          </a>
+        ))}
+      </div>
     </footer>
   );
 }

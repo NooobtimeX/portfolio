@@ -16,10 +16,11 @@ export default function HeroSection() {
           </div>
         </div>
         <div>
-          <h1 className="text-5xl font-bold">Wongsaphat Puangsorn</h1>
-          <p className="p-1">{university}</p>
-          <span className="p-1">{gender}</span>
-          <span className="p-1">Age: {age}</span>
+          <span className="text-3xl p-1 font-semibold">Portfolio</span>
+          <h2 className="text-5xl font-bold">Wongsaphat Puangsorn</h2>
+          <p className="p-1 font-semibold">{university}</p>
+          <span className="p-1 font-semibold">{gender}</span>
+          <span className="p-1 font-semibold">Age: {age}</span>
         </div>
       </div>
     </div>

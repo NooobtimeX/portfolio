@@ -17,10 +17,10 @@ export default function Header() {
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-50">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+    <div className="navbar bg-base-100 sticky top-0 z-50 mb-2">
+      <div className="flex justify-between items-center w-full">
+        <div className="dropdown lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -43,12 +43,12 @@ export default function Header() {
             {renderMenuItems()}
           </ul>
         </div>
-        <a href="/" className="btn btn-ghost normal-case text-xl">
-          Resume
+        <a href="/" className="normal-case text-xl mx-4 font-bold">
+          Portfolio
         </a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{renderMenuItems()}</ul>
+        <div className="hidden lg:flex mx-4">
+          <ul className="menu menu-horizontal p-0">{renderMenuItems()}</ul>
+        </div>
       </div>
     </div>
   );
