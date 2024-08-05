@@ -35,5 +35,5 @@ h3 {
   @apply text-3xl font-bold;
 }
 * {
-  @apply text-base;
+  @apply text-base text-gray-400;
 }
