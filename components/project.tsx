@@ -1,7 +1,7 @@
 export default function Project() {
   const items = [
     {
-      href: "/project1",
+      href: "https://github.com/NooobtimeX/QR-Order",
       imgSrc: "path/to/image1.jpg",
       name: "QR Code Order",
       coWorkers: [
