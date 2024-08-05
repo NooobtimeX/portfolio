@@ -7,18 +7,26 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
+  const iconStyle = { fontSize: "2rem" };
+
   const socialIcons = [
     {
-      component: <FaGithub style={{ fontSize: "2rem" }} />,
+      component: <FaGithub style={iconStyle} />,
       link: "https://github.com/NooobtimeX",
     },
     {
-      component: <FaYoutube style={{ fontSize: "2rem" }} />,
+      component: <FaYoutube style={iconStyle} />,
       link: "https://www.youtube.com/@nooobtimex2003",
     },
-    { component: <FaFacebook style={{ fontSize: "2rem" }} />, link: "#" },
-    { component: <FaLinkedin style={{ fontSize: "2rem" }} />, link: "#" },
-    { component: <FaTwitter style={{ fontSize: "2rem" }} />, link: "#" },
+    {
+      component: <FaFacebook style={iconStyle} />,
+      link: "https://www.facebook.com/xnooobtime",
+    },
+    {
+      component: <FaLinkedin style={iconStyle} />,
+      link: "https://www.linkedin.com/in/NooobtimeX",
+    },
+    { component: <FaTwitter style={iconStyle} />, link: "#" },
   ];
 
   return (
