@@ -29,7 +29,7 @@ export default function Project() {
   ];
 
   return (
-    <>
+    <div className="m-2">
       <h2 className="text-center" id="project">
         Project
       </h2>
@@ -65,6 +65,6 @@ export default function Project() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
