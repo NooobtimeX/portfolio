@@ -32,11 +32,7 @@ export default function Footer() {
   return (
     <footer className="footer bg-neutral text-neutral-content p-10 my-4">
       <aside>
-        <p>
-          ACME Industries Ltd.
-          <br />
-          Providing reliable tech since 1992
-        </p>
+        <p>Wongsaphat Puangsorn</p>
       </aside>
       <nav>
         <h6 className="footer-title">Social</h6>
