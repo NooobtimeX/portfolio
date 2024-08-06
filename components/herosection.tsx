@@ -7,6 +7,7 @@ export default function HeroSection() {
   let gender = "Male";
   let age = new AgeFromDate(birthdate).age;
   let university = "Thammasat University";
+  let Bachelor = "Computer Science";
   return (
     <div className="hero bg-base-200" style={{ minHeight: "30vh" }}>
       <div className="hero-content flex-col lg:flex-row">
@@ -18,9 +19,17 @@ export default function HeroSection() {
         <div>
           <span className="text-3xl p-1 font-semibold">Portfolio</span>
           <h2 className="text-5xl font-bold">Wongsaphat Puangsorn</h2>
-          <p className="p-1 font-semibold">{university}</p>
-          <span className="p-1 font-semibold">{gender}</span>
-          <span className="p-1 font-semibold">Age: {age}</span>
+          <p className="p-1 font-semibold flex items-center">
+            {Bachelor} | {university}
+            <img
+              src="/logo/TU.png"
+              alt="Thammasat University Logo"
+              className="w-8 ml-2"
+            />
+          </p>
+          <p className=" font-semibold">
+            {gender} | Age: {age}
+          </p>
         </div>
       </div>
     </div>
