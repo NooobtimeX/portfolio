@@ -12,27 +12,35 @@ export default function Footer() {
     {
       component: <FaGithub style={iconStyle} />,
       link: "https://github.com/NooobtimeX",
+      label: "GitHub",
     },
     {
       component: <FaYoutube style={iconStyle} />,
       link: "https://www.youtube.com/@nooobtimex2003",
+      label: "YouTube",
     },
     {
       component: <FaFacebook style={iconStyle} />,
       link: "https://www.facebook.com/xnooobtime",
+      label: "Facebook",
     },
     {
       component: <FaLinkedin style={iconStyle} />,
       link: "https://www.linkedin.com/in/NooobtimeX",
+      label: "LinkedIn",
     },
-    { component: <FaTwitter style={iconStyle} />, link: "#" },
+    {
+      component: <FaTwitter style={iconStyle} />,
+      link: "#",
+      label: "Twitter",
+    },
   ];
 
   return (
-    <footer className="footer bg-neutral text-neutral-content p-5 mt-4 flex justify-center items-center fixed bottom-0 w-full">
+    <footer className="footer bg-neutral text-neutral-content p-5 flex justify-center items-center fixed bottom-0 w-full">
       <div className="flex justify-center items-center gap-4">
         {socialIcons.map((icon, index) => (
-          <a key={index} href={icon.link}>
+          <a key={index} href={icon.link} aria-label={icon.label}>
             {icon.component}
           </a>
         ))}
