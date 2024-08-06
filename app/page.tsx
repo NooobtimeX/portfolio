@@ -1,11 +1,12 @@
 import HeroSection from "@/components/herosection";
+import Skill from "@/components/skill";
 import Project from "@/components/project";
-import TimeLine from "@/components/timeline";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <Skill />
       <Project />
     </>
   );

@@ -1,6 +1,7 @@
 export default function Header() {
   const menuItems = [
     { href: "/", label: "About me" },
+    { href: "/#skill", label: "S  kill" },
     { href: "/#project", label: "Project" },
   ];
 
@@ -17,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-50 mb-2">
+    <nav className="navbar bg-base-100 sticky top-0 z-50">
       <div className="flex justify-between items-center w-full">
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost">
@@ -50,6 +51,6 @@ export default function Header() {
           <ul className="menu menu-horizontal p-0">{renderMenuItems()}</ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
