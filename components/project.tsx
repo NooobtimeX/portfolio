@@ -44,7 +44,7 @@ export default function Project() {
               />
             </a>
             <h3 className="text-center">{item.name}</h3>
-            <div className="text-center text-sm text-gray-500">
+            <div className="text-center text-sm ">
               Co-workers:
               {item.coWorkers.map((coWorker, idx) => (
                 <span key={idx} className="inline-block mx-1">
@@ -59,7 +59,7 @@ export default function Project() {
                 </span>
               ))}
             </div>
-            <div className="text-center text-sm text-gray-500 mt-2">
+            <div className="text-center text-sm  mt-2">
               Skills: {item.skills.join(", ")}
             </div>
           </div>
