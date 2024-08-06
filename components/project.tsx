@@ -8,7 +8,7 @@ export default function Project() {
         {
           name: "Tateung",
           link: "https://github.com/Tateung",
-          imgSrc: "/people/Tateung.png",
+          imgSrc: "/people/Tateung.webp",
         },
       ],
       skills: ["Nuxt Js", "TypeScript", "Prisma", "PostgreSQL"],
@@ -52,7 +52,7 @@ export default function Project() {
                     <img
                       src={coWorker.imgSrc}
                       alt={coWorker.name}
-                      className="w-8 h-8 rounded-full"
+                      className="w-10 h-10 rounded-full"
                       title={coWorker.name}
                     />
                   </a>

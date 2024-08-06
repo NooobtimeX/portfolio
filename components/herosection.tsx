@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className="hero-content flex-col lg:flex-row">
         <div className="avatar online flex items-center justify-center">
           <div className="w-24 rounded-full">
-            <img src="/people/NooobtimeX.jpg" alt="Avatar" />
+            <img src="/people/NooobtimeX.webp" alt="Avatar" />
           </div>
         </div>
         <div>
@@ -22,9 +22,9 @@ export default function HeroSection() {
           <p className="p-1 font-semibold flex items-center">
             {Bachelor} | {university}
             <img
-              src="/logo/TU.png"
+              src="/logo/TU.webp"
               alt="Thammasat University Logo"
-              className="w-8 ml-2"
+              className="w-10 h-10 ml-2"
             />
           </p>
           <p className=" font-semibold">
