@@ -20,10 +20,9 @@ export default function HeroSection() {
             Portfolio
             <br />
           </span>
-          <span className="px-1 text-3xl font-semibold">
-            Male | {age} years old
-          </span>
-          <h2 className="text-5xl font-bold">Wongsaphat Puangsorn</h2>
+          <h2 className="text-5xl font-bold">
+            Wongsaphat Puangsorn <span className="text-2xl">{age}</span>
+          </h2>
           <span className="flex items-center px-1 text-3xl font-semibold">
             {university}
           </span>
