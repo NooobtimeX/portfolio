@@ -52,14 +52,14 @@ export default function Skill() {
     <div className="flex flex-col items-center p-4" id="skill">
       {skills.map((category) => (
         <React.Fragment key={category.category}>
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="mb-6 text-2xl font-bold">
             {category.category} Skills
           </h2>
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
+          <div className="mb-8 flex flex-wrap justify-center gap-6">
             {category.skills.map((skill, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center h-24 p-4 shadow-lg rounded-lg transform transition-transform hover:scale-110 min-w-[150px] min-h-[100px]"
+                className="flex h-24 min-h-[100px] min-w-[150px] transform flex-col items-center justify-center rounded-lg p-4 shadow-lg transition-transform hover:scale-110"
               >
                 <img
                   src={skill.src}
@@ -67,7 +67,7 @@ export default function Skill() {
                   style={iconStyle}
                   className="rounded-lg"
                 />
-                <span className="text-lg font mt-2">{skill.name}</span>
+                <span className="font mt-2 text-lg">{skill.name}</span>
               </div>
             ))}
           </div>

@@ -16,18 +16,18 @@ export default function HeroSection() {
           </div>
         </div>
         <div>
-          <span className="text-3xl px-1 font-semibold">
+          <span className="px-1 text-3xl font-semibold">
             Portfolio
             <br />
           </span>
-          <span className="text-3xl px-1 font-semibold">
+          <span className="px-1 text-3xl font-semibold">
             Male | {age} years old
           </span>
           <h2 className="text-5xl font-bold">Wongsaphat Puangsorn</h2>
-          <span className="text-3xl px-1 font-semibold flex items-center">
+          <span className="flex items-center px-1 text-3xl font-semibold">
             {university}
           </span>
-          <span className="text-2xl  px-1 font-semibold">
+          <span className="px-1 text-2xl font-semibold">
             {Bachelor}
             <br />
           </span>
