@@ -10,8 +10,9 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.5",
     "age-calculator": "^1.0.0",
-    "next": "14.1.0",
+    "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1"
