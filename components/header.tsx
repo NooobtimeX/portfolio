@@ -18,7 +18,7 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar sticky top-0 z-50 bg-base-100">
+    <nav className="navbar sticky top-0 z-50">
       <div className="flex w-full items-center justify-between">
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost">
@@ -39,7 +39,7 @@ export default function Header() {
           </label>
           <ul
             tabIndex={0}
-            className="menu-compact menu dropdown-content mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
+            className="menu-compact menu dropdown-content mt-3 w-52 rounded-box p-2 shadow"
           >
             {renderMenuItems()}
           </ul>

@@ -8,7 +8,7 @@ export default function HeroSection() {
   let university = "Thammasat University";
   let Bachelor = "Computer Science";
   return (
-    <div className="hero bg-base-200" style={{ minHeight: "30vh" }}>
+    <div className="hero" style={{ minHeight: "30vh" }}>
       <div className="hero-content flex-col lg:flex-row">
         <div className="avatar online flex items-center justify-center">
           <div className="w-60 rounded-full">
