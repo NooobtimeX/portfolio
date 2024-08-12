@@ -29,11 +29,6 @@ export default function Footer() {
       link: "https://www.linkedin.com/in/NooobtimeX",
       label: "LinkedIn",
     },
-    {
-      component: <FaTwitter style={iconStyle} />,
-      link: "#",
-      label: "Twitter",
-    },
   ];
 
   return (
