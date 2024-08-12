@@ -36,13 +36,6 @@ export default function Project() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
         {items.map((item, index) => (
           <div className="rounded-lg p-4 shadow-lg" key={index}>
-            <a href={item.href}>
-              <img
-                src={item.imgSrc}
-                alt={item.name}
-                className="mb-2 rounded-lg"
-              />
-            </a>
             <h3 className="text-center">{item.name}</h3>
             <div className="text-center text-sm">
               Co-workers:
