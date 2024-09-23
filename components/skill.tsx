@@ -38,7 +38,7 @@ const skills = [
     ],
   },
   {
-    category: "Soft Skills",
+    category: "Ai Skill",
     skills: [
       { src: "/logo/chatgpt.png", name: "Chat GPT" },
       { src: "/logo/copilot.png", name: "Copilot" },

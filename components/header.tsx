@@ -1,56 +1,87 @@
-export default function Header() {
-  const menuItems = [
-    { href: "/", label: "About me" },
-    { href: "/#skill", label: "Skill" },
-    { href: "/#project", label: "Project" },
-  ];
+"use client";
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { IoGameController } from "react-icons/io5";
 
-  const renderMenuItems = () => {
-    const items = [];
-    for (let i = 0; i < menuItems.length; i++) {
-      items.push(
-        <li key={i}>
-          <a href={menuItems[i].href}>{menuItems[i].label}</a>
-        </li>,
-      );
-    }
-    return items;
+const navigation = [
+  { href: "/", name: "About me" },
+  { href: "/#skill", name: "Skill" },
+  { href: "/#project", name: "Project" },
+];
+
+export default function Header() {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMobileMenuOpen((prev) => !prev);
+    if (isDropdownOpen) setDropdownOpen(false); // Close dropdown when opening mobile menu
   };
 
   return (
-    <nav className="navbar sticky top-0 z-50">
-      <div className="flex w-full items-center justify-between">
-        <div className="dropdown lg:hidden">
-          <label tabIndex={0} className="btn btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <nav className="sticky top-0 z-40 mb-1 rounded-b-xl bg-gray-800 shadow-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          {/* Mobile menu button */}
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <button
+              onClick={handleMenuToggle}
+              className="bg-800 inline-flex items-center justify-center p-2 text-white focus:outline-none focus:ring-2 focus:ring-inset"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon
+                className={`h-6 w-6 ${isMobileMenuOpen ? "hidden" : "block"}`}
               />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu-compact menu dropdown-content mt-3 w-52 rounded-box p-2 shadow"
-          >
-            {renderMenuItems()}
-          </ul>
-        </div>
-        <a href="/" className="mx-4 text-xl font-bold normal-case">
-          Portfolio
-        </a>
-        <div className="mx-4 hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">{renderMenuItems()}</ul>
+              <XMarkIcon
+                className={`h-6 w-6 ${isMobileMenuOpen ? "block" : "hidden"}`}
+              />
+            </button>
+          </div>
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex-shrink-0">
+              <a href="/">
+                <img
+                  src="/favicon.ico"
+                  className="w-9 rounded-full"
+                  alt="HoYoSmash"
+                />
+              </a>
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="relative">
+              <div className="hidden sm:ml-6 sm:block">
+                <div className="flex space-x-4">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-800"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      {isMobileMenuOpen && (
+        <div className="absolute z-50 w-full rounded-xl bg-gray-800 p-2 sm:hidden">
+          <div className="space-y-1 px-2 pb-3 pt-2">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

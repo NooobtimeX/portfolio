@@ -10,8 +10,10 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@next/third-parties": "^14.2.5",
     "age-calculator": "^1.0.0",
+    "heroicons": "^2.1.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -22,7 +24,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.10",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",

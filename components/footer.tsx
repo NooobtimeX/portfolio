@@ -32,7 +32,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="footer fixed bottom-0 flex w-full items-center justify-center p-5 text-neutral-content">
+    <footer className="footer text-neutral-content fixed bottom-0 flex w-full items-center justify-center rounded-t-xl bg-gray-800 p-5">
       <div className="flex items-center justify-center gap-4">
         {socialIcons.map((icon, index) => (
           <a key={index} href={icon.link} aria-label={icon.label}>

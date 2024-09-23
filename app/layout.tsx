@@ -31,7 +31,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-5PVXPTWP" />
       <body className={inter.className}>
         <Header />
-        <main className="mb-20 mt-2">{children}</main>
+        <main className="mx-auto my-2 mb-20 max-w-7xl">{children}</main>
         <Footer />
       </body>
     </html>

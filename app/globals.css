@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 h1 {
   @apply text-6xl font-bold;
 }
@@ -21,5 +15,8 @@ h3 {
   @apply text-3xl font-bold;
 }
 * {
-  @apply bg-gray-900 text-base text-white;
+  @apply text-white;
+}
+body {
+  @apply bg-gray-900;
 }
