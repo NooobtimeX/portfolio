@@ -1,11 +1,13 @@
 "use client";
 
+import ThemeChanger from "@/components/ThemeChanger";
 import Link from "next/link";
 import { IconType } from "react-icons";
 import { FaLaptopCode, FaRegBuilding } from "react-icons/fa";
 import { GiBrain } from "react-icons/gi";
 import { LuContact } from "react-icons/lu";
 import { SiFacebook, SiGithub } from "react-icons/si";
+import { Separator } from "../ui/separator";
 
 export interface MenuItem {
   title: string;
@@ -65,13 +67,15 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-2 ">
+          <div className="flex items-center gap-2">
             <Link href={"https://github.com/NooobtimeX"} target="_blank">
-              <SiGithub className="text-2xl text-white hover:cursor-pointer" />
+              <SiGithub className="text-2xl text-black dark:text-white hover:cursor-pointer" />
             </Link>
             <Link href={"https://www.facebook.com/xnooobtime"} target="_blank">
-              <SiFacebook className="text-2xl text-white hover:cursor-pointer" />
+              <SiFacebook className="text-2xl text-black dark:text-white hover:cursor-pointer" />
             </Link>
+            <Separator orientation="vertical" />
+            <ThemeChanger />
           </div>
         </nav>
       </div>

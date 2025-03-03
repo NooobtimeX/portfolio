@@ -1,5 +1,6 @@
 import NavigationFooter from "@/components/navigation/NavigationFooter";
 import NavigationHeader from "@/components/navigation/NavigationHeader";
+import { ThemeProvider } from "@/components/theme-provider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
@@ -30,15 +31,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Head>
         <link rel="canonical" href="https://nooobtimex.me/" />
       </Head>
       <GoogleTagManager gtmId="GTM-5PVXPTWP" />
       <body className={nunito.className}>
-        <NavigationHeader />
-        <main className="px-2">{children}</main>
-        <NavigationFooter />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NavigationHeader />
+          <main className="px-2">{children}</main>
+          <NavigationFooter />
+        </ThemeProvider>
       </body>
     </html>
   );
