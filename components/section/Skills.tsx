@@ -78,7 +78,7 @@ export default function Skill() {
         <h2 className="mb-6 text-4xl font-bold text-primary text-center">
           SKILL
         </h2>
-        <div className="gap-2 max-w-5xl mx-auto">
+        <div className="gap-2 mx-auto">
           {skillGroups.map((group, groupIndex) => (
             <SectionTransition key={groupIndex}>
               <Card className="py-4 mb-2">

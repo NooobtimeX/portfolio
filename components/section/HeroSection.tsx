@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="text-center">
         <img
           src="/profile/NooobtimeX.webp"
-          className="max-h-40 mx-auto mb-4 rounded-full border border-red-500"
+          className="max-h-40 mx-auto mb-4 rounded-full border border-purple-500"
           alt="Profile"
         />
         <h1 className="text-xl md:text-2xl lg:text-4xl font-bold">
@@ -40,8 +40,8 @@ export default function HeroSection() {
         </h2>
         <p className="mt-4 text-lg lg:text-xl max-w-3xl mx-auto">
           Specializing in{" "}
-          <span className="text-red-500">modern web development</span>, I turn
-          ideas into seamless digital experiences by building robust web
+          <span className="text-purple-500">modern web development</span>, I
+          turn ideas into seamless digital experiences by building robust web
           applications using the latest technologies.
         </p>
         <div className="mt-8 flex justify-center space-x-4">

@@ -141,7 +141,7 @@ export default function ProjectSection() {
         <h2 className="text-center text-4xl font-bold text-primary mb-8">
           PROJECT
         </h2>
-        <div className="max-w-5xl mx-auto">
+        <div className="mx-auto">
           {items.map((item, idx) => (
             <SectionTransition key={idx}>
               <div className="bg-base-100 p-0 pb-2 m-auto grid grid-cols-1 md:grid-cols-2 items-center justify-center">
