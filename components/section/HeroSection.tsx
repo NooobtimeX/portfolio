@@ -25,7 +25,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="min-h-screen bg-base-200 text-base-content flex flex-col lg:flex-row items-center justify-center -pt-20">
+    <section className="min-h-screen bg-base-200 text-base-content flex flex-col lg:flex-row items-center justify-center -pt-20 -mt-6">
       <div className="text-center">
         <img
           src="/profile/NooobtimeX.webp"

@@ -44,7 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavigationHeader />
-          <main className="px-2 container mx-auto">{children}</main>
+          <main className="px-4 max-w-6xl mx-auto">{children}</main>
           <NavigationFooter />
         </ThemeProvider>
       </body>
