@@ -1,5 +1,6 @@
 "use client";
 
+import SectionTransition from "@/components/SectionTransition";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -13,7 +14,6 @@ import {
   FaPhone,
   FaYoutube,
 } from "react-icons/fa";
-import SectionTransition from "../SectionTransition";
 
 export default function Contact() {
   const contactDetails = [
@@ -75,7 +75,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="min-h-screen mx-auto">
-      <div className="pt-24">
+      <div className="pt-10 lg:pt-24">
         <h2 className="text-center text-4xl font-bold text-primary mb-8">
           CONTACT
         </h2>

@@ -92,7 +92,7 @@ export default function VerticalTimeline01() {
 
   return (
     <section id="experience" className="min-h-screen mx-auto">
-      <div className="pt-24">
+      <div className="pt-10 lg:pt-24">
         <h2 className="text-center text-4xl font-bold text-primary mb-8">
           EXPERIENCE
         </h2>

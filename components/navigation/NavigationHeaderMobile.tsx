@@ -1,82 +1,74 @@
 "use client";
 
+import ThemeChanger from "@/components/ThemeChanger";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import MenuItem from "@/interface/menuItem";
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FaLaptopCode, FaRegBuilding } from "react-icons/fa";
-import { GiBrain } from "react-icons/gi";
-import { LuContact } from "react-icons/lu";
+import { RxHamburgerMenu } from "react-icons/rx";
 
-export interface MenuItem {
-  title: string;
-  href: string;
-  icon?: IconType;
+interface NavigationHeaderMobileProps {
+  menuItems: MenuItem[];
 }
 
-const Header = () => {
-  // Mobile menu items
-  const menuItemsLeft: MenuItem[] = [
-    { title: "SKILL", href: "/#skill", icon: GiBrain },
-    { title: "PROJECT", href: "/#project", icon: FaLaptopCode },
-  ];
-
-  const menuItemsRight: MenuItem[] = [
-    { title: "EXPERIENCE", href: "/#experience", icon: FaRegBuilding },
-    { title: "CONTACT", href: "/#contact", icon: LuContact },
-  ];
-
+export default function NavigationHeaderMobile({
+  menuItems,
+}: NavigationHeaderMobileProps) {
   return (
-    <div className="relative flex w-full items-center justify-around bg-background pb-4 pt-2 shadow-lg xl:px-8 border-t-2 rounded-t-2xl">
-      {/* Overlapping Logo */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[15%]">
-        <Link href="/" className="flex flex-col items-center mb-12">
-          <img
-            src="/favicon.ico"
-            alt="Portfolio Logo"
-            className="rounded-full p-[1px] bg-purple-500"
-            width={60}
-            height={60}
-          />
-          <p className="text-center text-primary">NooobtimeX</p>
+    <div className="relative">
+      <div className="fixed bottom-3 left-3 flex justify-center">
+        <Link href={"/"}>
+          <Button variant={"outline"} className="my-auto">
+            <img
+              src="/favicon.ico"
+              alt="NooobtimeX"
+              className="rounded-full max-w-7"
+            />
+            NooobtimeX
+          </Button>
         </Link>
       </div>
-
-      {/* Navigation Links Left */}
-      <div className="grid grid-cols-2 gap-2 w-full justify-items-center">
-        {menuItemsLeft.map((item) => {
-          const Icon = item.icon;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="flex flex-col items-center text-gray-700 dark:text-gray-300"
-            >
-              {Icon && <Icon className="w-5 h-5 mx-auto" />}
-              <p className="mt-2 -mb-2 text-center">{item.title}</p>
-            </Link>
-          );
-        })}
-      </div>
-
-      <div className="mx-12"></div>
-
-      {/* Navigation Links Right */}
-      <div className="grid grid-cols-2 gap-4 w-full justify-items-center">
-        {menuItemsRight.map((item) => {
-          const Icon = item.icon;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="flex flex-col items-center text-gray-700 dark:text-gray-300"
-            >
-              {Icon && <Icon className="w-5 h-5 mx-auto" />}
-              <p className="mt-2 -mb-2 text-center">{item.title}</p>
-            </Link>
-          );
-        })}
-      </div>
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button variant={"outline"} className="fixed bottom-3 right-3">
+            MENU <RxHamburgerMenu />
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle className="text-center">MENU</DrawerTitle>
+          </DrawerHeader>
+          <div className="mx-auto">
+            <ThemeChanger />
+          </div>
+          <div className="flex flex-col space-y-2">
+            {menuItems.map((item) => (
+              <DrawerClose asChild key={item.href}>
+                <Link
+                  href={item.href}
+                  className="flex items-center space-x-2 p-2"
+                >
+                  {item.icon && <item.icon />}
+                  <span>{item.title}</span>
+                </Link>
+              </DrawerClose>
+            ))}
+          </div>
+          <DrawerFooter>
+            <DrawerClose asChild>
+              <Button variant={"destructive"}>CLOSE</Button>
+            </DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
-};
-
-export default Header;
+}
