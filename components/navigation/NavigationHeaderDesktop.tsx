@@ -1,7 +1,6 @@
 "use client";
 
 import ThemeChanger from "@/components/ThemeChanger";
-import { Separator } from "@/components/ui/separator";
 import MenuItem from "@/interface/menuItem";
 import Link from "next/link";
 
@@ -13,43 +12,41 @@ export default function NavigationHeaderDesktop({
   menuItems,
 }: NavigationHeaderDesktopProps) {
   return (
-    <div className="flex w-full items-center justify-between bg-background p-4 border-b-1 xl:px-8 rounded-b-2xl">
-      <div className="flex items-center space-x-2">
-        <Link href="/">
-          <img
-            src="/favicon.ico"
-            alt="Portfolio Logo"
-            className="rounded-full"
-            width={40}
-            height={40}
-          />
-        </Link>
-        <Link href="/">NooobtimeX</Link>
+    <div className="flex w-full items-center justify-between backdrop-blur-xs p-2 border-b xl:px-8 rounded-b-2xl bg-white/80 dark:bg-zinc-900/80">
+      <div className="flex items-center gap-2 mx-auto">
+        <div className="flex items-center gap-2">
+          <Link href="/">
+            <img
+              src="/favicon.ico"
+              alt="Portfolio Logo"
+              className="rounded-full"
+              width={40}
+              height={40}
+            />
+          </Link>
+          <Link href="/">NooobtimeX</Link>
+        </div>
       </div>
-
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 mx-auto">
         {menuItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group px-4 py-2 transition-colors duration-500 font-bold flex items-center"
+            className="group px-4 py-2 transition-colors duration-500 font-bold"
           >
-            <div className="relative inline-block">
-              {/* Text transitions out */}
-              <span className="transition-opacity duration-1000 opacity-100 group-hover:opacity-0">
-                {item.title}
-              </span>
-              {/* Icon transitions in */}
-              {item.icon && (
-                <span className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 opacity-0 group-hover:opacity-100">
-                  <item.icon />
-                </span>
-              )}
+            <div className="flex flex-col items-center">
+              {/* Icon centered horizontally */}
+              <div>
+                <item.icon />
+              </div>
+              {/* Text centered horizontally */}
+              <div className="text-center">{item.title}</div>
             </div>
           </Link>
         ))}
-        <Separator orientation="vertical" />
-        <div className="flex items-center gap-2">
+      </div>
+      <div className="flex items-center gap-2 mx-auto">
+        <div className="flex items-center gap-2 ml-2">
           <ThemeChanger />
         </div>
       </div>

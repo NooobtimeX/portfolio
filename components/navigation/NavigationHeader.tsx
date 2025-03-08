@@ -4,14 +4,12 @@ import NavigationHeaderDesktop from "@/components/navigation/NavigationHeaderDes
 import NavigationHeaderMobile from "@/components/navigation/NavigationHeaderMobile";
 import NavigationHeaderTablet from "@/components/navigation/NavigationHeaderTablet";
 import MenuItem from "@/interface/menuItem";
-import { CgProfile } from "react-icons/cg";
 import { FaLaptopCode, FaRegBuilding } from "react-icons/fa";
 import { GiBrain } from "react-icons/gi";
 import { LuContact } from "react-icons/lu";
 
 export default function NavigationHeader() {
   const menuItems: MenuItem[] = [
-    { title: "ABOUT ME", href: "/", icon: CgProfile },
     { title: "SKILL", href: "/#skill", icon: GiBrain },
     { title: "PROJECT", href: "/#project", icon: FaLaptopCode },
     { title: "EXPERIENCE", href: "/#experience", icon: FaRegBuilding },

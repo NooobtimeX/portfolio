@@ -36,7 +36,12 @@ export default function RootLayout({
         <link rel="canonical" href="https://nooobtimex.me/" />
       </Head>
       <GoogleTagManager gtmId="GTM-5PVXPTWP" />
-      <body className={nunito.className}>
+      <body
+        className={
+          nunito.className +
+          " bg-gradient-to-r from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-800"
+        }
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

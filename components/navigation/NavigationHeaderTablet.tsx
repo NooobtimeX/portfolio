@@ -22,7 +22,7 @@ export default function NavigationHeaderDesktop({
   menuItems,
 }: NavigationHeaderDesktopProps) {
   return (
-    <div className="flex w-full items-center justify-between bg-background p-4 border-b-1 xl:px-8 rounded-b-2xl">
+    <div className="flex w-full items-center justify-between backdrop-blur-xs p-4 border-b xl:px-8 rounded-b-2xl bg-gradient-to-r from-blue-50/80 to-purple-50/80 dark:from-slate-900/80 dark:to-zinc-slate/80">
       <div className="flex items-center space-x-2">
         <Link href="/">
           <img
