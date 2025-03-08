@@ -19,7 +19,7 @@ export default function NavigationHeaderDesktop({
           <img
             src="/favicon.ico"
             alt="Portfolio Logo"
-            className="rounded-ful  l"
+            className="rounded-full"
             width={40}
             height={40}
           />

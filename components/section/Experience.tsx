@@ -7,26 +7,6 @@ import { Card } from "@/components/ui/card";
 export default function VerticalTimeline01() {
   const data = [
     {
-      company: "JOB POSITION APPLIED FOR",
-      logo: "/logo/next.png",
-      jobs: [
-        {
-          title: "Frontend developer",
-          start: "Aug 2025",
-          end: "Present",
-          jobtype: "Full-Time",
-          skills: [
-            "next js",
-            "typescript",
-            "tailwindcss",
-            "shadcn/ui",
-            "node.js",
-          ],
-          description: "Looking for a new job",
-        },
-      ],
-    },
-    {
       company: "Blitzwerk Innovation",
       logo: "/logo/blitzwerk.png",
       jobs: [
