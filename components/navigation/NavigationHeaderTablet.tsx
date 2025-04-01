@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import MenuItem from "@/interface/menuItem";
 import Link from "next/link";
+import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 interface NavigationHeaderDesktopProps {
@@ -21,6 +22,8 @@ interface NavigationHeaderDesktopProps {
 export default function NavigationHeaderDesktop({
   menuItems,
 }: NavigationHeaderDesktopProps) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex w-full items-center justify-between backdrop-blur-xs p-4 border-b xl:px-8 rounded-b-2xl bg-white/80 dark:bg-zinc-900/80">
       <div className="flex items-center space-x-2">
@@ -39,9 +42,9 @@ export default function NavigationHeaderDesktop({
       <div className="flex items-center gap-2">
         <Separator orientation="vertical" />
         <div className="flex items-center gap-2">
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant={"outline"}>
+              <Button variant={"outline"} onClick={() => setOpen(true)}>
                 MENU <RxHamburgerMenu />
               </Button>
             </SheetTrigger>
@@ -54,15 +57,17 @@ export default function NavigationHeaderDesktop({
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="px-4 py-2 hover:bg-muted rounded"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2 hover:bg-muted rounded"
                   >
-                    {item.title}
+                    <item.icon className="w-5 h-5" />
+                    <span className="flex items-center">{item.title}</span>
                   </Link>
                 ))}
               </div>
               <div className="mx-auto">
                 <ThemeChanger />
-              </div>{" "}
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -36,7 +36,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="min-h-screen container mx-auto">
-      <div className="pt-10 lg:pt-24">
+      <div className="pt-16 md:pt-24">
         <h2 className="text-center text-4xl font-bold text-primary mb-8">
           CONTACT
         </h2>

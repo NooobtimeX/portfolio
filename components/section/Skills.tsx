@@ -107,7 +107,7 @@ function SkillGroupCard({ group }: { group: SkillGroup }) {
 export default function Skill() {
   return (
     <section id="skill" className="min-h-screen container mx-auto">
-      <div className="pt-10 lg:pt-24">
+      <div className="pt-16 md:pt-24">
         <h2 className="text-center text-4xl font-bold text-primary mb-8">
           SKILL
         </h2>
