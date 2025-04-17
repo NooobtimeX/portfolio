@@ -11,6 +11,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import MenuItem from "@/interface/menuItem";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -28,12 +29,13 @@ export default function NavigationHeaderDesktop({
     <div className="flex w-full items-center justify-between backdrop-blur-xs p-4 border-b xl:px-8 rounded-b-2xl bg-white/80 dark:bg-zinc-900/80">
       <div className="flex items-center space-x-2">
         <Link href="/">
-          <img
+          <Image
             src="/favicon.ico"
             alt="Portfolio Logo"
             className="rounded-full"
             width={40}
             height={40}
+            quality={100}
           />
         </Link>
         <Link href="/">NooobtimeX</Link>

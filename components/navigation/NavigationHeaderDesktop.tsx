@@ -2,6 +2,7 @@
 
 import ThemeChanger from "@/components/ThemeChanger";
 import MenuItem from "@/interface/menuItem";
+import Image from "next/image";
 import Link from "next/link";
 
 interface NavigationHeaderDesktopProps {
@@ -16,12 +17,13 @@ export default function NavigationHeaderDesktop({
       <div className="flex items-center gap-2 mx-auto">
         <div className="flex items-center gap-2">
           <Link href="/">
-            <img
+            <Image
               src="/favicon.ico"
               alt="Portfolio Logo"
               className="rounded-full"
               width={40}
               height={40}
+              quality={100}
             />
           </Link>
           <Link href="/">NooobtimeX</Link>

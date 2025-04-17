@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
@@ -117,10 +118,13 @@ export default function ProjectSection() {
               {/* Flex column to push footer to bottom */}
               <Card className="flex flex-col justify-between h-full">
                 <CardHeader className="text-center flex-grow flex flex-col items-center">
-                  <img
+                  <Image
                     src={project.imgSrc}
                     alt={project.name}
                     className="object-cover rounded-2xl w-64 h-64 mb-4"
+                    height={200}
+                    width={200}
+                    quality={100}
                   />
                   <CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
                     {project.name}

@@ -3,6 +3,7 @@
 import SectionTransition from "@/components/SectionTransition";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 import { FaDiscord, FaEnvelope, FaFacebook, FaPhone } from "react-icons/fa";
 
 export default function Contact() {
@@ -41,12 +42,13 @@ export default function Contact() {
           CONTACT
         </h2>
         <div className="flex flex-col items-center mb-8">
-          <img
+          <Image
             src="/favicon.ico"
             alt="Portfolio Logo"
             className="rounded-full border-2 border-primary p-1"
-            width="200"
-            height="200"
+            width={200}
+            height={200}
+            quality={100}
           />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

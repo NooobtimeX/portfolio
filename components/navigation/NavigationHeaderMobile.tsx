@@ -12,6 +12,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import MenuItem from "@/interface/menuItem";
+import Image from "next/image";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -27,10 +28,13 @@ export default function NavigationHeaderMobile({
       <div className="fixed bottom-3 left-3 flex justify-center">
         <Link href={"/"}>
           <Button variant={"outline"} className="my-auto">
-            <img
+            <Image
               src="/favicon.ico"
               alt="NooobtimeX"
               className="rounded-full max-w-7"
+              width={50}
+              height={50}
+              quality={100}
             />
             NooobtimeX
           </Button>
