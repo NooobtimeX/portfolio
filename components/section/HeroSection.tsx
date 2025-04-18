@@ -73,7 +73,7 @@ export default function HeroSection() {
         <Link
           download
           target="_blank"
-          href="https://firebasestorage.googleapis.com/v0/b/portfolio-84dbc.firebasestorage.app/o/Portfolio.pdf?alt=media&token=035c76a7-f76e-4cbc-b560-2b4f8d574059"
+          href="https://ffxzvbj7zg1lmzpp.public.blob.vercel-storage.com/Resume.pdf"
         >
           <Button className="hover:cursor-pointer">DOWNLOAD CV</Button>
         </Link>

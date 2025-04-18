@@ -8,13 +8,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    ignores: [
-      "node_modules",
-      ".next",
-      "dist",
-      ".firebase",
-      "tailwind.config.ts",
-    ], // Directories to ignore
+    ignores: ["node_modules", ".next", "dist", "tailwind.config.ts"], // Directories to ignore
   },
   ...compat.config({
     extends: ["eslint:recommended", "next"],
