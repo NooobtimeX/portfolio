@@ -6,29 +6,29 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { Button } from "./ui/button";
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  if (!mounted) return null;
+    if (!mounted) return null;
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
 
-  return (
-    <Button
-      onClick={toggleTheme}
-      variant="outline"
-      size="icon"
-      className="rounded-full"
-    >
-      {theme === "dark" ? <FiMoon size={24} /> : <FiSun size={24} />}
-    </Button>
-  );
+    return (
+        <Button
+            onClick={toggleTheme}
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+        >
+            {theme === "dark" ? <FiMoon size={24} /> : <FiSun size={24} />}
+        </Button>
+    );
 };
 
 export default ThemeChanger;
