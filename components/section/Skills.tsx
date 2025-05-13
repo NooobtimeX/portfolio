@@ -15,13 +15,11 @@ import {
     SiMysql,
     SiNextdotjs,
     SiNodedotjs,
-    SiNuxtdotjs,
     SiPostgresql,
     SiPrisma,
     SiReact,
     SiShadcnui,
     SiTailwindcss,
-    SiVuedotjs,
 } from "react-icons/si";
 
 type Skill = {
@@ -40,13 +38,11 @@ const frontendDevelopment: SkillGroup = {
     Icon: FaLaptopCode,
     skills: [
         { name: "NEXT JS", Icon: SiNextdotjs },
-        { name: "NUXT JS", Icon: SiNuxtdotjs },
         { name: "REACT JS", Icon: SiReact },
-        { name: "VUE JS", Icon: SiVuedotjs },
-        { name: "BOOTSTRAP", Icon: SiBootstrap },
         { name: "TAILWIND CSS", Icon: SiTailwindcss },
         { name: "DAISY UI", Icon: SiDaisyui },
         { name: "SHAD/CN UI", Icon: SiShadcnui },
+        { name: "BOOTSTRAP", Icon: SiBootstrap },
     ],
 };
 
