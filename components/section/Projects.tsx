@@ -19,11 +19,7 @@ import {
     SiGoogleanalytics,
     SiGoogletagmanager,
     SiNextdotjs,
-    SiNuxtdotjs,
-    SiPostgresql,
-    SiPrisma,
     SiShadcnui,
-    SiSupabase,
     SiTailwindcss,
     SiTypescript,
     SiVercel,
@@ -46,19 +42,17 @@ type ProjectItem = {
 
 const projects: ProjectItem[] = [
     {
-        href: "https://github.com/NooobtimeX/QR-Food",
-        imgSrc: "/project/QRFOOD.png",
-        name: "QR FOOD",
+        href: "https://prettier-config-generator.nooobtimex.me/",
+        imgSrc: "/project/prettier.png",
+        name: "Prettier Config Generator",
         skills: [
-            { name: "NUXT JS", Icon: SiNuxtdotjs },
+            { name: "NEXT JS", Icon: SiNextdotjs },
             { name: "VERCEL", Icon: SiVercel },
-            { name: "SUPABASE", Icon: SiSupabase },
             { name: "TAILWIND CSS", Icon: SiTailwindcss },
-            { name: "PRISMA", Icon: SiPrisma },
-            { name: "POSTGRESQL", Icon: SiPostgresql },
+            { name: "SHAD/CN UI", Icon: SiShadcnui },
         ],
         description:
-            "This web application allows customers to order food by scanning a QR code to view the menu. It also includes a POS system for efficient order management.",
+            "Generate your .prettierrc file effortlessly with this interactive Prettier configuration tool.",
     },
     {
         href: "https://combomaker.net/",
