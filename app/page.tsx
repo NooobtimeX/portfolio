@@ -7,25 +7,25 @@ import Skills from "@/components/section/Skills";
 import React from "react";
 
 const Home: React.FC = () => {
-    return (
-        <div className="hide-scrollbar">
-            <SectionTransition>
-                <HeroSection />
-            </SectionTransition>
-            <SectionTransition>
-                <Skills />
-            </SectionTransition>
-            <SectionTransition>
-                <Projects />
-            </SectionTransition>
-            <SectionTransition>
-                <Experience />
-            </SectionTransition>
-            <SectionTransition>
-                <Contact />
-            </SectionTransition>
-        </div>
-    );
+	return (
+		<div className="hide-scrollbar">
+			<SectionTransition>
+				<HeroSection />
+			</SectionTransition>
+			<SectionTransition>
+				<Skills />
+			</SectionTransition>
+			<SectionTransition>
+				<Projects />
+			</SectionTransition>
+			<SectionTransition>
+				<Experience />
+			</SectionTransition>
+			<SectionTransition>
+				<Contact />
+			</SectionTransition>
+		</div>
+	);
 };
 
 export default Home;

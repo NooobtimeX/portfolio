@@ -11,48 +11,48 @@ import "./globals.css";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Frontend Portfolio | Wongsaphat Puangsorn",
-    abstract:
-        "Frontend Portfolio | Wongsaphat Puangsorn - Thammasat University Student and Software Developer from Thailand",
-    description:
-        "Frontend Portfolio | Wongsaphat Puangsorn - Specializing in modern web development, I turn ideas into seamless digital experiences by building robust web applications using the latest technologies.",
-    keywords:
-        "Wongsaphat Puangsorn, NooobtimeX, Thammasat University, Software Developer, Thailand, Portfolio, Resume, Frontend, CV",
-    icons: "/favicon.ico",
-    robots: "index, follow",
-    verification: {
-        google: "KiAn5R5UAuZgmwSS_KpMOO2FIRmt-39QIKrHKXrAOL8",
-    },
+	title: "Frontend Portfolio | Wongsaphat Puangsorn",
+	abstract:
+		"Frontend Portfolio | Wongsaphat Puangsorn - Thammasat University Student and Software Developer from Thailand",
+	description:
+		"Frontend Portfolio | Wongsaphat Puangsorn - Specializing in modern web development, I turn ideas into seamless digital experiences by building robust web applications using the latest technologies.",
+	keywords:
+		"Wongsaphat Puangsorn, NooobtimeX, Thammasat University, Software Developer, Thailand, Portfolio, Resume, Frontend, CV",
+	icons: "/favicon.ico",
+	robots: "index, follow",
+	verification: {
+		google: "KiAn5R5UAuZgmwSS_KpMOO2FIRmt-39QIKrHKXrAOL8",
+	},
 };
 
 export default function RootLayout({
-    children,
+	children,
 }: Readonly<{
-    children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-            <Head>
-                <link rel="canonical" href="https://nooobtimex.me/" />
-            </Head>
-            <GoogleTagManager gtmId="GTM-5PVXPTWP" />
-            <body
-                className={
-                    nunito.className +
-                    " bg-gradient-to-r from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-800"
-                }
-            >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <NavigationHeader />
-                    <main className="px-4 max-w-7xl mx-auto">{children}</main>
-                    <NavigationFooter />
-                </ThemeProvider>
-            </body>
-        </html>
-    );
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<Head>
+				<link rel="canonical" href="https://nooobtimex.me/" />
+			</Head>
+			<GoogleTagManager gtmId="GTM-5PVXPTWP" />
+			<body
+				className={
+					nunito.className +
+					" bg-gradient-to-r from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-800"
+				}
+			>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<NavigationHeader />
+					<main className="px-4 max-w-7xl mx-auto">{children}</main>
+					<NavigationFooter />
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }
