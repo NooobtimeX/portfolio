@@ -55,7 +55,7 @@ const projects: ProjectItem[] = [
 			"Generate your .prettierrc file effortlessly with this interactive Prettier configuration tool.",
 	},
 	{
-		href: "https://combomaker.net/",
+		href: "https://combomaker.nooobtimex.me/",
 		imgSrc: "/project/ComboMaker.png",
 		name: "Combo Maker",
 		skills: [
