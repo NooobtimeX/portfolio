@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 export default function VerticalTimeline01() {
 	const data = [
 		{
-			company: "Blitzwerk Innovation",
+			company: "Freelance with friends",
 			logo: "/logo/blitzwerk.png",
 			jobs: [
 				{
