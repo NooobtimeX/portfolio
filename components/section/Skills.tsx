@@ -3,23 +3,25 @@
 import SectionTransition from "@/components/SectionTransition";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CgMonday } from "react-icons/cg";
 import { FaDatabase, FaGitAlt, FaLaptopCode } from "react-icons/fa";
 import { GoProject } from "react-icons/go";
+import { GrCycle } from "react-icons/gr";
+import { IoDocumentText } from "react-icons/io5";
+import { RiRobot2Fill } from "react-icons/ri";
 import {
-	SiBootstrap,
 	SiClickup,
-	SiDaisyui,
+	SiFirebase,
 	SiGithub,
-	SiGitlab,
-	SiMysql,
+	SiGoogledocs,
+	SiGooglegemini,
 	SiNextdotjs,
 	SiNodedotjs,
+	SiOpenai,
 	SiPostgresql,
 	SiPrisma,
-	SiReact,
 	SiShadcnui,
 	SiTailwindcss,
+	SiVercel,
 } from "react-icons/si";
 
 type Skill = {
@@ -38,11 +40,8 @@ const frontendDevelopment: SkillGroup = {
 	Icon: FaLaptopCode,
 	skills: [
 		{ name: "NEXT JS", Icon: SiNextdotjs },
-		{ name: "REACT JS", Icon: SiReact },
 		{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-		{ name: "DAISY UI", Icon: SiDaisyui },
 		{ name: "SHAD/CN UI", Icon: SiShadcnui },
-		{ name: "BOOTSTRAP", Icon: SiBootstrap },
 	],
 };
 
@@ -51,27 +50,44 @@ const backendDevelopment: SkillGroup = {
 	Icon: FaDatabase,
 	skills: [
 		{ name: "NODE JS", Icon: SiNodedotjs },
-		{ name: "MYSQL", Icon: SiMysql },
 		{ name: "POSTGRESQL", Icon: SiPostgresql },
 		{ name: "PRISMA", Icon: SiPrisma },
+	],
+};
+
+const DevOps: SkillGroup = {
+	groupName: "DevOps",
+	Icon: GrCycle,
+	skills: [
+		{ name: "VERCEL", Icon: SiVercel },
+		{ name: "FIREBASE", Icon: SiFirebase },
 	],
 };
 
 const versionControl: SkillGroup = {
 	groupName: "Version Control",
 	Icon: FaGitAlt,
-	skills: [
-		{ name: "GITHUB", Icon: SiGithub },
-		{ name: "GITLAB", Icon: SiGitlab },
-	],
+	skills: [{ name: "GITHUB", Icon: SiGithub }],
 };
 
 const managementTools: SkillGroup = {
 	groupName: "Management Tools",
 	Icon: GoProject,
+	skills: [{ name: "CLICK UP", Icon: SiClickup }],
+};
+
+const documentTools: SkillGroup = {
+	groupName: "Document Tools",
+	Icon: IoDocumentText,
+	skills: [{ name: "GOOGLE DOCS", Icon: SiGoogledocs }],
+};
+
+const ArtificialIntelligence: SkillGroup = {
+	groupName: "Artificial Intelligence",
+	Icon: RiRobot2Fill,
 	skills: [
-		{ name: "MONDAY", Icon: CgMonday },
-		{ name: "CLICK UP", Icon: SiClickup },
+		{ name: "CHATGPT", Icon: SiOpenai },
+		{ name: "GEMINI", Icon: SiGooglegemini },
 	],
 };
 
@@ -79,7 +95,7 @@ function SkillGroupCard({ group }: { group: SkillGroup }) {
 	const GroupIcon = group.Icon;
 	return (
 		<Card className="min-h-full">
-			<div className="flex justify-center mt-4">
+			<div className="flex justify-center mt-2">
 				<GroupIcon className="h-10 w-10" />
 			</div>
 			<h3 className="mb-2 text-2xl font-semibold text-center">
@@ -103,24 +119,33 @@ function SkillGroupCard({ group }: { group: SkillGroup }) {
 export default function Skill() {
 	return (
 		<section id="skill" className="min-h-screen container mx-auto">
-			<div className="pt-16 md:pt-24">
+			<div className="pt-10 md:pt-16">
 				<h2 className="text-center text-4xl font-bold text-primary mb-8">
 					SKILL
 				</h2>
-				<div className="grid gap-4 grid-cols-1">
+				<div className="grid gap-4 grid-cols-1 md:grid-cols-3 mt-4">
 					<SectionTransition>
 						<SkillGroupCard group={frontendDevelopment} />
 					</SectionTransition>
 					<SectionTransition>
 						<SkillGroupCard group={backendDevelopment} />
 					</SectionTransition>
+					<SectionTransition>
+						<SkillGroupCard group={DevOps} />
+					</SectionTransition>
 				</div>
-				<div className="grid gap-4 grid-cols-1 md:grid-cols-2 mt-4">
+				<div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-4">
 					<SectionTransition>
 						<SkillGroupCard group={versionControl} />
 					</SectionTransition>
 					<SectionTransition>
 						<SkillGroupCard group={managementTools} />
+					</SectionTransition>
+					<SectionTransition>
+						<SkillGroupCard group={documentTools} />
+					</SectionTransition>
+					<SectionTransition>
+						<SkillGroupCard group={ArtificialIntelligence} />
 					</SectionTransition>
 				</div>
 			</div>
