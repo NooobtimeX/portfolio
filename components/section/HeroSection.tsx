@@ -46,9 +46,7 @@ export default function HeroSection() {
 						<TbDeviceMobileCode size={100} />
 					</div>
 				</div>{" "}
-				<h1 className="text-xl md:text-2xl lg:text-3xl font-bold">
-					FRONTEND PORTFOLIO
-				</h1>
+				<h1 className="text-xl md:text-2xl lg:text-3xl font-bold">PORTFOLIO</h1>
 				<h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
 					WONGSAPHAT PUANGSORN
 				</h2>

@@ -19,20 +19,6 @@ export default function VerticalTimeline01() {
 					description:
 						"Develop and maintain full-stack web applications using modern frameworks.",
 				},
-				{
-					title: "Basic accountant",
-					start: "Jan 2025",
-					end: "Present",
-					jobtype: "Freelance",
-					skills: [
-						"excel",
-						"google sheet",
-						"financial reporting",
-						"google locker studio",
-					],
-					description:
-						"Manage financial reports and ensure accurate accounting using Excel and Google Sheet.",
-				},
 			],
 		},
 		{
@@ -40,31 +26,35 @@ export default function VerticalTimeline01() {
 			logo: "/logo/RSTROPHY.png",
 			jobs: [
 				{
-					title: "WordPress Developer",
-					start: "Aug 2021",
+					title: "Technical Lead",
+					start: "May 2025",
 					end: "Present",
-					jobtype: "Part-Time",
-					skills: ["wordpress", "woocommerce", "css"],
+					jobtype: "Full-Time",
+					skills: [
+						"Online Marketing",
+						"Artificial Intelligence",
+						"SEO",
+						"Full Stack Development",
+					],
 					description:
-						"Develop WordPress websites and customize WooCommerce plugins.",
+						"Lead the development of web applications and online marketing strategies, leveraging AI for enhanced user experience and SEO optimization.",
 				},
 				{
-					title: "SEO Analyst for programmer",
+					title: "IT Support",
 					start: "Aug 2021",
 					end: "Present",
 					jobtype: "Part-Time",
-					skills: ["seo", "google analytics"],
+					skills: [
+						"wordpress",
+						"woocommerce",
+						"css",
+						"seo",
+						"google analytics",
+						"google ads",
+						"facebook ads",
+					],
 					description:
-						"Analyze and improve SEO strategies with data-driven insights.",
-				},
-				{
-					title: "Marketing Support",
-					start: "Aug 2021",
-					end: "Present",
-					jobtype: "Part-Time",
-					skills: ["google ads", "facebook ads"],
-					description:
-						"Support marketing campaigns across social media and online platforms.",
+						"Develop WordPress websites and customize WooCommerce plugins with Analyze and improve SEO strategies with data-driven insights.",
 				},
 			],
 		},
