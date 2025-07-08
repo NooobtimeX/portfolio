@@ -14,17 +14,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
-	SiFirebase,
 	SiGoogleads,
 	SiGoogleanalytics,
 	SiGoogletagmanager,
 	SiNextdotjs,
 	SiShadcnui,
 	SiTailwindcss,
-	SiTypescript,
 	SiVercel,
-	SiWoocommerce,
-	SiWordpress,
 } from "react-icons/si";
 
 type Skill = {
@@ -42,7 +38,7 @@ type ProjectItem = {
 
 const projects: ProjectItem[] = [
 	{
-		href: "https://prettier-config-generator.nooobtimex.me/",
+		href: "https://prettier-config-generator.com/",
 		imgSrc: "/project/prettier.png",
 		name: "Prettier Config Generator",
 		skills: [
@@ -55,40 +51,14 @@ const projects: ProjectItem[] = [
 			"Generate your .prettierrc file effortlessly with this interactive Prettier configuration tool.",
 	},
 	{
-		href: "https://combomaker.nooobtimex.me/",
-		imgSrc: "/project/ComboMaker.png",
-		name: "Combo Maker",
-		skills: [
-			{ name: "NEXT JS", Icon: SiNextdotjs },
-			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
-			{ name: "TYPESCRIPT", Icon: SiTypescript },
-			{ name: "FIREBASE", Icon: SiFirebase },
-		],
-		description:
-			"A platform for designing personalized fighting game combos with a user-friendly interface and seamless sharing capabilities.",
-	},
-	{
-		href: "https://hoyosmash.com/",
-		imgSrc: "/project/HoYoSmash.png",
-		name: "HoyoSmash",
-		skills: [
-			{ name: "NEXT JS", Icon: SiNextdotjs },
-			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
-			{ name: "TYPESCRIPT", Icon: SiTypescript },
-			{ name: "FIREBASE", Icon: SiFirebase },
-		],
-		description:
-			"An interactive platform where users rate their favorite characters in a fun 'Smash or Pass' style, fostering engaging discussions.",
-	},
-	{
-		href: "https://www.rs-trophy.com",
+		href: "https://www.rs-award.com",
 		imgSrc: "/project/RSTROPHY.png",
-		name: "rs-trophy.com",
+		name: "rs-award.com",
 		skills: [
-			{ name: "WORDPRESS", Icon: SiWordpress },
-			{ name: "WOOCOMMERCE", Icon: SiWoocommerce },
+			{ name: "NEXT JS", Icon: SiNextdotjs },
+			{ name: "VERCEL", Icon: SiVercel },
+			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
+			{ name: "SHAD/CN UI", Icon: SiShadcnui },
 			{ name: "GOOGLE ADS", Icon: SiGoogleads },
 			{
 				name: "GOOGLE TAG MANAGER",
@@ -100,7 +70,51 @@ const projects: ProjectItem[] = [
 			},
 		],
 		description:
-			"A trophy showcase web application built to display awards and accolades in an elegant layout.",
+			"A plaque showcase web application built to display awards and accolades in an elegant layout.",
+	},
+	{
+		href: "https://www.rs-medal.com",
+		imgSrc: "/project/RSTROPHY.png",
+		name: "rs-medal.com",
+		skills: [
+			{ name: "NEXT JS", Icon: SiNextdotjs },
+			{ name: "VERCEL", Icon: SiVercel },
+			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
+			{ name: "SHAD/CN UI", Icon: SiShadcnui },
+			{ name: "GOOGLE ADS", Icon: SiGoogleads },
+			{
+				name: "GOOGLE TAG MANAGER",
+				Icon: SiGoogletagmanager,
+			},
+			{
+				name: "Google ANALYTICS",
+				Icon: SiGoogleanalytics,
+			},
+		],
+		description:
+			"A medal showcase web application built to display awards and accolades in an elegant layout.",
+	},
+	{
+		href: "https://www.rs-ribbon.com",
+		imgSrc: "/project/RSTROPHY.png",
+		name: "rs-ribbon.com",
+		skills: [
+			{ name: "NEXT JS", Icon: SiNextdotjs },
+			{ name: "VERCEL", Icon: SiVercel },
+			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
+			{ name: "SHAD/CN UI", Icon: SiShadcnui },
+			{ name: "GOOGLE ADS", Icon: SiGoogleads },
+			{
+				name: "GOOGLE TAG MANAGER",
+				Icon: SiGoogletagmanager,
+			},
+			{
+				name: "Google ANALYTICS",
+				Icon: SiGoogleanalytics,
+			},
+		],
+		description:
+			"A ribbon showcase web application built to display awards and accolades in an elegant layout.",
 	},
 ];
 
