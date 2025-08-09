@@ -106,11 +106,11 @@ export default function ProjectSection() {
 						opts={{ slidesToScroll: 1 }}
 						plugins={[Autoplay({ delay: 5000 })]}
 					>
-						<CarouselContent>
+						<CarouselContent className="gap-2">
 							{projects.map((project, index) => (
 								<CarouselItem
 									key={index}
-									className="flex justify-center basis-full md:basis-1/3 px-4"
+									className="flex justify-center basis-[clamp(320px,50%,400px)]"
 								>
 									<SectionTransition>
 										<Card className="flex flex-col justify-between h-full w-[320px] md:w-[360px] lg:w-[400px] mx-auto">
