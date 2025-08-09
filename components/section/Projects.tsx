@@ -10,15 +10,20 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {
 	SiGoogleads,
-	SiGoogleanalytics,
-	SiGoogletagmanager,
+	SiMongodb,
+	SiNestjs,
 	SiNextdotjs,
-	SiShadcnui,
 	SiTailwindcss,
 	SiVercel,
 } from "react-icons/si";
@@ -38,6 +43,17 @@ type ProjectItem = {
 
 const projects: ProjectItem[] = [
 	{
+		href: "https://looklook.pet/",
+		imgSrc: "/project/looklook.webp",
+		name: "LOOKLOOK PET",
+		skills: [
+			{ name: "NEXT JS", Icon: SiNextdotjs },
+			{ name: "NEST JS", Icon: SiNestjs },
+			{ name: "MONGODB", Icon: SiMongodb },
+		],
+		description: "The most personalized, AI-powered pet care experience",
+	},
+	{
 		href: "https://prettier-config-generator.com/",
 		imgSrc: "/project/prettier.png",
 		name: "Prettier Config Generator",
@@ -45,7 +61,6 @@ const projects: ProjectItem[] = [
 			{ name: "NEXT JS", Icon: SiNextdotjs },
 			{ name: "VERCEL", Icon: SiVercel },
 			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
 		],
 		description:
 			"Generate your .prettierrc file effortlessly with this interactive Prettier configuration tool.",
@@ -58,16 +73,7 @@ const projects: ProjectItem[] = [
 			{ name: "NEXT JS", Icon: SiNextdotjs },
 			{ name: "VERCEL", Icon: SiVercel },
 			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
 			{ name: "GOOGLE ADS", Icon: SiGoogleads },
-			{
-				name: "GOOGLE TAG MANAGER",
-				Icon: SiGoogletagmanager,
-			},
-			{
-				name: "Google ANALYTICS",
-				Icon: SiGoogleanalytics,
-			},
 		],
 		description:
 			"A plaque showcase web application built to display awards and accolades in an elegant layout.",
@@ -80,41 +86,10 @@ const projects: ProjectItem[] = [
 			{ name: "NEXT JS", Icon: SiNextdotjs },
 			{ name: "VERCEL", Icon: SiVercel },
 			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
 			{ name: "GOOGLE ADS", Icon: SiGoogleads },
-			{
-				name: "GOOGLE TAG MANAGER",
-				Icon: SiGoogletagmanager,
-			},
-			{
-				name: "Google ANALYTICS",
-				Icon: SiGoogleanalytics,
-			},
 		],
 		description:
 			"A medal showcase web application built to display awards and accolades in an elegant layout.",
-	},
-	{
-		href: "https://www.rs-ribbon.com",
-		imgSrc: "/project/RSTROPHY.png",
-		name: "rs-ribbon.com",
-		skills: [
-			{ name: "NEXT JS", Icon: SiNextdotjs },
-			{ name: "VERCEL", Icon: SiVercel },
-			{ name: "TAILWIND CSS", Icon: SiTailwindcss },
-			{ name: "SHAD/CN UI", Icon: SiShadcnui },
-			{ name: "GOOGLE ADS", Icon: SiGoogleads },
-			{
-				name: "GOOGLE TAG MANAGER",
-				Icon: SiGoogletagmanager,
-			},
-			{
-				name: "Google ANALYTICS",
-				Icon: SiGoogleanalytics,
-			},
-		],
-		description:
-			"A ribbon showcase web application built to display awards and accolades in an elegant layout.",
 	},
 ];
 
@@ -125,54 +100,61 @@ export default function ProjectSection() {
 				<h2 className="text-center text-4xl font-bold text-primary mb-8">
 					PROJECT
 				</h2>
-				{/* Make the grid items stretch to ensure equal card height */}
-				<div className="grid gap-4 md:grid-cols-2 items-stretch">
-					{projects.map((project, index) => (
-						<SectionTransition key={index}>
-							{/* Flex column to push footer to bottom */}
-							<Card className="flex flex-col justify-between h-full">
-								<CardHeader className="text-center flex-grow flex flex-col items-center">
-									<Image
-										src={project.imgSrc}
-										alt={project.name}
-										className="object-cover rounded-2xl w-64 h-64 mb-4"
-										height={200}
-										width={200}
-										quality={100}
-									/>
-									<CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
-										{project.name}
-									</CardTitle>
-								</CardHeader>
-
-								{/* flex-grow so content fills available space before footer */}
-								<CardContent className="flex-grow flex flex-col items-center">
-									{project.description && (
-										<p className="text-center text-sm mb-4">
-											{project.description}
-										</p>
-									)}
-									<div className="flex flex-wrap justify-center gap-2">
-										{project.skills.map((skill, idx) => (
-											<Badge key={idx} variant="secondary">
-												<skill.Icon size={16} />
-												{skill.name}
-											</Badge>
-										))}
-									</div>
-								</CardContent>
-
-								{/* Button at the bottom center */}
-								<CardFooter className="flex justify-center mt-auto">
-									<Button>
-										<Link href={project.href} target="_blank">
-											View Project
-										</Link>
-									</Button>
-								</CardFooter>
-							</Card>
-						</SectionTransition>
-					))}
+				<div className="relative flex flex-col items-center">
+					<Carousel
+						className="w-full"
+						opts={{ slidesToScroll: 1 }}
+						plugins={[Autoplay({ delay: 5000 })]}
+					>
+						<CarouselContent>
+							{projects.map((project, index) => (
+								<CarouselItem
+									key={index}
+									className="flex justify-center basis-full md:basis-1/3 px-4"
+								>
+									<SectionTransition>
+										<Card className="flex flex-col justify-between h-full w-[320px] md:w-[360px] lg:w-[400px] mx-auto">
+											<CardHeader className="text-center flex-grow flex flex-col items-center">
+												<Image
+													src={project.imgSrc}
+													alt={project.name}
+													className="object-cover rounded-2xl w-64 h-64 mb-4"
+													height={200}
+													width={200}
+													quality={100}
+												/>
+												<CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
+													{project.name}
+												</CardTitle>
+											</CardHeader>
+											<CardContent className="flex-grow flex flex-col items-center">
+												{project.description && (
+													<p className="text-center text-sm mb-4">
+														{project.description}
+													</p>
+												)}
+												<div className="flex flex-wrap justify-center gap-2">
+													{project.skills.map((skill, idx) => (
+														<Badge key={idx} variant="secondary">
+															<skill.Icon size={16} />
+															{skill.name}
+														</Badge>
+													))}
+												</div>
+											</CardContent>
+											<CardFooter className="flex justify-center mt-auto">
+												<Button>
+													<Link href={project.href} target="_blank">
+														View Project
+													</Link>
+												</Button>
+											</CardFooter>
+										</Card>
+									</SectionTransition>
+								</CarouselItem>
+							))}
+						</CarouselContent>
+					</Carousel>
 				</div>
 			</div>
 		</section>
