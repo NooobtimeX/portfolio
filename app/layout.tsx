@@ -39,7 +39,7 @@ export default function RootLayout({
 			<body
 				className={
 					nunito.className +
-					" bg-gradient-to-r from-blue-50 to-purple-50 dark:from-zinc-900 dark:to-zinc-800"
+					" bg-gradient-to-r from-blue-50 to-green-50 dark:from-zinc-900 dark:to-zinc-800"
 				}
 			>
 				<ThemeProvider
