@@ -2,11 +2,17 @@
 
 import { Button } from "@/components/ui/button";
 import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+} from "@/components/ui/carousel";
+import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import {
@@ -33,27 +39,29 @@ export default function HeroSection() {
 		<section className="min-h-screen bg-base-200 text-base-content flex flex-col lg:flex-row items-center justify-center -pt-20 -mt-6">
 			<div className="text-center">
 				<div className="flex justify-center items-center mb-2">
-					{/* Display on large screens */}
-					<div className="hidden lg:block">
-						<TbDeviceImacCode size={100} />
-					</div>
-					{/* Display on medium screens */}
-					<div className="hidden md:block lg:hidden">
-						<TbDeviceIpadHorizontalCode size={100} />
-					</div>
-					{/* Display on small screens */}
-					<div className="block md:hidden">
-						<TbDeviceMobileCode size={100} />
-					</div>
-				</div>{" "}
+					{/* Carousel for icons, not responsive, with autoplay */}
+					<Carousel className="w-[120px]" plugins={[Autoplay({ delay: 5000 })]}>
+						<CarouselContent>
+							<CarouselItem>
+								<TbDeviceImacCode size={100} />
+							</CarouselItem>
+							<CarouselItem>
+								<TbDeviceIpadHorizontalCode size={100} />
+							</CarouselItem>
+							<CarouselItem>
+								<TbDeviceMobileCode size={100} />
+							</CarouselItem>
+						</CarouselContent>
+					</Carousel>
+				</div>
 				<h1 className="text-xl md:text-2xl lg:text-3xl font-bold">PORTFOLIO</h1>
 				<h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
 					WONGSAPHAT PUANGSORN
 				</h2>
 				<p className="mt-4 text-lg lg:text-xl max-w-3xl mx-auto">
 					Specializing in{" "}
-					<span className="text-purple-500">modern web development</span>, I
-					turn ideas into seamless digital experiences by building robust web
+					<span className="text-primary">modern web development</span>, I turn
+					ideas into seamless digital experiences by building robust web
 					applications using the latest technologies.
 				</p>
 				<div className="mt-8 flex justify-center space-x-4 mb-2">
@@ -68,13 +76,6 @@ export default function HeroSection() {
 						</Button>
 					</Link>
 				</div>
-				<Link
-					download
-					target="_blank"
-					href="https://ffxzvbj7zg1lmzpp.public.blob.vercel-storage.com/Resume.pdf"
-				>
-					<Button className="hover:cursor-pointer">DOWNLOAD CV</Button>
-				</Link>
 				<TooltipProvider>
 					<div className="mt-4 flex justify-center space-x-4">
 						{socialLinks.map((link, index) => (
