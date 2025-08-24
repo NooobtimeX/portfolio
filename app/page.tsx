@@ -40,7 +40,7 @@ const Home: React.FC = () => {
 									className="space-y-2"
 								>
 									<h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-										<span className="block">Hello, I'm</span>
+										<span className="block">Hello, I&apos;m</span>
 										<span className="block bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
 											{personalData.name.split(" ")[0]}
 										</span>

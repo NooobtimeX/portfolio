@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { experienceData } from "@/data/experience";
+import { Company } from "@/enum";
 import { formatExperienceDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -11,7 +12,7 @@ import Image from "next/image";
 export default function ExperiencePreview() {
 	// Group consecutive experiences by company
 	const groupedExperiences: Array<{
-		company: any;
+		company: Company;
 		logo?: string;
 		location: string;
 		experiences: typeof experienceData;

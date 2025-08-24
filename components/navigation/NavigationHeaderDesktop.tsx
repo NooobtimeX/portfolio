@@ -8,6 +8,7 @@ import {
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
 import MenuItem from "@/interface/menuItem";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -52,7 +53,7 @@ export default function NavigationHeaderDesktop({
 							</TooltipTrigger>
 							<TooltipContent>
 								<div className="flex items-center gap-2">
-									<item.icon.icon className="w-4 h-4" />
+									<Icon icon={item.icon.icon} className="w-4 h-4" />
 									<span>{item.icon.description}</span>
 								</div>
 							</TooltipContent>

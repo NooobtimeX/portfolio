@@ -12,6 +12,7 @@ import {
 	DrawerTrigger,
 } from "@/components/ui/drawer";
 import MenuItem from "@/interface/menuItem";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -64,7 +65,7 @@ export default function NavigationHeaderMobile({
 									className="flex items-center space-x-2 p-2"
 									title={item.icon.description}
 								>
-									{item.icon && <item.icon.icon />}
+									{item.icon && <Icon icon={item.icon.icon} />}
 									<span>{item.title}</span>
 								</Link>
 							</DrawerClose>
