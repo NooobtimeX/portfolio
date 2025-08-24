@@ -1,6 +1,12 @@
 "use client";
 
 import ThemeChanger from "@/components/ThemeChanger";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 import MenuItem from "@/interface/menuItem";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,18 +36,29 @@ export default function NavigationHeaderDesktop({
 				</div>
 			</div>
 			<div className="flex items-center gap-2 mx-auto">
-				{menuItems.map((item) => (
-					<Link
-						key={item.href}
-						href={item.href}
-						className="group px-4 py-2 transition-colors duration-500 font-bold hover:text-primary"
-					>
-						<div className="flex flex-col items-center">
-							{/* Text centered horizontally */}
-							<div className="text-center">{item.title}</div>
-						</div>
-					</Link>
-				))}
+				<TooltipProvider>
+					{menuItems.map((item) => (
+						<Tooltip key={item.href}>
+							<TooltipTrigger asChild>
+								<Link
+									href={item.href}
+									className="group px-4 py-2 transition-colors duration-500 font-bold hover:text-primary"
+								>
+									<div className="flex flex-col items-center">
+										{/* Text centered horizontally */}
+										<div className="text-center">{item.title}</div>
+									</div>
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<div className="flex items-center gap-2">
+									<item.icon.icon className="w-4 h-4" />
+									<span>{item.icon.description}</span>
+								</div>
+							</TooltipContent>
+						</Tooltip>
+					))}
+				</TooltipProvider>
 			</div>
 			<div className="flex items-center gap-2 mx-auto">
 				<div className="flex items-center gap-2 ml-2">

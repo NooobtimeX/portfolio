@@ -39,7 +39,7 @@ export default function RootLayout({
 			<body
 				className={
 					nunito.className +
-					" bg-gradient-to-r from-blue-50 to-green-50 dark:from-zinc-900 dark:to-zinc-800"
+					" bg-gradient-to-br from-background via-muted/5 to-background"
 				}
 			>
 				<ThemeProvider
@@ -49,7 +49,9 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<NavigationHeader />
-					<main className="px-4 max-w-[1600px] mx-auto">{children}</main>
+					<main className="max-w-[1600px] mx-auto pb-20 md:pb-0">
+						{children}
+					</main>
 					<NavigationFooter />
 				</ThemeProvider>
 			</body>

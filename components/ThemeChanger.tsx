@@ -1,8 +1,8 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { FiMoon, FiSun } from "react-icons/fi";
 import { Button } from "./ui/button";
 
 const ThemeChanger = () => {
@@ -26,7 +26,11 @@ const ThemeChanger = () => {
 			size="icon"
 			className="rounded-full"
 		>
-			{theme === "dark" ? <FiMoon size={24} /> : <FiSun size={24} />}
+			{theme === "dark" ? (
+				<Icon icon="material-symbols:dark-mode" width={24} height={24} />
+			) : (
+				<Icon icon="material-symbols:light-mode" width={24} height={24} />
+			)}
 		</Button>
 	);
 };

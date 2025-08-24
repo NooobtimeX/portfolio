@@ -2,33 +2,44 @@
 
 import NavigationHeaderDesktop from "@/components/navigation/NavigationHeaderDesktop";
 import NavigationHeaderMobile from "@/components/navigation/NavigationHeaderMobile";
-import NavigationHeaderTablet from "@/components/navigation/NavigationHeaderTablet";
 import MenuItem from "@/interface/menuItem";
-import { FaLaptopCode, FaRegBuilding } from "react-icons/fa";
-import { GiBrain } from "react-icons/gi";
-import { LuContact } from "react-icons/lu";
 
 export default function NavigationHeader() {
 	const menuItems: MenuItem[] = [
-		{ title: "SKILL", href: "/#skill", icon: GiBrain },
-		{ title: "PROJECT", href: "/#project", icon: FaLaptopCode },
+		{
+			title: "SKILLS",
+			href: "/#skill",
+			icon: {
+				name: "Brain",
+				icon: "material-symbols:psychology",
+				description: "View my technical skills and expertise",
+			},
+		},
+		{
+			title: "PROJECTS",
+			href: "/#project",
+			icon: {
+				name: "Laptop Code",
+				icon: "material-symbols:laptop-chromebook",
+				description: "Explore my portfolio projects",
+			},
+		},
 		{
 			title: "EXPERIENCE",
 			href: "/#experience",
-			icon: FaRegBuilding,
+			icon: {
+				name: "Building",
+				icon: "material-symbols:business",
+				description: "Review my work experience and achievements",
+			},
 		},
-		{ title: "CONTACT", href: "/#contact", icon: LuContact },
 	];
 
 	return (
-		<nav className="z-50 fixed bottom-0 left-0 right-0 md:sticky md:top-0 max-w-full">
+		<nav className="z-50 fixed bottom-0 left-0 right-0 md:sticky md:top-0 w-full">
 			{/* Desktop Header */}
-			<div className="hidden lg:block">
+			<div className="hidden md:block">
 				<NavigationHeaderDesktop menuItems={menuItems} />
-			</div>
-			{/* Tablet Header */}
-			<div className="hidden md:block lg:hidden">
-				<NavigationHeaderTablet menuItems={menuItems} />
 			</div>
 			{/* Mobile Header */}
 			<div className="block md:hidden">

@@ -24,10 +24,10 @@ export default function NavigationHeaderMobile({
 	menuItems,
 }: NavigationHeaderMobileProps) {
 	return (
-		<div className="relative">
-			<div className="fixed bottom-3 left-3 flex justify-center">
+		<div className="relative w-full">
+			<div className="fixed bottom-3 left-3 z-50 flex justify-center">
 				<Link href={"/"}>
-					<Button variant={"outline"} className="my-auto">
+					<Button variant={"outline"} className="my-auto shadow-lg">
 						<Image
 							src="/favicon.ico"
 							alt="NooobtimeX"
@@ -42,7 +42,10 @@ export default function NavigationHeaderMobile({
 			</div>
 			<Drawer>
 				<DrawerTrigger asChild>
-					<Button variant={"outline"} className="fixed bottom-3 right-3">
+					<Button
+						variant={"outline"}
+						className="fixed bottom-3 right-3 z-50 shadow-lg"
+					>
 						MENU <RxHamburgerMenu />
 					</Button>
 				</DrawerTrigger>
@@ -59,8 +62,9 @@ export default function NavigationHeaderMobile({
 								<Link
 									href={item.href}
 									className="flex items-center space-x-2 p-2"
+									title={item.icon.description}
 								>
-									{item.icon && <item.icon />}
+									{item.icon && <item.icon.icon />}
 									<span>{item.title}</span>
 								</Link>
 							</DrawerClose>
