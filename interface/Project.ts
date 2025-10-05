@@ -1,4 +1,3 @@
-import { ProjectCategory, ProjectStatus } from "@/enum";
 import { Technology } from "./Technology";
 
 // Project interface
@@ -6,17 +5,14 @@ export interface Project {
 	id: string;
 	title: string;
 	description: string;
-	longDescription: string;
-	image: string;
+	images: {
+		thumbnail: string; // Used for cards and previews
+		banner: string; // Used for project detail page header
+		photos: string[]; // Gallery of project screenshots/photos
+	};
 	technologies: Technology[];
-	features: string[];
-	status: ProjectStatus;
-	category: ProjectCategory;
 	links: {
 		github?: string;
 		live?: string;
-		demo?: string;
 	};
-	createdAt: string;
-	updatedAt: string;
 }

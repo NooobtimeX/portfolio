@@ -1,25 +1,8 @@
 "use client";
 
 import { skillsData } from "@/data/skills";
-import { SkillLevel } from "@/enum";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
-// Helper function to get skill level color
-const getSkillLevelColor = (level: SkillLevel): string => {
-	switch (level) {
-		case SkillLevel.Expert:
-			return "bg-green-100 text-green-800 border-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-800";
-		case SkillLevel.Advanced:
-			return "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-800";
-		case SkillLevel.Intermediate:
-			return "bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-800";
-		case SkillLevel.Beginner:
-			return "bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900 dark:text-orange-100 dark:border-orange-800";
-		default:
-			return "bg-gray-100 text-gray-800 border-gray-200 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-800";
-	}
-};
 
 export default function SkillPreview() {
 	return (

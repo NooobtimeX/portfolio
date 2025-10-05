@@ -17,7 +17,7 @@ export default function NavigationHeader() {
 		},
 		{
 			title: "PROJECTS",
-			href: "/#project",
+			href: "/project",
 			icon: {
 				name: "Laptop Code",
 				icon: "material-symbols:laptop-chromebook",

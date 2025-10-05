@@ -175,3 +175,9 @@ export const gemini = {
 	icon: "logos:google-bard-icon",
 	category: SkillCategory.Tools,
 };
+
+export const flutter = {
+	name: "Flutter",
+	icon: "logos:flutter",
+	category: SkillCategory.Frontend,
+};
