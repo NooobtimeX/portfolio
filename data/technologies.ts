@@ -144,6 +144,12 @@ export const docker = {
 	category: SkillCategory.DevOps,
 };
 
+export const railway = {
+	name: "Railway",
+	icon: "simple-icons:railway",
+	category: SkillCategory.DevOps,
+};
+
 // Development Tools
 export const github = {
 	name: "Git/GitHub",

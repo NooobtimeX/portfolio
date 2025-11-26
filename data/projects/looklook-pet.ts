@@ -1,10 +1,10 @@
 import type { Project } from "@/interface";
 import {
 	docker,
-	flutter,
 	mongodb,
 	nestjs,
 	nextjs,
+	railway,
 	shadcnui,
 	typescript,
 } from "../technologies";
@@ -22,10 +22,10 @@ export const looklookPet: Project = {
 		nextjs,
 		shadcnui,
 		nestjs,
-		flutter,
 		mongodb,
 		typescript,
 		docker,
+		railway,
 	],
 	links: {
 		live: "https://looklook.pet/",
