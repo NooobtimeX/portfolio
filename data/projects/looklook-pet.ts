@@ -2,9 +2,11 @@ import type { Project } from "@/interface";
 import {
 	docker,
 	mongodb,
+	nats,
 	nestjs,
 	nextjs,
 	railway,
+	redis,
 	shadcnui,
 	typescript,
 } from "../technologies";
@@ -12,17 +14,30 @@ import {
 export const looklookPet: Project = {
 	id: "looklook-pet",
 	title: "LOOKLOOK PET",
-	description: "The most personalized, AI-powered pet care experience",
+	description:
+		"LOOK LOOK stands out as the ultimate all-in-one lifestyle companion for pet parents, seamlessly integrating daily care tools like health tracking, AI-powered advice, and location-based services into a single platform. By aggregating essential resources—from discovering pet-friendly cafes and clinics to securing insurance and exclusive deals—the app not only simplifies the complexities of pet ownership but also fosters a vibrant community through local events, making life smarter and more enjoyable for you and your furry friends.",
 	images: {
 		thumbnail: "/project/looklook.webp",
 		banner: "/project/looklook.webp",
-		photos: ["/project/looklook.webp"],
+		photos: [
+			"/project/looklook.webp",
+			"/project/looklook-pet/1.webp",
+			"/project/looklook-pet/2.webp",
+			"/project/looklook-pet/3.webp",
+			"/project/looklook-pet/4.webp",
+			"/project/looklook-pet/5.webp",
+			"/project/looklook-pet/6.webp",
+			"/project/looklook-pet/7.webp",
+			"/project/looklook-pet/8.webp",
+		],
 	},
 	technologies: [
 		nextjs,
 		shadcnui,
 		nestjs,
+		nats,
 		mongodb,
+		redis,
 		typescript,
 		docker,
 		railway,

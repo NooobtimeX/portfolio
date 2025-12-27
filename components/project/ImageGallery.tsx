@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from "lucide-react";
 import Image from "next/image";
@@ -75,6 +75,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 					className="max-w-7xl w-full h-[90vh] p-0 border-0 bg-black/95"
 					onKeyDown={handleKeyDown}
 				>
+					<div className="sr-only">
+						<DialogTitle>{title}</DialogTitle>
+					</div>
 					<div className="relative w-full h-full flex items-center justify-center">
 						{/* Close Button */}
 						<Button

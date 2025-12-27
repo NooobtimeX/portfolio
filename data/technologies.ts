@@ -44,6 +44,12 @@ export const nestjs = {
 	category: SkillCategory.Backend,
 };
 
+export const nats = {
+	name: "NATS",
+	icon: "logos:nats-icon",
+	category: SkillCategory.Backend,
+};
+
 // Database Technologies
 export const postgresql = {
 	name: "PostgreSQL",
@@ -60,6 +66,12 @@ export const prisma = {
 export const mongodb = {
 	name: "MongoDB",
 	icon: "logos:mongodb-icon",
+	category: SkillCategory.Database,
+};
+
+export const redis = {
+	name: "Redis",
+	icon: "logos:redis",
 	category: SkillCategory.Database,
 };
 

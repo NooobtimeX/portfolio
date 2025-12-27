@@ -140,14 +140,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ params }) => {
 							className="lg:col-span-2"
 						>
 							<Card className="h-full bg-card/50 backdrop-blur-sm border-0 shadow-lg">
-								<CardHeader>
-									<CardTitle className="text-2xl">About This Project</CardTitle>
-								</CardHeader>
 								<CardContent className="space-y-6">
-									<p className="text-muted-foreground leading-relaxed text-lg">
-										{project.description}
-									</p>
-
 									{/* Image Gallery */}
 									{project.images.photos &&
 										project.images.photos.length > 0 && (
