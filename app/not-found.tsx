@@ -1,13 +1,12 @@
 "use client";
 
-import ComicSeparator from "@/components/ComicSeparator";
 import ComicPop from "@/components/motion/ComicPop";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function NotFound() {
 	return (
-		<div className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden">
+		<div className="h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden">
 			{/* Background Halftone */}
 			<div className="absolute inset-0 comic-halftone opacity-20 pointer-events-none"></div>
 
@@ -50,10 +49,6 @@ export default function NotFound() {
 						<Link href="/">RETURN TO BASE</Link>
 					</Button>
 				</ComicPop>
-			</div>
-
-			<div className="absolute bottom-0 w-full rotate-180">
-				<ComicSeparator />
 			</div>
 		</div>
 	);

@@ -1,5 +1,3 @@
-import NavigationFooter from "@/components/navigation/NavigationFooter";
-import NavigationHeader from "@/components/navigation/NavigationHeader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
@@ -54,9 +52,7 @@ export default function RootLayout({
 					enableSystem={false}
 					disableTransitionOnChange
 				>
-					<NavigationHeader />
-					<main className="min-h-screen relative">{children}</main>
-					<NavigationFooter />
+					{children}
 				</ThemeProvider>
 			</body>
 		</html>
