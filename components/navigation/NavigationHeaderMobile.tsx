@@ -37,7 +37,9 @@ export default function NavigationHeaderMobile({
 							height={24}
 							quality={100}
 						/>
-						<span className="font-[Bangers] uppercase text-xl text-white tracking-wide">NooobtimeX</span>
+						<span className="font-[Bangers] uppercase text-xl text-white tracking-wide">
+							NooobtimeX
+						</span>
 					</div>
 				</Link>
 			</div>
@@ -46,9 +48,7 @@ export default function NavigationHeaderMobile({
 			<Drawer>
 				<DrawerTrigger asChild>
 					<div className="fixed bottom-4 right-4 z-50">
-						<Button
-							className="h-auto px-4 py-2 rounded-none bg-primary text-white border-2 border-white shadow-[4px_4px_0px_0px_white] hover:bg-primary/90 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all font-[Bangers] text-xl tracking-wider"
-						>
+						<Button className="h-auto px-4 py-2 rounded-none bg-primary text-white border-2 border-white shadow-[4px_4px_0px_0px_white] hover:bg-primary/90 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all font-[Bangers] text-xl tracking-wider">
 							MENU <RxHamburgerMenu className="ml-2 w-5 h-5" />
 						</Button>
 					</div>
@@ -70,10 +70,19 @@ export default function NavigationHeaderMobile({
 									title={item.icon.description}
 								>
 									<div className="flex items-center gap-4">
-										{item.icon && <Icon icon={item.icon.icon} className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />}
-										<span className="font-[Bangers] text-2xl uppercase tracking-wide text-white">{item.title}</span>
+										{item.icon && (
+											<Icon
+												icon={item.icon.icon}
+												className="w-6 h-6 text-primary group-hover:scale-110 transition-transform"
+											/>
+										)}
+										<span className="font-[Bangers] text-2xl uppercase tracking-wide text-white">
+											{item.title}
+										</span>
 									</div>
-									<div className="opacity-0 group-hover:opacity-100 font-[Bangers] text-primary transition-opacity">GO!</div>
+									<div className="opacity-0 group-hover:opacity-100 font-[Bangers] text-primary transition-opacity">
+										GO!
+									</div>
 								</Link>
 							</DrawerClose>
 						))}

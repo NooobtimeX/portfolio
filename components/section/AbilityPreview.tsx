@@ -18,7 +18,6 @@ import {
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
 
 export default function AbilityPreview() {
 	// Show highlighted skills
@@ -37,14 +36,12 @@ export default function AbilityPreview() {
 		vercel,
 	];
 
-
 	return (
 		<section id="ability" className="py-20 relative bg-black">
 			{/* Background Halftone Pattern */}
 			<div className="absolute inset-0 comic-halftone opacity-20 pointer-events-none"></div>
 
 			<div className="container mx-auto px-4 relative z-10">
-
 				{/* Header Section with Tape Effect */}
 				<motion.div
 					initial={{ opacity: 0, rotate: -2 }}
@@ -87,7 +84,10 @@ export default function AbilityPreview() {
 				</div>
 
 				<div className="flex justify-center">
-					<Button asChild className="bg-transparent text-white border-4 border-white font-[Bangers] text-xl px-10 py-6 hover:bg-white hover:text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all">
+					<Button
+						asChild
+						className="bg-transparent text-white border-4 border-white font-[Bangers] text-xl px-10 py-6 hover:bg-white hover:text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all"
+					>
 						<Link href="/ability">VIEW FULL ARSENAL</Link>
 					</Button>
 				</div>

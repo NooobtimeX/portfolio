@@ -52,7 +52,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 							setIsOpen(true);
 						}}
 					>
-						<div className="absolute top-0 right-0 z-10 bg-primary text-white text-xs px-1 font-[Bangers] border-l-2 border-b-2 border-black opacity-0 group-hover:opacity-100 transition-opacity">#{index + 1}</div>
+						<div className="absolute top-0 right-0 z-10 bg-primary text-white text-xs px-1 font-[Bangers] border-l-2 border-b-2 border-black opacity-0 group-hover:opacity-100 transition-opacity">
+							#{index + 1}
+						</div>
 						<Image
 							src={image}
 							alt={`${title} - Image ${index + 1}`}

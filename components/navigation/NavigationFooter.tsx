@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import React from "react";
 
 const NavigationFooter = () => {
 	const currentYear = new Date().getFullYear();
@@ -12,7 +11,6 @@ const NavigationFooter = () => {
 
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="flex flex-col items-center justify-center space-y-8">
-
 					{/* The End Graphic */}
 					<div className="relative group">
 						<h2 className="font-[Bangers] text-6xl md:text-8xl p-4 bg-primary text-white transform -rotate-2 border-4 border-black shadow-[8px_8px_0px_0px_white] hover:rotate-0 hover:scale-105 transition-transform duration-300 select-none">
@@ -25,13 +23,33 @@ const NavigationFooter = () => {
 
 					{/* Quick Access Links for Dedicated Pages */}
 					<div className="flex gap-4 font-[Bangers] text-xl uppercase tracking-wider">
-						<Link href="/" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Home</Link>
+						<Link
+							href="/"
+							className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4"
+						>
+							Home
+						</Link>
 						<span className="text-white/20">|</span>
-						<Link href="/ability" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Abilities</Link>
+						<Link
+							href="/ability"
+							className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4"
+						>
+							Abilities
+						</Link>
 						<span className="text-white/20">|</span>
-						<Link href="/issue" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Issues</Link>
+						<Link
+							href="/issue"
+							className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4"
+						>
+							Issues
+						</Link>
 						<span className="text-white/20">|</span>
-						<Link href="/timeline" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Timeline</Link>
+						<Link
+							href="/timeline"
+							className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4"
+						>
+							Timeline
+						</Link>
 					</div>
 
 					{/* Social Links Comic Strip */}
@@ -63,7 +81,9 @@ const NavigationFooter = () => {
 					{/* Copyright Info */}
 					<div className="text-center font-[Inter] text-sm text-gray-400">
 						<p>© {currentYear} Wongsaphat Puangsorn. All rights reserved.</p>
-						<p className="mt-2 text-xs opacity-60">Inspired by Marvel Comics & Silk (Cindy Moon)</p>
+						<p className="mt-2 text-xs opacity-60">
+							Inspired by Marvel Comics & Silk (Cindy Moon)
+						</p>
 					</div>
 				</div>
 			</div>

@@ -2,8 +2,8 @@
 
 import IssueCard from "@/components/issue/IssueCard";
 import { projectsData } from "@/data/projects";
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 
 const IssuePage: React.FC = () => {
 	return (

@@ -12,7 +12,6 @@ export default function IssuePreview() {
 			<div className="absolute inset-0 comic-web-pattern opacity-10 pointer-events-none"></div>
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
-
 				{/* Header */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -52,7 +51,6 @@ export default function IssuePreview() {
 						/>
 					))}
 				</div>
-
 			</div>
 		</section>
 	);

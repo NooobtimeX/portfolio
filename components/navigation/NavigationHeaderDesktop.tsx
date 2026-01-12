@@ -22,7 +22,6 @@ export default function NavigationHeaderDesktop({
 		<div className="flex w-full items-center justify-between p-2 mx-auto mt-4 max-w-5xl">
 			{/* Main Header Container - Comic Strip Style */}
 			<div className="flex items-center justify-between w-full bg-black border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300 z-50">
-
 				{/* Logo Section */}
 				<div className="relative flex items-center gap-3 px-6 py-3 border-r-4 border-white bg-black overflow-hidden group/logo">
 					{/* Web Pattern Background */}
@@ -40,7 +39,11 @@ export default function NavigationHeaderDesktop({
 							/>
 						</div>
 					</Link>
-					<Link href="/" className="relative z-10 font-[Bangers] text-2xl uppercase tracking-wider text-white group-hover/logo:text-primary transition-colors stroke-black" style={{ textShadow: "2px 2px 0px #000" }}>
+					<Link
+						href="/"
+						className="relative z-10 font-[Bangers] text-2xl uppercase tracking-wider text-white group-hover/logo:text-primary transition-colors stroke-black"
+						style={{ textShadow: "2px 2px 0px #000" }}
+					>
 						NooobtimeX
 					</Link>
 				</div>
@@ -57,7 +60,7 @@ export default function NavigationHeaderDesktop({
                                             group relative px-8 py-4 h-full flex items-center justify-center
                                             font-[Bangers] text-xl uppercase tracking-wide text-zinc-400
                                             hover:text-white transition-all
-                                            ${index !== menuItems.length - 1 ? 'border-r-4 border-white' : ''}
+                                            ${index !== menuItems.length - 1 ? "border-r-4 border-white" : ""}
                                         `}
 									>
 										<span className="relative z-10 group-hover:scale-110 group-hover:rotate-2 transition-transform duration-200 drop-shadow-md">
@@ -71,7 +74,10 @@ export default function NavigationHeaderDesktop({
 								</TooltipTrigger>
 								<TooltipContent className="bg-black border-2 border-white text-white font-[Bangers] tracking-wide rounded-none shadow-[4px_4px_0px_0px_white]">
 									<div className="flex items-center gap-2">
-										<Icon icon={item.icon.icon} className="w-4 h-4 text-primary" />
+										<Icon
+											icon={item.icon.icon}
+											className="w-4 h-4 text-primary"
+										/>
 										<span>{item.icon.description}</span>
 									</div>
 								</TooltipContent>

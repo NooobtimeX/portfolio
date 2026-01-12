@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const bangers = Bangers({
 	weight: "400",
 	subsets: ["latin"],
-	variable: "--font-bangers"
+	variable: "--font-bangers",
 });
 
 export const metadata: Metadata = {

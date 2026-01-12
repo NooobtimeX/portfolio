@@ -16,14 +16,17 @@ const Home: React.FC = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
-		offset: ["start start", "end start"]
+		offset: ["start start", "end start"],
 	});
 
 	const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 	const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
 	return (
-		<div ref={containerRef} className="w-full relative overflow-hidden bg-black min-h-screen">
+		<div
+			ref={containerRef}
+			className="w-full relative overflow-hidden bg-black min-h-screen"
+		>
 			{/* Global Background Elements */}
 			<div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
 				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,theme(colors.primary.DEFAULT)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
@@ -50,12 +53,16 @@ const Home: React.FC = () => {
 					>
 						{/* LEFT: IMPACT TEXT */}
 						<div className="relative z-20 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-
 							{/* Speech Bubble / Intro */}
 							<motion.div
 								initial={{ scale: 0, opacity: 0 }}
 								animate={{ scale: 1, opacity: 1 }}
-								transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
+								transition={{
+									type: "spring",
+									stiffness: 260,
+									damping: 20,
+									delay: 0.2,
+								}}
 								className="relative mb-6 self-start hidden lg:block"
 							>
 								<div className="bg-white text-black font-[Bangers] text-xl px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] rounded-[50%_20%_60%_30%]">
@@ -111,7 +118,11 @@ const Home: React.FC = () => {
 								transition={{ delay: 0.6 }}
 								className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
 							>
-								<Button asChild size="lg" className="comic-button bg-primary text-white border-2 border-white text-xl h-14 px-8 shadow-[6px_6px_0px_0px_white] hover:shadow-[3px_3px_0px_0px_white] hover:translate-x-[3px] hover:translate-y-[3px]">
+								<Button
+									asChild
+									size="lg"
+									className="comic-button bg-primary text-white border-2 border-white text-xl h-14 px-8 shadow-[6px_6px_0px_0px_white] hover:shadow-[3px_3px_0px_0px_white] hover:translate-x-[3px] hover:translate-y-[3px]"
+								>
 									<Link href="/issue">EXPLORE ISSUES</Link>
 								</Button>
 								<Button
@@ -164,7 +175,9 @@ const Home: React.FC = () => {
 					transition={{ delay: 1, duration: 1 }}
 					className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20"
 				>
-					<span className="font-[Bangers] text-white tracking-widest text-lg animate-pulse">START SCROLLING</span>
+					<span className="font-[Bangers] text-white tracking-widest text-lg animate-pulse">
+						START SCROLLING
+					</span>
 					<ArrowDownIcon className="w-6 h-6 text-primary animate-bounce" />
 				</motion.div>
 			</section>
@@ -175,7 +188,6 @@ const Home: React.FC = () => {
 			<IssuePreview />
 			<ComicSeparator />
 			<TimelinePreview />
-
 		</div>
 	);
 };

@@ -40,7 +40,10 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.6 }}
 					>
-						<Button asChild className="bg-white text-black hover:bg-zinc-200 border-2 border-black font-[Bangers] uppercase text-xl h-12 px-6 rounded-none shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all">
+						<Button
+							asChild
+							className="bg-white text-black hover:bg-zinc-200 border-2 border-black font-[Bangers] uppercase text-xl h-12 px-6 rounded-none shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all"
+						>
 							<Link href="/issue" className="flex items-center gap-2">
 								<ArrowLeftIcon className="w-5 h-5" />
 								BACK TO ARCHIVE
@@ -101,7 +104,11 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 								{/* Action Buttons */}
 								<div className="flex flex-col sm:flex-row gap-4 pt-4">
 									{project.links.live && (
-										<Button asChild size="lg" className="comic-button bg-primary text-white border-2 border-white px-8 h-14 text-xl shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]">
+										<Button
+											asChild
+											size="lg"
+											className="comic-button bg-primary text-white border-2 border-white px-8 h-14 text-xl shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
+										>
 											<Link
 												href={project.links.live}
 												target="_blank"
@@ -114,7 +121,12 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 										</Button>
 									)}
 									{project.links.github && (
-										<Button variant="outline" asChild size="lg" className="comic-button bg-black text-white border-2 border-white px-8 h-14 text-xl hover:bg-zinc-900 shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]">
+										<Button
+											variant="outline"
+											asChild
+											size="lg"
+											className="comic-button bg-black text-white border-2 border-white px-8 h-14 text-xl hover:bg-zinc-900 shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
+										>
 											<Link
 												href={project.links.github}
 												target="_blank"
@@ -146,7 +158,9 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 						>
 							<div className="bg-card border-4 border-white p-2 shadow-[8px_8px_0px_0px_white]">
 								<div className="bg-black p-4 mb-4 border-b-2 border-white/20">
-									<h2 className="font-[Bangers] text-3xl text-white uppercase tracking-wide">VISUAL EVIDENCE</h2>
+									<h2 className="font-[Bangers] text-3xl text-white uppercase tracking-wide">
+										VISUAL EVIDENCE
+									</h2>
 								</div>
 								<div className="space-y-6">
 									{project.images.photos &&
@@ -184,7 +198,9 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 										>
 											<Icon icon={tech.icon} className="w-8 h-8 text-primary" />
 											<div>
-												<h4 className="font-[Bangers] text-xl text-white tracking-wide uppercase">{tech.name}</h4>
+												<h4 className="font-[Bangers] text-xl text-white tracking-wide uppercase">
+													{tech.name}
+												</h4>
 												{tech.category && (
 													<p className="text-xs text-muted-foreground font-[Inter] uppercase font-bold tracking-wider">
 														{tech.category}

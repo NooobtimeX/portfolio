@@ -2,17 +2,9 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
 import { Project } from "@/interface/Project";
-import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, ExternalLinkIcon, GithubIcon } from "lucide-react";
+import { ArrowRightIcon, GithubIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -35,7 +27,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 		: project.technologies.slice(0, 3);
 
 	// Comic Issue Number based on index or ID logic
-	const issueNumber = `#${String(index + 1).padStart(3, '0')}`;
+	const issueNumber = `#${String(index + 1).padStart(3, "0")}`;
 
 	if (variant === "featured") {
 		return (
@@ -48,7 +40,6 @@ const IssueCard: React.FC<IssueCardProps> = ({
 			>
 				{/* Comic Panel Container - Double Page Spread Style */}
 				<div className="relative bg-black border-4 border-white shadow-[12px_12px_0px_0px_white] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 overflow-hidden">
-
 					{/* Corner Tag */}
 					<div className="absolute top-0 right-0 z-20 bg-primary text-white font-[Bangers] text-xl px-4 py-2 border-l-4 border-b-4 border-black">
 						FEATURED ISSUE {issueNumber}
@@ -91,24 +82,34 @@ const IssueCard: React.FC<IssueCardProps> = ({
 											{tech.name}
 										</Badge>
 									))}
-									{!showAllTechnologies &&
-										project.technologies.length > 3 && (
-											<Badge variant="outline" className="font-bold border-white/30 text-white/80 rounded-none uppercase text-xs px-2 py-1">
-												+{project.technologies.length - 3} MORE
-											</Badge>
-										)}
+									{!showAllTechnologies && project.technologies.length > 3 && (
+										<Badge
+											variant="outline"
+											className="font-bold border-white/30 text-white/80 rounded-none uppercase text-xs px-2 py-1"
+										>
+											+{project.technologies.length - 3} MORE
+										</Badge>
+									)}
 								</div>
 							</div>
 
 							<div className="flex gap-4 mt-auto">
-								<Button asChild className="flex-1 bg-white text-black font-[Bangers] text-xl uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform h-12">
+								<Button
+									asChild
+									className="flex-1 bg-white text-black font-[Bangers] text-xl uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform h-12"
+								>
 									<Link href={`/issue/${project.id}`}>
 										READ ISSUE
 										<ArrowRightIcon className="ml-2 w-5 h-5" />
 									</Link>
 								</Button>
 								{project.links.github && (
-									<Button asChild size="icon" variant="outline" className="border-2 border-white bg-black text-white hover:bg-white hover:text-black transition-colors w-12 h-12 rounded-none">
+									<Button
+										asChild
+										size="icon"
+										variant="outline"
+										className="border-2 border-white bg-black text-white hover:bg-white hover:text-black transition-colors w-12 h-12 rounded-none"
+									>
 										<Link href={project.links.github} target="_blank">
 											<GithubIcon className="w-6 h-6" />
 										</Link>
@@ -166,16 +167,20 @@ const IssueCard: React.FC<IssueCardProps> = ({
 					<div className="space-y-4 mt-auto">
 						<div className="flex flex-wrap gap-2">
 							{technologiesToShow.slice(0, 3).map((tech, idx) => (
-								<span key={idx} className="text-[10px] font-bold uppercase font-[Inter] text-white/60 bg-white/5 px-2 py-1 border border-white/10">
+								<span
+									key={idx}
+									className="text-[10px] font-bold uppercase font-[Inter] text-white/60 bg-white/5 px-2 py-1 border border-white/10"
+								>
 									{tech.name}
 								</span>
 							))}
 						</div>
 
-						<Button asChild className="w-full bg-white text-black font-[Bangers] text-lg uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,50,50,1)] transition-all">
-							<Link href={`/issue/${project.id}`}>
-								VIEW ISSUE
-							</Link>
+						<Button
+							asChild
+							className="w-full bg-white text-black font-[Bangers] text-lg uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,50,50,1)] transition-all"
+						>
+							<Link href={`/issue/${project.id}`}>VIEW ISSUE</Link>
 						</Button>
 					</div>
 				</div>

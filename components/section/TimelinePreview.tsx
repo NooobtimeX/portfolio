@@ -9,7 +9,6 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 export default function TimelinePreview() {
 	// Group consecutive experiences by company
@@ -75,7 +74,6 @@ export default function TimelinePreview() {
 							className="relative mb-0"
 						>
 							<div className="max-w-3xl mx-auto">
-
 								{/* Company Info Panel */}
 								<div className="mb-8 md:mb-0">
 									<div className="inline-block bg-white p-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform md:ml-8">
@@ -90,8 +88,13 @@ export default function TimelinePreview() {
 												/>
 											)}
 											<div>
-												<h3 className="font-[Bangers] text-2xl uppercase tracking-wide text-black">{group.company}</h3>
-												< Badge variant="outline" className="text-xs font-[Inter] border-black text-black gap-1 rounded-none px-2">
+												<h3 className="font-[Bangers] text-2xl uppercase tracking-wide text-black">
+													{group.company}
+												</h3>
+												<Badge
+													variant="outline"
+													className="text-xs font-[Inter] border-black text-black gap-1 rounded-none px-2"
+												>
 													<Icon icon="material-symbols:location-on" />
 													{group.location}
 												</Badge>
@@ -134,7 +137,9 @@ export default function TimelinePreview() {
 													)}
 												</span>
 												<span className="text-zinc-500">|</span>
-												<span className="uppercase text-xs font-bold tracking-wider">{experience.type}</span>
+												<span className="uppercase text-xs font-bold tracking-wider">
+													{experience.type}
+												</span>
 											</div>
 
 											{/* Tech Stack */}
@@ -159,7 +164,10 @@ export default function TimelinePreview() {
 
 				{/* Footer Button for Preview */}
 				<div className="flex justify-center mt-12">
-					<Button asChild className="bg-transparent text-white border-4 border-white font-[Bangers] text-xl px-10 py-6 hover:bg-white hover:text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all">
+					<Button
+						asChild
+						className="bg-transparent text-white border-4 border-white font-[Bangers] text-xl px-10 py-6 hover:bg-white hover:text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all"
+					>
 						<Link href="/origin">READ FULL ORIGIN STORY</Link>
 					</Button>
 				</div>

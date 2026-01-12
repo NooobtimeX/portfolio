@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap");
 @import "tailwindcss";
 @plugin 'tailwindcss-animate';
 
@@ -55,7 +55,6 @@
 
 /* Compatibility for Tailwind CSS v3 defaults */
 @layer base {
-
 	*,
 	::after,
 	::before,
@@ -98,7 +97,11 @@
 		content: "";
 		position: absolute;
 		inset: 0;
-		background-image: radial-gradient(circle, hsl(var(--primary) / 0.15) 1.5px, transparent 1.5px);
+		background-image: radial-gradient(
+			circle,
+			hsl(var(--primary) / 0.15) 1.5px,
+			transparent 1.5px
+		);
 		background-size: 16px 16px;
 		opacity: 0.4;
 		z-index: -1;
@@ -107,11 +110,40 @@
 
 	/* Spider Web Pattern - Silk Theme */
 	.comic-web-pattern {
-		background-image:
-			radial-gradient(circle at center, transparent 0%, transparent 10%, hsl(var(--primary)/0.1) 10.5%, transparent 11%),
-			radial-gradient(circle at center, transparent 0%, transparent 20%, hsl(var(--primary)/0.1) 20.5%, transparent 21%),
-			radial-gradient(circle at center, transparent 0%, transparent 30%, hsl(var(--primary)/0.1) 30.5%, transparent 31%),
-			conic-gradient(from 0deg, transparent 0deg, hsl(var(--primary)/0.1) 2deg, transparent 4deg, transparent 30deg, hsl(var(--primary)/0.1) 32deg, transparent 34deg, transparent 60deg, hsl(var(--primary)/0.1) 62deg, transparent 64deg, transparent 90deg);
+		background-image: radial-gradient(
+				circle at center,
+				transparent 0%,
+				transparent 10%,
+				hsl(var(--primary) / 0.1) 10.5%,
+				transparent 11%
+			),
+			radial-gradient(
+				circle at center,
+				transparent 0%,
+				transparent 20%,
+				hsl(var(--primary) / 0.1) 20.5%,
+				transparent 21%
+			),
+			radial-gradient(
+				circle at center,
+				transparent 0%,
+				transparent 30%,
+				hsl(var(--primary) / 0.1) 30.5%,
+				transparent 31%
+			),
+			conic-gradient(
+				from 0deg,
+				transparent 0deg,
+				hsl(var(--primary) / 0.1) 2deg,
+				transparent 4deg,
+				transparent 30deg,
+				hsl(var(--primary) / 0.1) 32deg,
+				transparent 34deg,
+				transparent 60deg,
+				hsl(var(--primary) / 0.1) 62deg,
+				transparent 64deg,
+				transparent 90deg
+			);
 		background-size: 100% 100%;
 		background-position: center;
 		pointer-events: none;
@@ -119,7 +151,7 @@
 
 	/* Comic Panel - The Card Container */
 	.comic-panel {
-		@apply relative bg-card transition-all duration-300 ease-out;
+		@apply bg-card relative transition-all duration-300 ease-out;
 		transform: rotate(-1deg);
 	}
 
@@ -149,8 +181,18 @@
 
 	/* Comic Burst Background */
 	.comic-burst {
-		background: radial-gradient(circle at center, hsl(var(--primary) / 0.3) 0%, transparent 70%),
-			repeating-conic-gradient(from 0deg, transparent 0deg, transparent 10deg, hsl(var(--primary)/0.05) 10deg, hsl(var(--primary)/0.05) 20deg);
+		background: radial-gradient(
+				circle at center,
+				hsl(var(--primary) / 0.3) 0%,
+				transparent 70%
+			),
+			repeating-conic-gradient(
+				from 0deg,
+				transparent 0deg,
+				transparent 10deg,
+				hsl(var(--primary) / 0.05) 10deg,
+				hsl(var(--primary) / 0.05) 20deg
+			);
 	}
 
 	/* Comic Paper Texture (Noise) */
@@ -161,8 +203,8 @@
 
 	/* Utility for buttons to make them look like comic actions */
 	.comic-button {
-		@apply uppercase tracking-wider font-bold transition-transform active:scale-95;
-		font-family: 'Bangers', cursive;
+		@apply font-bold tracking-wider uppercase transition-transform active:scale-95;
+		font-family: "Bangers", cursive;
 	}
 
 	/* Smooth scrolling */
@@ -240,7 +282,9 @@
 
 	body {
 		@apply bg-background text-foreground;
-		font-feature-settings: "rlig" 1, "calt" 1;
+		font-feature-settings:
+			"rlig" 1,
+			"calt" 1;
 		overflow-x: hidden;
 	}
 
@@ -253,7 +297,7 @@
 	h6 {
 		font-family: "Bangers", system-ui, cursive;
 		letter-spacing: 0.05em;
-		@apply uppercase font-normal;
+		@apply font-normal uppercase;
 		/* Bangers is naturally bold */
 		text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 	}

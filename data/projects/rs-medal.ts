@@ -1,5 +1,5 @@
-import type { Project } from "@/interface";
 import { ExperienceId } from "@/enum";
+import type { Project } from "@/interface";
 import { googleAds, nextjs, tailwindcss, vercel } from "../technologies";
 
 export const rsMedal: Project = {
