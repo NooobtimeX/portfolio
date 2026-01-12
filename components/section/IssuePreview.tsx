@@ -11,7 +11,7 @@ export default function IssuePreview() {
 			<div className="absolute inset-0 comic-halftone opacity-30 pointer-events-none"></div>
 			<div className="absolute inset-0 comic-web-pattern opacity-10 pointer-events-none"></div>
 
-			<div className="container mx-auto px-4 relative z-10">
+			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 
 				{/* Header */}
 				<motion.div

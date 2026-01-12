@@ -45,7 +45,7 @@ export default function TimelinePreview() {
 			{/* Background elements */}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,theme(colors.primary.DEFAULT)_0%,transparent_40%)] opacity-20 pointer-events-none"></div>
 
-			<div className="container mx-auto px-4 relative z-10">
+			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 				{/* Header */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}

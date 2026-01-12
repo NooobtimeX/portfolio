@@ -12,7 +12,7 @@ const IssuePage: React.FC = () => {
 			<div className="fixed inset-0 comic-halftone opacity-20 pointer-events-none"></div>
 
 			{/* Header */}
-			<div className="container mx-auto px-4 relative z-10 mb-16 text-center">
+			<div className="container max-w-7xl mx-auto px-4 relative z-10 mb-16 text-center">
 				<motion.div
 					initial={{ y: -50, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}

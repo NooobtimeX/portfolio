@@ -1,15 +1,42 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { skillsData } from "@/data/skills";
+import {
+	docker,
+	mongodb,
+	nestjs,
+	nextjs,
+	nodejs,
+	postgresql,
+	react,
+	redis,
+	shadcnui,
+	tailwindcss,
+	typescript,
+	vercel,
+} from "@/data/technologies";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
 export default function AbilityPreview() {
-	// Show only first 2 categories and first 4 skills each as a preview
-	const displayedSkills = skillsData.slice(0, 2);
+	// Show highlighted skills
+	const highlightedSkills = [
+		nextjs,
+		react,
+		typescript,
+		nodejs,
+		tailwindcss,
+		postgresql,
+		nestjs,
+		mongodb,
+		docker,
+		redis,
+		shadcnui,
+		vercel,
+	];
+
 
 	return (
 		<section id="ability" className="py-20 relative bg-black">
@@ -34,60 +61,26 @@ export default function AbilityPreview() {
 					<div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/80 z-[-1] rounded-full"></div>
 				</motion.div>
 
-				{/* Skills organized by category */}
-				<div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-12">
-					{displayedSkills.map((skillGroup, groupIndex) => (
+				{/* Skills Grid */}
+				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+					{highlightedSkills.map((skill, index) => (
 						<motion.div
-							key={skillGroup.category}
-							initial={{ opacity: 0, x: groupIndex % 2 === 0 ? -50 : 50 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: groupIndex * 0.1 }}
+							key={skill.name}
+							initial={{ opacity: 0, scale: 0.8 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.4, delay: index * 0.1 }}
 							viewport={{ once: true }}
-							className="relative group"
+							whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
+							className="bg-card border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col items-center gap-4 group"
 						>
-							{/* Panel Container */}
-							<div className={`bg-card border-4 border-white p-6 transition-all duration-300
-                                ${groupIndex % 2 === 0
-									? "shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
-									: "shadow-[8px_8px_0px_0px_rgba(220,10,20,1)] hover:shadow-[4px_4px_0px_0px_rgba(220,10,20,1)]"
-								} hover:translate-x-[2px] hover:translate-y-[2px]`}
-							>
-
-								{/* Header Badge */}
-								<div className="flex items-center gap-3 mb-6 border-b-4 border-white pb-4">
-									<div className="w-12 h-12 flex items-center justify-center bg-primary text-white border-2 border-black shadow-[2px_2px_0px_0px_black]">
-										<Icon
-											icon={skillGroup.icon}
-											className="w-6 h-6"
-										/>
-									</div>
-									<h3 className="text-2xl md:text-3xl font-[Bangers] uppercase text-white tracking-wide">
-										{skillGroup.category}
-									</h3>
-								</div>
-
-								{/* Skills Grid */}
-								<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-									{skillGroup.skills.slice(0, 4).map((skill, skillIndex) => (
-										<div
-											key={skill.name}
-											className="flex items-center gap-2 p-2 hover:bg-white/10 transition-colors cursor-default"
-										>
-											<Icon icon={skill.icon} className="w-5 h-5 text-primary" />
-											<span className="font-[Bangers] text-lg text-white tracking-wide uppercase">
-												{skill.name}
-											</span>
-										</div>
-									))}
-									{skillGroup.skills.length > 4 && (
-										<div className="flex items-center justify-center p-2">
-											<span className="font-[Inter] text-xs text-gray-400">+{skillGroup.skills.length - 4} more...</span>
-										</div>
-									)}
-								</div>
-
-								{/* Decorative elements */}
-								<div className="absolute -right-2 -bottom-2 w-8 h-8 border-r-4 border-b-4 border-white"></div>
+							<div className="w-16 h-16 flex items-center justify-center bg-primary text-white border-2 border-black rounded-full shadow-[2px_2px_0px_0px_black] group-hover:rotate-12 transition-transform duration-300">
+								<Icon icon={skill.icon} className="w-8 h-8" />
+							</div>
+							<div className="text-center">
+								<h3 className="text-xl font-[Bangers] uppercase text-white tracking-wide mb-1">
+									{skill.name}
+								</h3>
+								<div className="h-1 w-12 bg-primary mx-auto"></div>
 							</div>
 						</motion.div>
 					))}

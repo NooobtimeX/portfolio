@@ -11,7 +11,7 @@ const AbilityPage: React.FC = () => {
             {/* Background Halftone Pattern */}
             <div className="fixed inset-0 comic-halftone opacity-20 pointer-events-none"></div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container max-w-7xl mx-auto px-4 relative z-10">
 
                 {/* Header Section */}
                 <motion.div
@@ -33,7 +33,7 @@ const AbilityPage: React.FC = () => {
                 </motion.div>
 
                 {/* Skills organized by category */}
-                <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
                     {skillsData.map((skillGroup, groupIndex) => (
                         <motion.div
                             key={skillGroup.category}
@@ -67,8 +67,8 @@ const AbilityPage: React.FC = () => {
                                 </div>
 
                                 {/* Skills Grid */}
-                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                                    {skillGroup.skills.map((skill, skillIndex) => (
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                    {skillGroup.skills.map((skill, skilmaklIndex) => (
                                         <motion.div
                                             key={skill.name}
                                             whileHover={{ scale: 1.05 }}

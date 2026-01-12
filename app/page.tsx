@@ -150,7 +150,7 @@ const Home: React.FC = () => {
 
 								{/* Corner Badge */}
 								<div className="absolute -bottom-6 -left-6 bg-primary text-white font-[Bangers] text-2xl px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_white] transform -rotate-6 z-20">
-									Lvl. {new Date().getFullYear() - 2021}+ Dev
+									Kwan
 								</div>
 							</div>
 						</motion.div>

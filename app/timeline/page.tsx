@@ -41,7 +41,7 @@ const OriginPage: React.FC = () => {
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,theme(colors.primary.DEFAULT)_0%,transparent_40%)] opacity-20 pointer-events-none"></div>
             <div className="fixed inset-0 comic-halftone opacity-10 pointer-events-none"></div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container max-w-7xl mx-auto px-4 relative z-10">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -62,7 +62,7 @@ const OriginPage: React.FC = () => {
                 </motion.div>
 
                 {/* Timeline */}
-                <div className="relative max-w-5xl mx-auto">
+                <div className="relative max-w-7xl mx-auto">
                     {/* Timeline Line */}
                     <div className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-2 bg-white border-x-2 border-black z-0"></div>
 
