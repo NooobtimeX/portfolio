@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { personalData } from "@/data/personal";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDownIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useRef } from "react";
 
@@ -167,19 +166,6 @@ const Home: React.FC = () => {
 						</motion.div>
 					</motion.div>
 				</div>
-
-				{/* Scroll Indicator */}
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 1, duration: 1 }}
-					className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20"
-				>
-					<span className="font-[Bangers] text-white tracking-widest text-lg animate-pulse">
-						START SCROLLING
-					</span>
-					<ArrowDownIcon className="w-6 h-6 text-primary animate-bounce" />
-				</motion.div>
 			</section>
 
 			<ComicSeparator />

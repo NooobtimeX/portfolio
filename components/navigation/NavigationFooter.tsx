@@ -69,7 +69,7 @@ const NavigationFooter = () => {
 							<Icon icon="mdi:linkedin" className="w-8 h-8" />
 						</Link>
 						<Link
-							href="mailto:wongsaphat.p.work@gmail.com"
+							href="mailto:nooobtimex@gmail.com"
 							className="text-white hover:text-primary transition-colors hover:scale-125 transform duration-200"
 						>
 							<Icon icon="mdi:email" className="w-8 h-8" />

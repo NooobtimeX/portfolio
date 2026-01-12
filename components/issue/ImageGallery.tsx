@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -12,21 +12,45 @@ interface ImageGalleryProps {
 	title: string;
 }
 
+const variants = {
+	enter: (direction: number) => ({
+		x: direction > 0 ? 300 : -300,
+		opacity: 0,
+		rotate: direction > 0 ? 5 : -5,
+		scale: 0.9,
+	}),
+	center: {
+		zIndex: 1,
+		x: 0,
+		opacity: 1,
+		rotate: 0,
+		scale: 1,
+	},
+	exit: (direction: number) => ({
+		zIndex: 0,
+		x: direction < 0 ? 300 : -300,
+		opacity: 0,
+		rotate: direction < 0 ? 5 : -5,
+		scale: 0.9,
+	}),
+};
+
 const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
+	const [[page, direction], setPage] = useState([0, 0]);
 
-	const goToPrevious = () => {
-		setSelectedImageIndex((prev) =>
-			prev === 0 ? images.length - 1 : prev - 1
-		);
+	const paginate = (newDirection: number) => {
+		setPage([page + newDirection, newDirection]);
+		// Keep selectedImageIndex in sync if needed for other things, or replace it.
+		// For now, let's just update the local index for compatibility.
+		const nextIndex =
+			(selectedImageIndex + newDirection + images.length) % images.length;
+		setSelectedImageIndex(nextIndex);
 	};
 
-	const goToNext = () => {
-		setSelectedImageIndex((prev) =>
-			prev === images.length - 1 ? 0 : prev + 1
-		);
-	};
+	const goToPrevious = () => paginate(-1);
+	const goToNext = () => paginate(1);
 
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (e.key === "ArrowLeft") goToPrevious();
@@ -49,6 +73,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 						className="group relative aspect-square overflow-hidden border-2 border-white bg-black cursor-pointer shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all"
 						onClick={() => {
 							setSelectedImageIndex(index);
+							setPage([index, 0]);
 							setIsOpen(true);
 						}}
 					>
@@ -110,14 +135,32 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 
 						{/* Main Image */}
 						<div className="relative w-full h-full p-12 md:p-20 flex items-center justify-center">
-							<div className="relative w-full h-full border-2 border-white/20 bg-black">
-								<Image
-									src={images[selectedImageIndex]}
-									alt={`${title} - Image ${selectedImageIndex + 1}`}
-									fill
-									className="object-contain"
-									priority
-								/>
+							<div className="relative w-full h-full border-2 border-white/20 bg-black overflow-hidden">
+								<AnimatePresence initial={false} custom={direction} mode="wait">
+									<motion.div
+										key={page}
+										custom={direction}
+										variants={variants}
+										initial="enter"
+										animate="center"
+										exit="exit"
+										transition={{
+											x: { type: "spring", stiffness: 300, damping: 30 },
+											opacity: { duration: 0.2 },
+											rotate: { duration: 0.4 },
+											scale: { duration: 0.4 },
+										}}
+										className="relative w-full h-full"
+									>
+										<Image
+											src={images[selectedImageIndex]}
+											alt={`${title} - Image ${selectedImageIndex + 1}`}
+											fill
+											className="object-contain"
+											priority
+										/>
+									</motion.div>
+								</AnimatePresence>
 							</div>
 						</div>
 
