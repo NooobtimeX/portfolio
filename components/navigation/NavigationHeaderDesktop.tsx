@@ -1,6 +1,5 @@
 "use client";
 
-import ThemeChanger from "@/components/ThemeChanger";
 import {
 	Tooltip,
 	TooltipContent,
@@ -20,51 +19,69 @@ export default function NavigationHeaderDesktop({
 	menuItems,
 }: NavigationHeaderDesktopProps) {
 	return (
-		<div className="flex w-full items-center justify-between backdrop-blur-xs p-4 border-b xl:px-8 rounded-b-2xl bg-white/80 dark:bg-zinc-900/80">
-			<div className="flex items-center gap-2 mx-auto">
-				<div className="flex items-center gap-2">
-					<Link href="/">
-						<Image
-							src="/favicon.ico"
-							alt="Portfolio Logo"
-							className="rounded-full"
-							width={40}
-							height={40}
-							quality={100}
-						/>
+		<div className="flex w-full items-center justify-between p-2 mx-auto mt-4 max-w-5xl">
+			{/* Main Header Container - Comic Strip Style */}
+			<div className="flex items-center justify-between w-full bg-black border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300 z-50">
+
+				{/* Logo Section */}
+				<div className="relative flex items-center gap-3 px-6 py-3 border-r-4 border-white bg-black overflow-hidden group/logo">
+					{/* Web Pattern Background */}
+					<div className="absolute inset-0 comic-web-pattern opacity-30 group-hover/logo:opacity-50 transition-opacity"></div>
+
+					<Link href="/" className="relative z-10">
+						<div className="relative w-10 h-10 border-2 border-white rounded-full overflow-hidden shadow-[0_0_10px_rgba(255,50,50,0.5)] group-hover/logo:shadow-[0_0_20px_rgba(255,50,50,0.8)] transition-all">
+							<Image
+								src="/favicon.ico"
+								alt="Portfolio Logo"
+								className="object-cover"
+								width={40}
+								height={40}
+								quality={100}
+							/>
+						</div>
 					</Link>
-					<Link href="/">NooobtimeX</Link>
+					<Link href="/" className="relative z-10 font-[Bangers] text-2xl uppercase tracking-wider text-white group-hover/logo:text-primary transition-colors stroke-black" style={{ textShadow: "2px 2px 0px #000" }}>
+						NooobtimeX
+					</Link>
 				</div>
-			</div>
-			<div className="flex items-center gap-2 mx-auto">
-				<TooltipProvider>
-					{menuItems.map((item) => (
-						<Tooltip key={item.href}>
-							<TooltipTrigger asChild>
-								<Link
-									href={item.href}
-									className="group px-4 py-2 transition-colors duration-500 font-bold hover:text-primary"
-								>
-									<div className="flex flex-col items-center">
-										{/* Text centered horizontally */}
-										<div className="text-center">{item.title}</div>
+
+				{/* Navigation Items */}
+				<div className="flex items-center flex-1 justify-center bg-card relative overflow-hidden">
+					<TooltipProvider>
+						{menuItems.map((item, index) => (
+							<Tooltip key={item.href}>
+								<TooltipTrigger asChild>
+									<Link
+										href={item.href}
+										className={`
+                                            group relative px-8 py-4 h-full flex items-center justify-center
+                                            font-[Bangers] text-xl uppercase tracking-wide text-zinc-400
+                                            hover:text-white transition-all
+                                            ${index !== menuItems.length - 1 ? 'border-r-4 border-white' : ''}
+                                        `}
+									>
+										<span className="relative z-10 group-hover:scale-110 group-hover:rotate-2 transition-transform duration-200 drop-shadow-md">
+											{item.title}
+										</span>
+										{/* Hover Effect Background */}
+										<div className="absolute inset-0 bg-primary/0 group-hover:bg-primary transition-colors duration-300 ease-out" />
+										{/* Hover Web Effect */}
+										<div className="absolute inset-0 comic-web-pattern opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+									</Link>
+								</TooltipTrigger>
+								<TooltipContent className="bg-black border-2 border-white text-white font-[Bangers] tracking-wide rounded-none shadow-[4px_4px_0px_0px_white]">
+									<div className="flex items-center gap-2">
+										<Icon icon={item.icon.icon} className="w-4 h-4 text-primary" />
+										<span>{item.icon.description}</span>
 									</div>
-								</Link>
-							</TooltipTrigger>
-							<TooltipContent>
-								<div className="flex items-center gap-2">
-									<Icon icon={item.icon.icon} className="w-4 h-4" />
-									<span>{item.icon.description}</span>
-								</div>
-							</TooltipContent>
-						</Tooltip>
-					))}
-				</TooltipProvider>
-			</div>
-			<div className="flex items-center gap-2 mx-auto">
-				<div className="flex items-center gap-2 ml-2">
-					<ThemeChanger />
+								</TooltipContent>
+							</Tooltip>
+						))}
+					</TooltipProvider>
 				</div>
+
+				{/* End Cap / Decorative */}
+				<div className="w-12 bg-[radial-gradient(circle,white_2px,transparent_2.5px)] bg-[length:8px_8px] opacity-20"></div>
 			</div>
 		</div>
 	);

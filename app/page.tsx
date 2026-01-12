@@ -1,200 +1,181 @@
 "use client";
 
-import ExperiencePreview from "@/components/section/ExperiencePreview";
-import ProjectPreview from "@/components/section/ProjectPreview";
-import SkillPreview from "@/components/section/SkillPreview";
+import ComicSeparator from "@/components/ComicSeparator";
+import AbilityPreview from "@/components/section/AbilityPreview";
+import IssuePreview from "@/components/section/IssuePreview";
+import TimelinePreview from "@/components/section/TimelinePreview";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { personalData } from "@/data/personal";
-import { motion } from "framer-motion";
-import { ArrowDownIcon, MailIcon, MapPinIcon } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDownIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 
 const Home: React.FC = () => {
+	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: containerRef,
+		offset: ["start start", "end start"]
+	});
+
+	const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+	const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
 	return (
-		<div className="hide-scrollbar overflow-x-hidden w-full relative">
-			{/* Unified Background gradient that spans entire page */}
-			<div className="fixed inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 -z-10">
-				<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent animate-pulse"></div>
-				<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-secondary/8 via-transparent to-transparent opacity-70"></div>
+		<div ref={containerRef} className="w-full relative overflow-hidden bg-black min-h-screen">
+			{/* Global Background Elements */}
+			<div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_center,theme(colors.primary.DEFAULT)_1px,transparent_1px)] bg-[length:24px_24px]"></div>
+				{/* Top Right Web */}
+				<div className="absolute top-0 right-0 w-[500px] h-[500px] comic-web-pattern opacity-30 transform rotate-12"></div>
+				{/* Bottom Left Web */}
+				<div className="absolute bottom-0 left-0 w-[500px] h-[500px] comic-web-pattern opacity-30 transform -rotate-12 scale-x-[-1]"></div>
 			</div>
 
-			{/* Hero Section - Inline */}
-			<section className="min-h-screen flex items-center justify-center relative overflow-hidden pb-20">
-				<div className="container mx-auto px-4 py-4 relative z-10">
+			<div className="fixed top-0 left-0 w-full h-full z-0 opacity-10 pointer-events-none">
+				<div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-primary rounded-full blur-[120px]"></div>
+				<div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-white rounded-full blur-[100px]"></div>
+			</div>
+
+			{/* HERO SECTION - SPLASH PAGE */}
+			<section className="relative min-h-[95vh] flex flex-col justify-center items-center py-20 px-4 z-10 overflow-hidden">
+				{/* Comic Burst Background specifically for Hero */}
+				<div className="absolute inset-0 comic-burst opacity-30 z-[-1]"></div>
+
+				<div className="container max-w-7xl mx-auto relative">
 					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.6, staggerChildren: 0.2 }}
-						className="max-w-6xl mx-auto"
+						style={{ y: heroY, opacity: heroOpacity }}
+						className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
 					>
-						<div className="grid lg:grid-cols-2 gap-12 items-center">
-							{/* Left Column - Text Content */}
-							<div className="space-y-8 text-center lg:text-left">
-								<motion.div
-									initial={{ opacity: 0, y: 30 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6 }}
-									className="space-y-2"
-								>
-									<h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-										<span className="block">Hello, I&apos;m</span>
-										<span className="block bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-											{personalData.name.split(" ")[0]}
-										</span>
-									</h1>
+						{/* LEFT: IMPACT TEXT */}
+						<div className="relative z-20 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
 
-									<h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium">
+							{/* Speech Bubble / Intro */}
+							<motion.div
+								initial={{ scale: 0, opacity: 0 }}
+								animate={{ scale: 1, opacity: 1 }}
+								transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
+								className="relative mb-6 self-start hidden lg:block"
+							>
+								<div className="bg-white text-black font-[Bangers] text-xl px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] rounded-[50%_20%_60%_30%]">
+									THE NEW HERO IN TECH!
+								</div>
+								<div className="absolute -bottom-2 left-6 w-4 h-4 bg-white border-b-4 border-r-4 border-black transform rotate-45"></div>
+							</motion.div>
+
+							{/* Main Title Stack */}
+							<div className="relativ space-y-2 mb-8 transform -rotate-2">
+								<motion.h2
+									initial={{ x: -100, opacity: 0 }}
+									animate={{ x: 0, opacity: 1 }}
+									transition={{ duration: 0.5 }}
+									className="font-[Bangers] text-4xl md:text-6xl text-white tracking-wider stroke-black"
+									style={{ textShadow: "4px 4px 0px #000" }}
+								>
+									HELLO, I'M
+								</motion.h2>
+								<motion.h1
+									initial={{ scale: 0.8, opacity: 0 }}
+									animate={{ scale: 1, opacity: 1 }}
+									transition={{ duration: 0.5, delay: 0.1 }}
+									className="font-[Bangers] text-7xl md:text-9xl text-primary leading-[0.85] tracking-tight drop-shadow-[5px_5px_0px_rgba(255,255,255,1)]"
+								>
+									{personalData.name.split(" ")[0]}
+								</motion.h1>
+								<motion.div
+									initial={{ x: 100, opacity: 0 }}
+									animate={{ x: 0, opacity: 1 }}
+									transition={{ duration: 0.5, delay: 0.2 }}
+									className="bg-white inline-block transform rotate-2 mt-2"
+								>
+									<span className="block font-[Bangers] text-3xl md:text-5xl text-black px-4 py-1 border-4 border-black">
 										{personalData.title}
-									</h2>
-								</motion.div>
-
-								<motion.p
-									initial={{ opacity: 0, y: 30 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6, delay: 0.2 }}
-									className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0"
-								>
-									{personalData.tagline}
-								</motion.p>
-
-								{/* Contact Info */}
-								<motion.div
-									initial={{ opacity: 0, y: 30 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6, delay: 0.3 }}
-									className="flex flex-wrap gap-4 justify-center lg:justify-start"
-								>
-									<div className="flex items-center gap-2 text-muted-foreground">
-										<MapPinIcon className="w-4 h-4 text-primary" />
-										<span className="text-sm">
-											{personalData.contact.location}
-										</span>
-									</div>
-									<div className="flex items-center gap-2 text-muted-foreground">
-										<MailIcon className="w-4 h-4 text-primary" />
-										<span className="text-sm">
-											{personalData.contact.email}
-										</span>
-									</div>
-								</motion.div>
-
-								{/* Action Buttons */}
-								<motion.div
-									initial={{ opacity: 0, y: 30 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6, delay: 0.4 }}
-									className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-								>
-									<Button asChild size="lg" className="px-8 py-2 text-lg">
-										<Link href="/project">View My Work</Link>
-									</Button>
-									<Button
-										variant="outline"
-										size="lg"
-										className="px-8 py-2 text-lg"
-									>
-										<Link href="https://github.com/NooobtimeX">GitHub</Link>
-									</Button>
+									</span>
 								</motion.div>
 							</div>
 
-							{/* Right Column - Avatar & Stats */}
-							<div className="relative">
-								<motion.div
-									initial={{ opacity: 0, scale: 0.8 }}
-									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.8, delay: 0.2 }}
-									className="relative"
+							<motion.p
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ delay: 0.4 }}
+								className="text-lg md:text-xl text-gray-300 font-[Inter] max-w-xl leading-relaxed mb-8 bg-black/50 backdrop-blur-sm p-4 border-l-4 border-primary"
+							>
+								{personalData.tagline}
+							</motion.p>
+
+							{/* Action Buttons */}
+							<motion.div
+								initial={{ y: 50, opacity: 0 }}
+								animate={{ y: 0, opacity: 1 }}
+								transition={{ delay: 0.6 }}
+								className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+							>
+								<Button asChild size="lg" className="comic-button bg-primary text-white border-2 border-white text-xl h-14 px-8 shadow-[6px_6px_0px_0px_white] hover:shadow-[3px_3px_0px_0px_white] hover:translate-x-[3px] hover:translate-y-[3px]">
+									<Link href="/issue">EXPLORE ISSUES</Link>
+								</Button>
+								<Button
+									variant="outline"
+									size="lg"
+									className="comic-button bg-transparent text-white border-2 border-white text-xl h-14 px-8 hover:bg-white hover:text-black"
 								>
-									{/* Decorative background */}
-									<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl transform scale-150 animate-pulse"></div>
-
-									{/* Main avatar */}
-									<div className="relative z-10 w-80 h-80 md:w-96 md:h-96 mx-auto">
-										<Avatar className="w-full h-full border-4 border-background shadow-2xl">
-											<AvatarImage
-												src={personalData.avatar}
-												alt={personalData.name}
-												className="object-cover"
-											/>
-											<AvatarFallback className="text-4xl font-bold bg-gradient-to-br from-primary to-secondary text-white">
-												{personalData.name
-													.split(" ")
-													.map((n) => n[0])
-													.join("")}
-											</AvatarFallback>
-										</Avatar>
-									</div>
-
-									{/* Floating stats cards */}
-									<motion.div
-										initial={{ opacity: 0, x: 50 }}
-										animate={{ opacity: 1, x: 0 }}
-										transition={{ duration: 0.6, delay: 0.8 }}
-										className="absolute -right-16 top-1/4 hidden xl:block"
-									>
-										<Card className="bg-card/90 backdrop-blur-sm border-0 shadow-lg">
-											<CardContent className="p-3 text-center">
-												<div className="text-xl font-bold text-primary">3+</div>
-												<div className="text-xs text-muted-foreground whitespace-nowrap">
-													Years Experience
-												</div>
-											</CardContent>
-										</Card>
-									</motion.div>
-
-									<motion.div
-										initial={{ opacity: 0, x: -50 }}
-										animate={{ opacity: 1, x: 0 }}
-										transition={{ duration: 0.6, delay: 1 }}
-										className="absolute -left-16 bottom-1/4 hidden xl:block"
-									>
-										<Card className="bg-card/90 backdrop-blur-sm border-0 shadow-lg">
-											<CardContent className="p-3 text-center">
-												<div className="text-xl font-bold text-secondary">
-													10+
-												</div>
-												<div className="text-xs text-muted-foreground whitespace-nowrap">
-													Projects Completed
-												</div>
-											</CardContent>
-										</Card>
-									</motion.div>
-								</motion.div>
-							</div>
+									<Link href="https://github.com/NooobtimeX">GITHUB BASE</Link>
+								</Button>
+							</motion.div>
 						</div>
 
-						{/* Scroll indicator */}
+						{/* RIGHT: HERO AVATAR */}
 						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 1.2 }}
-							className="flex flex-col items-center mt-16 lg:mt-20"
+							initial={{ scale: 0.8, opacity: 0, rotate: 5 }}
+							animate={{ scale: 1, opacity: 1, rotate: 0 }}
+							transition={{ duration: 0.8, type: "spring" }}
+							className="order-1 lg:order-2 relative flex justify-center"
 						>
-							<span className="text-sm text-muted-foreground mb-2">
-								Scroll to explore
-							</span>
-							<motion.div
-								animate={{ y: [0, 8, 0] }}
-								transition={{
-									duration: 2,
-									repeat: Infinity,
-									ease: "easeInOut",
-								}}
-								className="w-8 h-8 border border-primary/50 rounded-full flex items-center justify-center"
-							>
-								<ArrowDownIcon className="w-4 h-4 text-primary" />
-							</motion.div>
+							<div className="relative w-80 h-80 md:w-[450px] md:h-[450px]">
+								{/* Back panels */}
+								<div className="absolute inset-0 bg-white border-4 border-black transform rotate-6 rounded-sm shadow-[12px_12px_0px_0px_rgba(255,50,50,0.5)] z-0"></div>
+								<div className="absolute inset-0 bg-black border-4 border-white transform -rotate-3 rounded-sm z-10 overflow-hidden">
+									<div className="absolute inset-0 comic-halftone opacity-40"></div>
+									<Avatar className="w-full h-full rounded-none">
+										<AvatarImage
+											src={personalData.avatar}
+											alt={personalData.name}
+											className="object-cover scale-110 hover:scale-100 transition-transform duration-700"
+										/>
+										<AvatarFallback className="text-9xl font-[Bangers] bg-zinc-900 text-primary">
+											{personalData.name.charAt(0)}
+										</AvatarFallback>
+									</Avatar>
+								</div>
+
+								{/* Corner Badge */}
+								<div className="absolute -bottom-6 -left-6 bg-primary text-white font-[Bangers] text-2xl px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_white] transform -rotate-6 z-20">
+									Lvl. {new Date().getFullYear() - 2021}+ Dev
+								</div>
+							</div>
 						</motion.div>
 					</motion.div>
 				</div>
+
+				{/* Scroll Indicator */}
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 1, duration: 1 }}
+					className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+				>
+					<span className="font-[Bangers] text-white tracking-widest text-lg animate-pulse">START SCROLLING</span>
+					<ArrowDownIcon className="w-6 h-6 text-primary animate-bounce" />
+				</motion.div>
 			</section>
-			<SkillPreview />
-			<ProjectPreview />
-			<ExperiencePreview />
+
+			<ComicSeparator />
+			<AbilityPreview />
+			<ComicSeparator />
+			<IssuePreview />
+			<ComicSeparator />
+			<TimelinePreview />
+
 		</div>
 	);
 };

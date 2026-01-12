@@ -3,12 +3,17 @@ import NavigationHeader from "@/components/navigation/NavigationHeader";
 import { ThemeProvider } from "@/components/theme-provider";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Bangers, Inter } from "next/font/google";
 import Head from "next/head";
 import React from "react";
 import "./globals.css";
 
-const nunito = Nunito({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const bangers = Bangers({
+	weight: "400",
+	subsets: ["latin"],
+	variable: "--font-bangers"
+});
 
 export const metadata: Metadata = {
 	title: "Portfolio | Wongsaphat Puangsorn",
@@ -31,27 +36,26 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" className="dark" suppressHydrationWarning>
 			<Head>
 				<link rel="canonical" href="https://nooobtimex.me/" />
 			</Head>
 			<GoogleTagManager gtmId="GTM-5PVXPTWP" />
 			<body
-				className={
-					nunito.className +
-					" bg-gradient-to-br from-background via-muted/5 to-background"
-				}
+				className={`${inter.variable} ${bangers.variable} font-sans antialiased bg-background text-foreground selection:bg-primary selection:text-white`}
 			>
+				{/* Global Comic Texture Overlay */}
+				<div className="fixed inset-0 z-50 pointer-events-none comic-texture opacity-30 mix-blend-overlay"></div>
+
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="system"
-					enableSystem
+					defaultTheme="dark"
+					forcedTheme="dark"
+					enableSystem={false}
 					disableTransitionOnChange
 				>
 					<NavigationHeader />
-					<main className="max-w-[1600px] mx-auto pb-20 md:pb-0">
-						{children}
-					</main>
+					<main className="min-h-screen relative">{children}</main>
 					<NavigationFooter />
 				</ThemeProvider>
 			</body>

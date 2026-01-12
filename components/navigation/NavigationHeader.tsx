@@ -7,30 +7,30 @@ import MenuItem from "@/interface/menuItem";
 export default function NavigationHeader() {
 	const menuItems: MenuItem[] = [
 		{
-			title: "SKILLS",
-			href: "/#skill",
+			title: "ABILITIES",
+			href: "/ability",
 			icon: {
 				name: "Brain",
 				icon: "material-symbols:psychology",
-				description: "View my technical skills and expertise",
+				description: "View my Abilities",
 			},
 		},
 		{
-			title: "PROJECTS",
-			href: "/project",
+			title: "ISSUES",
+			href: "/issue",
 			icon: {
 				name: "Laptop Code",
 				icon: "material-symbols:laptop-chromebook",
-				description: "Explore my portfolio projects",
+				description: "Explore my Issues Archive",
 			},
 		},
 		{
-			title: "EXPERIENCE",
-			href: "/#experience",
+			title: "TIMELINE",
+			href: "/timeline",
 			icon: {
-				name: "Building",
-				icon: "material-symbols:business",
-				description: "Review my work experience and achievements",
+				name: "History",
+				icon: "material-symbols:history-edu",
+				description: "The Complete Saga",
 			},
 		},
 	];

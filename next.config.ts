@@ -5,20 +5,6 @@ const nextConfig: NextConfig = {
 		formats: ["image/avif", "image/webp"],
 		minimumCacheTTL: 60,
 	},
-	redirects: async () => {
-		return [
-			{
-				source: "/skills",
-				destination: "/#skill",
-				permanent: true,
-			},
-			{
-				source: "/skill",
-				destination: "/#skill",
-				permanent: true,
-			},
-		];
-	},
 };
 
 export default nextConfig;

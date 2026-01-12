@@ -45,4 +45,5 @@ export const looklookPet: Project = {
 	links: {
 		live: "https://looklook.pet/",
 	},
+	startDate: "2024-06-01",
 };

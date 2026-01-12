@@ -15,4 +15,5 @@ export const prettierConfig: Project = {
 	links: {
 		live: "https://prettier-config-generator.com/",
 	},
+	startDate: "2024-01-15",
 };

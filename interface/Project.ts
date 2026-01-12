@@ -1,3 +1,4 @@
+import { ExperienceId } from "@/enum";
 import { Technology } from "./Technology";
 
 // Project interface
@@ -15,4 +16,7 @@ export interface Project {
 		github?: string;
 		live?: string;
 	};
+	startDate: string; // YYYY-MM-DD
+	endDate?: string; // YYYY-MM-DD or undefined if ongoing/single release
+	linkedExperienceId?: ExperienceId; // ID of the Experience this project belongs to
 }

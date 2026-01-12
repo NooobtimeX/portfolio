@@ -1,5 +1,6 @@
 // Export all enums from their respective files
 export { Company } from "./Company";
+export { ExperienceId } from "./ExperienceId";
 export { ExperienceType } from "./ExperienceType";
 export { Location } from "./Location";
 export { Position } from "./Position";

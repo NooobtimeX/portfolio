@@ -38,8 +38,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 
 	return (
 		<div className="space-y-4">
-			<h3 className="text-xl font-semibold">Project Gallery</h3>
-
 			{/* Thumbnail Grid */}
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				{images.map((image, index) => (
@@ -48,23 +46,20 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.3, delay: index * 0.1 }}
-						className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer"
+						className="group relative aspect-square overflow-hidden border-2 border-white bg-black cursor-pointer shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all"
 						onClick={() => {
 							setSelectedImageIndex(index);
 							setIsOpen(true);
 						}}
 					>
+						<div className="absolute top-0 right-0 z-10 bg-primary text-white text-xs px-1 font-[Bangers] border-l-2 border-b-2 border-black opacity-0 group-hover:opacity-100 transition-opacity">#{index + 1}</div>
 						<Image
 							src={image}
 							alt={`${title} - Image ${index + 1}`}
 							fill
-							className="object-cover group-hover:scale-105 transition-transform duration-300"
+							className="object-cover group-hover:scale-110 transition-transform duration-500"
 						/>
-						<div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-							<div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-								<span className="text-black text-sm font-medium">+</span>
-							</div>
-						</div>
+						<div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-multiply" />
 					</motion.div>
 				))}
 			</div>
@@ -72,7 +67,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 			{/* Lightbox Modal */}
 			<Dialog open={isOpen} onOpenChange={setIsOpen}>
 				<DialogContent
-					className="max-w-7xl w-full h-[90vh] p-0 border-0 bg-black/95"
+					className="max-w-7xl w-full h-[90vh] p-0 border-4 border-white bg-black/95 shadow-[0_0_50px_rgba(255,255,255,0.2)] rounded-none"
 					onKeyDown={handleKeyDown}
 				>
 					<div className="sr-only">
@@ -83,7 +78,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 						<Button
 							variant="ghost"
 							size="icon"
-							className="absolute top-4 right-4 z-50 text-white hover:bg-white/20"
+							className="absolute top-4 right-4 z-50 text-white bg-black border-2 border-white rounded-none hover:bg-primary hover:border-primary transition-colors"
 							onClick={() => setIsOpen(false)}
 						>
 							<XIcon className="w-6 h-6" />
@@ -95,63 +90,44 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 								<Button
 									variant="ghost"
 									size="icon"
-									className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+									className="absolute left-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-none border-2 border-transparent hover:border-white"
 									onClick={goToPrevious}
 								>
-									<ChevronLeftIcon className="w-8 h-8" />
+									<ChevronLeftIcon className="w-10 h-10" />
 								</Button>
 								<Button
 									variant="ghost"
 									size="icon"
-									className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20"
+									className="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-white hover:bg-white/20 rounded-none border-2 border-transparent hover:border-white"
 									onClick={goToNext}
 								>
-									<ChevronRightIcon className="w-8 h-8" />
+									<ChevronRightIcon className="w-10 h-10" />
 								</Button>
 							</>
 						)}
 
 						{/* Main Image */}
-						<div className="relative w-full h-full p-8">
-							<Image
-								src={images[selectedImageIndex]}
-								alt={`${title} - Image ${selectedImageIndex + 1}`}
-								fill
-								className="object-contain"
-								priority
-							/>
+						<div className="relative w-full h-full p-12 md:p-20 flex items-center justify-center">
+							<div className="relative w-full h-full border-2 border-white/20 bg-black">
+								<Image
+									src={images[selectedImageIndex]}
+									alt={`${title} - Image ${selectedImageIndex + 1}`}
+									fill
+									className="object-contain"
+									priority
+								/>
+							</div>
 						</div>
 
 						{/* Image Counter */}
 						{images.length > 1 && (
-							<div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-								{selectedImageIndex + 1} / {images.length}
+							<div className="absolute top-4 left-4 bg-primary text-white px-4 py-2 font-[Bangers] text-xl border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+								PAGE {selectedImageIndex + 1} OF {images.length}
 							</div>
 						)}
 
-						{/* Thumbnail Strip */}
-						{images.length > 1 && (
-							<div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 p-2 rounded-lg">
-								{images.map((image, index) => (
-									<button
-										key={index}
-										className={`w-12 h-8 relative overflow-hidden rounded border-2 transition-all duration-200 ${
-											index === selectedImageIndex
-												? "border-white scale-110"
-												: "border-transparent hover:border-white/50"
-										}`}
-										onClick={() => setSelectedImageIndex(index)}
-									>
-										<Image
-											src={image}
-											alt={`Thumbnail ${index + 1}`}
-											fill
-											className="object-cover"
-										/>
-									</button>
-								))}
-							</div>
-						)}
+						{/* Thumbnail Strip (Optional - keeping generic dots/thumbnails minimalist for cleaner view) */}
+						{/* Removed thumbnail strip inside modal to focus on image */}
 					</div>
 				</DialogContent>
 			</Dialog>

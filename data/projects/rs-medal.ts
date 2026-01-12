@@ -1,4 +1,5 @@
 import type { Project } from "@/interface";
+import { ExperienceId } from "@/enum";
 import { googleAds, nextjs, tailwindcss, vercel } from "../technologies";
 
 export const rsMedal: Project = {
@@ -15,4 +16,6 @@ export const rsMedal: Project = {
 	links: {
 		live: "https://www.rs-medal.com",
 	},
+	startDate: "2022-08-01",
+	linkedExperienceId: ExperienceId.RuamsukPlatingJunior,
 };

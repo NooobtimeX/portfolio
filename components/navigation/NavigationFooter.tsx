@@ -1,73 +1,74 @@
-import { Separator } from "@/components/ui/separator";
-import { personalData } from "@/data/personal";
+import { Icon } from "@iconify/react";
 import Link from "next/link";
+import React from "react";
 
-export default function Footer() {
-	const navigationLinks = [
-		{ title: "Home", href: "/" },
-		{ title: "Skills", href: "/#skill" },
-		{ title: "Projects", href: "/project" },
-		{ title: "Experience", href: "/#experience" },
-	];
+const NavigationFooter = () => {
+	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-zinc-900 dark:to-zinc-800 py-12 text-foreground">
-			<div className="container mx-auto max-w-7xl px-4">
-				{/* Navigation Links */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-					{/* Navigation */}
-					<div>
-						<h3 className="text-lg font-semibold mb-4">Navigation</h3>
-						<nav className="space-y-2">
-							{navigationLinks.map((link) => (
-								<Link
-									key={link.href}
-									href={link.href}
-									className="block text-muted-foreground hover:text-primary transition-colors duration-200"
-								>
-									{link.title}
-								</Link>
-							))}
-						</nav>
-					</div>
+		<footer className="relative w-full bg-black text-white py-12 md:py-20 border-t-4 border-white overflow-hidden mt-none">
+			{/* Background Effects */}
+			<div className="absolute inset-0 comic-halftone opacity-30 pointer-events-none"></div>
 
-					{/* Contact */}
-					<div>
-						<h3 className="text-lg font-semibold mb-4">Contact</h3>
-						<div className="space-y-2 text-muted-foreground">
-							<p>{personalData.contact.email}</p>
-							<p>{personalData.contact.location}</p>
+			<div className="container mx-auto px-4 relative z-10">
+				<div className="flex flex-col items-center justify-center space-y-8">
+
+					{/* The End Graphic */}
+					<div className="relative group">
+						<h2 className="font-[Bangers] text-6xl md:text-8xl p-4 bg-primary text-white transform -rotate-2 border-4 border-black shadow-[8px_8px_0px_0px_white] hover:rotate-0 hover:scale-105 transition-transform duration-300 select-none">
+							THE END?
+						</h2>
+						<div className="absolute -top-6 -right-8 bg-white text-black font-[Bangers] text-xl px-3 py-1 rotate-12 border-2 border-black hidden md:block">
+							TO BE CONTINUED...
 						</div>
 					</div>
 
-					{/* Social Links */}
-					<div>
-						<h3 className="text-lg font-semibold mb-4">Follow Me</h3>
-						<div className="flex gap-4">
-							{personalData.socialLinks.map((social, index) => {
-								const SocialIcon = social.icon;
-								return (
-									<Link
-										key={index}
-										href={social.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="w-10 h-10 bg-card hover:bg-primary/10 border border-border rounded-full flex items-center justify-center transition-all duration-300 hover:border-primary/50 group"
-									>
-										<SocialIcon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-									</Link>
-								);
-							})}
-						</div>
+					{/* Quick Access Links for Dedicated Pages */}
+					<div className="flex gap-4 font-[Bangers] text-xl uppercase tracking-wider">
+						<Link href="/" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Home</Link>
+						<span className="text-white/20">|</span>
+						<Link href="/ability" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Abilities</Link>
+						<span className="text-white/20">|</span>
+						<Link href="/issue" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Issues</Link>
+						<span className="text-white/20">|</span>
+						<Link href="/timeline" className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4">Timeline</Link>
 					</div>
-				</div>
 
-				<Separator className="my-4" />
-				<div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-					<p>© 2025 {personalData.name}. All rights reserved.</p>
-					<p>Built with Next.js & Tailwind CSS</p>
+					{/* Social Links Comic Strip */}
+					<div className="flex items-center gap-6 p-4 bg-white/5 border-2 border-white/20 backdrop-blur-sm rounded-none transform rotate-1 hover:rotate-0 transition-transform">
+						<Link
+							href="https://github.com/NooobtimeX"
+							target="_blank"
+							className="text-white hover:text-primary transition-colors hover:scale-125 transform duration-200"
+						>
+							<Icon icon="mdi:github" className="w-8 h-8" />
+						</Link>
+						<Link
+							href="https://www.linkedin.com/in/wongsaphat-puangsorn"
+							target="_blank"
+							className="text-white hover:text-primary transition-colors hover:scale-125 transform duration-200"
+						>
+							<Icon icon="mdi:linkedin" className="w-8 h-8" />
+						</Link>
+						<Link
+							href="mailto:wongsaphat.p.work@gmail.com"
+							className="text-white hover:text-primary transition-colors hover:scale-125 transform duration-200"
+						>
+							<Icon icon="mdi:email" className="w-8 h-8" />
+						</Link>
+					</div>
+
+					<div className="w-full max-w-md h-0.5 bg-white/20"></div>
+
+					{/* Copyright Info */}
+					<div className="text-center font-[Inter] text-sm text-gray-400">
+						<p>© {currentYear} Wongsaphat Puangsorn. All rights reserved.</p>
+						<p className="mt-2 text-xs opacity-60">Inspired by Marvel Comics & Silk (Cindy Moon)</p>
+					</div>
 				</div>
 			</div>
 		</footer>
 	);
-}
+};
+
+export default NavigationFooter;
