@@ -1,7 +1,7 @@
 "use client";
 
 import IssueCard from "@/components/issue/IssueCard";
-import { projectsData } from "@/data/projects";
+import { issuesData } from "@/data/issues";
 import { motion } from "framer-motion";
 import React from "react";
 
@@ -34,14 +34,14 @@ const IssuePage: React.FC = () => {
 				</motion.p>
 			</div>
 
-			{/* Projects Grid */}
+			{/* Issues Grid */}
 			<section className="pb-20 relative">
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-						{projectsData.map((project, index) => (
+						{issuesData.map((issue, index) => (
 							<IssueCard
-								key={project.id}
-								project={project}
+								key={issue.id}
+								issue={issue}
 								index={index}
 								variant="grid"
 								showAllAbilities={false}

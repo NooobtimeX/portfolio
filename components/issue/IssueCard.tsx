@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Project } from "@/interface/Project";
+import { Issue } from "@/interface";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, GithubIcon } from "lucide-react";
 import Image from "next/image";
@@ -10,21 +10,21 @@ import Link from "next/link";
 import React from "react";
 
 interface IssueCardProps {
-	project: Project;
+	issue: Issue;
 	index: number;
 	variant?: "featured" | "grid";
 	showAllAbilities?: boolean;
 }
 
 const IssueCard: React.FC<IssueCardProps> = ({
-	project,
+	issue,
 	index,
 	variant = "grid",
 	showAllAbilities = false,
 }) => {
 	const abilitiesToShow = showAllAbilities
-		? project.abilities
-		: project.abilities.slice(0, 3);
+		? issue.abilities
+		: issue.abilities.slice(0, 3);
 
 	// Comic Issue Number based on index or ID logic
 	const issueNumber = `#${String(index + 1).padStart(3, "0")}`;
@@ -50,8 +50,8 @@ const IssueCard: React.FC<IssueCardProps> = ({
 						<div className="relative h-64 md:h-auto overflow-hidden border-b-4 md:border-b-0 md:border-r-4 border-white">
 							<div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 							<Image
-								src={project.images.banner}
-								alt={project.title}
+								src={issue.images.banner}
+								alt={issue.title}
 								fill
 								className="object-cover transform group-hover:scale-110 transition-transform duration-700"
 							/>
@@ -66,10 +66,10 @@ const IssueCard: React.FC<IssueCardProps> = ({
 
 							<div>
 								<h3 className="font-[Bangers] text-4xl md:text-5xl text-white uppercase tracking-wide mb-4 leading-none">
-									{project.title}
+									{issue.title}
 								</h3>
 								<p className="font-[Inter] text-gray-300 text-lg mb-6 line-clamp-3 border-l-4 border-primary pl-4">
-									{project.description}
+									{issue.description}
 								</p>
 
 								<div className="flex flex-wrap gap-2 mb-8">
@@ -82,12 +82,12 @@ const IssueCard: React.FC<IssueCardProps> = ({
 											{ability.name}
 										</Badge>
 									))}
-									{!showAllAbilities && project.abilities.length > 3 && (
+									{!showAllAbilities && issue.abilities.length > 3 && (
 										<Badge
 											variant="outline"
 											className="font-bold border-white/30 text-white/80 rounded-none uppercase text-xs px-2 py-1"
 										>
-											+{project.abilities.length - 3} MORE
+											+{issue.abilities.length - 3} MORE
 										</Badge>
 									)}
 								</div>
@@ -98,19 +98,19 @@ const IssueCard: React.FC<IssueCardProps> = ({
 									asChild
 									className="flex-1 bg-white text-black font-[Bangers] text-xl uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform h-12"
 								>
-									<Link href={`/issue/${project.id}`}>
+									<Link href={`/issue/${issue.id}`}>
 										READ ISSUE
 										<ArrowRightIcon className="ml-2 w-5 h-5" />
 									</Link>
 								</Button>
-								{project.links.github && (
+								{issue.links.github && (
 									<Button
 										asChild
 										size="icon"
 										variant="outline"
 										className="border-2 border-white bg-black text-white hover:bg-white hover:text-black transition-colors w-12 h-12 rounded-none"
 									>
-										<Link href={project.links.github} target="_blank">
+										<Link href={issue.links.github} target="_blank">
 											<GithubIcon className="w-6 h-6" />
 										</Link>
 									</Button>
@@ -139,8 +139,8 @@ const IssueCard: React.FC<IssueCardProps> = ({
 					</div>
 
 					<Image
-						src={project.images.banner}
-						alt={project.title}
+						src={issue.images.banner}
+						alt={issue.title}
 						fill
 						className="object-cover transition-transform duration-500 group-hover:scale-110"
 					/>
@@ -157,11 +157,11 @@ const IssueCard: React.FC<IssueCardProps> = ({
 					</div>
 
 					<h3 className="font-[Bangers] text-3xl text-white uppercase tracking-wide mb-3 mt-2 line-clamp-1 group-hover:text-primary transition-colors">
-						{project.title}
+						{issue.title}
 					</h3>
 
 					<p className="font-[Inter] text-gray-400 text-sm mb-6 line-clamp-2 flex-grow">
-						{project.description}
+						{issue.description}
 					</p>
 
 					<div className="space-y-4 mt-auto">
@@ -180,7 +180,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 							asChild
 							className="w-full bg-white text-black font-[Bangers] text-lg uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,50,50,1)] transition-all"
 						>
-							<Link href={`/issue/${project.id}`}>VIEW ISSUE</Link>
+							<Link href={`/issue/${issue.id}`}>VIEW ISSUE</Link>
 						</Button>
 					</div>
 				</div>

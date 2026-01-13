@@ -1,15 +1,15 @@
-import type { Project } from "@/interface";
+import type { Issue } from "@/interface";
 import { nextjs, tailwindcss, vercel } from "../abilities";
 
-export const prettierConfig: Project = {
+export const prettierConfig: Issue = {
 	id: "prettier-config",
 	title: "Prettier Config Generator",
 	description:
 		"Generate your .prettierrc file effortlessly with this interactive Prettier configuration tool.",
 	images: {
-		thumbnail: "/project/prettier.png",
-		banner: "/project/prettier.png",
-		photos: ["/project/prettier.png"],
+		thumbnail: "/issue/prettier.png",
+		banner: "/issue/prettier.png",
+		photos: ["/issue/prettier.png"],
 	},
 	abilities: [nextjs, vercel, tailwindcss],
 	links: {

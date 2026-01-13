@@ -1,15 +1,15 @@
 import { AffiliationId } from "@/enum";
 import { Ability } from "./Ability";
 
-// Project interface
-export interface Project {
+// Issue interface
+export interface Issue {
 	id: string;
 	title: string;
 	description: string;
 	images: {
 		thumbnail: string; // Used for cards and previews
-		banner: string; // Used for project detail page header
-		photos: string[]; // Gallery of project screenshots/photos
+		banner: string; // Used for issue detail page header
+		photos: string[]; // Gallery of issue screenshots/photos
 	};
 	abilities: Ability[];
 	links: {
@@ -18,5 +18,5 @@ export interface Project {
 	};
 	startDate: string; // YYYY-MM-DD
 	endDate?: string; // YYYY-MM-DD or undefined if ongoing/single release
-	linkedAffiliationId?: AffiliationId; // ID of the Affiliation this project belongs to
+	linkedAffiliationId?: AffiliationId; // ID of the Affiliation this issue belongs to
 }

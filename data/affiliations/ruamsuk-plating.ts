@@ -23,7 +23,7 @@ export const ruamsukPlating: Affiliation = {
 	id: "ruamsuk-plating",
 	name: "RUAMSUK PLATING LIMITED PARTNERSHIP",
 	logo: "/logo/RSTROPHY.png",
-	location: Location.BangkokThailand,
+	location: Location.PathumthaniThailand,
 	type: AffiliationEntityType.Company,
 };
 

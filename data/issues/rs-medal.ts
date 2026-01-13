@@ -1,16 +1,16 @@
 import { AffiliationId } from "@/enum";
-import type { Project } from "@/interface";
+import type { Issue } from "@/interface";
 import { googleAds, nextjs, tailwindcss, vercel } from "../abilities";
 
-export const rsMedal: Project = {
+export const rsMedal: Issue = {
 	id: "rs-medal",
 	title: "RS Medal",
 	description:
 		"A medal showcase web application built to display awards and accolades in an elegant layout.",
 	images: {
-		thumbnail: "/project/RSMEDAL.png",
-		banner: "/project/RSMEDAL.png",
-		photos: ["/project/RSMEDAL.png"],
+		thumbnail: "/issue/RSMEDAL.png",
+		banner: "/issue/RSMEDAL.png",
+		photos: ["/issue/RSMEDAL.png"],
 	},
 	abilities: [nextjs, vercel, tailwindcss, googleAds],
 	links: {

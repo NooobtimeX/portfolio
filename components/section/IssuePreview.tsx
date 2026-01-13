@@ -1,7 +1,7 @@
 "use client";
 
 import IssueCard from "@/components/issue/IssueCard";
-import { projectsData } from "@/data/projects";
+import { issuesData } from "@/data/issues";
 import { motion } from "framer-motion";
 
 export default function IssuePreview() {
@@ -41,10 +41,10 @@ export default function IssuePreview() {
 				</motion.div>
 
 				<div className="space-y-24 mb-12">
-					{projectsData.map((project, index) => (
+					{issuesData.map((issue, index) => (
 						<IssueCard
-							key={project.id}
-							project={project}
+							key={issue.id}
+							issue={issue}
 							index={index}
 							variant="featured"
 							showAllAbilities={false}

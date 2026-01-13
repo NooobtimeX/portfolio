@@ -12,7 +12,7 @@ export const jasmineTechnologySolution: Affiliation = {
 	id: "jasmine-technology-solution",
 	name: "Jasmine Technology Solution",
 	logo: "/logo/JTS.png",
-	location: Location.BangkokThailand,
+	location: Location.NonthaburiThailand,
 	type: AffiliationEntityType.Company,
 };
 

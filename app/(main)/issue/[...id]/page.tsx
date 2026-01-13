@@ -3,7 +3,7 @@
 import ImageGallery from "@/components/issue/ImageGallery";
 import IssueCard from "@/components/issue/IssueCard";
 import { Button } from "@/components/ui/button";
-import { projectsData } from "@/data/projects";
+import { issuesData } from "@/data/issues";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { ArrowLeftIcon, ExternalLinkIcon, GithubIcon } from "lucide-react";
@@ -20,10 +20,10 @@ interface IssueDetailPageProps {
 
 const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 	const resolvedParams = React.use(params);
-	const projectId = resolvedParams.id?.[0];
-	const project = projectsData.find((p) => p.id === projectId);
+	const issueId = resolvedParams.id?.[0];
+	const issue = issuesData.find((p) => p.id === issueId);
 
-	if (!project) {
+	if (!issue) {
 		notFound();
 	}
 
@@ -67,13 +67,13 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 							<div className="relative border-4 border-white bg-black shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:rotate-0 transition-all duration-300">
 								{/* Badge */}
 								<div className="absolute top-0 right-0 z-20 bg-primary text-white font-[Bangers] text-xl px-4 py-2 border-l-4 border-b-4 border-black">
-									ISSUE #{projectId?.toUpperCase().slice(0, 3)}
+									ISSUE #{issueId?.toUpperCase().slice(0, 3)}
 								</div>
 
 								<div className="relative aspect-[16/9] overflow-hidden">
 									<Image
-										src={project.images.banner}
-										alt={project.title}
+										src={issue.images.banner}
+										alt={issue.title}
 										fill
 										className="object-cover"
 									/>
@@ -92,25 +92,25 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 								<div className="absolute -top-3 -left-3 w-6 h-6 bg-primary border-2 border-black z-20 transform rotate-45"></div>
 
 								<h1 className="text-5xl md:text-6xl lg:text-7xl font-[Bangers] uppercase leading-[0.9] text-white tracking-wide break-words">
-									{project.title}
+									{issue.title}
 								</h1>
 
 								<div className="w-full h-1 bg-white/20"></div>
 
 								<p className="text-xl text-muted-foreground leading-relaxed font-[Inter]">
-									{project.description}
+									{issue.description}
 								</p>
 
 								{/* Action Buttons */}
 								<div className="flex flex-col sm:flex-row gap-4 pt-4">
-									{project.links.live && (
+									{issue.links.live && (
 										<Button
 											asChild
 											size="lg"
 											className="comic-button bg-primary text-white border-2 border-white px-8 h-14 text-xl shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
 										>
 											<Link
-												href={project.links.live}
+												href={issue.links.live}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center gap-2"
@@ -120,7 +120,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 											</Link>
 										</Button>
 									)}
-									{project.links.github && (
+									{issue.links.github && (
 										<Button
 											variant="outline"
 											asChild
@@ -128,7 +128,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 											className="comic-button bg-black text-white border-2 border-white px-8 h-14 text-xl hover:bg-zinc-900 shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
 										>
 											<Link
-												href={project.links.github}
+												href={issue.links.github}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center gap-2"
@@ -163,15 +163,14 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									</h2>
 								</div>
 								<div className="space-y-6">
-									{project.images.photos &&
-										project.images.photos.length > 0 && (
-											<div className="space-y-4">
-												<ImageGallery
-													images={project.images.photos}
-													title={project.title}
-												/>
-											</div>
-										)}
+									{issue.images.photos && issue.images.photos.length > 0 && (
+										<div className="space-y-4">
+											<ImageGallery
+												images={issue.images.photos}
+												title={issue.title}
+											/>
+										</div>
+									)}
 								</div>
 							</div>
 						</motion.div>
@@ -188,7 +187,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									ARSENAL
 								</h2>
 								<div className="space-y-4">
-									{project.abilities.map((ability, index) => (
+									{issue.abilities.map((ability, index) => (
 										<motion.div
 											key={index}
 											initial={{ opacity: 0, x: 20 }}
@@ -242,13 +241,13 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 					</motion.div>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{projectsData
-							.filter((p) => p.id !== project.id)
+						{issuesData
+							.filter((p) => p.id !== issue.id)
 							.slice(0, 3)
-							.map((relatedProject, index) => (
+							.map((relatedIssue, index) => (
 								<IssueCard
-									key={relatedProject.id}
-									project={relatedProject}
+									key={relatedIssue.id}
+									issue={relatedIssue}
 									index={index}
 									variant="grid"
 									showAllAbilities={false}

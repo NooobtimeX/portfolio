@@ -1,12 +1,12 @@
 import { Ability } from "./Ability";
 import { AffiliationItem } from "./AffiliationItem";
+import { Issue } from "./Issue";
 import { PersonalData } from "./PersonalData";
-import { Project } from "./Project";
 
 // Data container interface
 export interface PortfolioData {
 	personal: PersonalData;
-	projects: Project[];
+	issues: Issue[];
 	abilities: Ability[];
 	affiliations: AffiliationItem[];
 }
