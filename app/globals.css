@@ -79,6 +79,26 @@
 		scrollbar-width: none;
 	}
 
+	/* Marvel Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #0a0a0a;
+		border-left: 2px solid #333;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: hsl(355 85% 60%);
+		border: 2px solid #0a0a0a;
+		border-radius: 0;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: hsl(355 100% 65%);
+	}
+
 	.line-clamp-2 {
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
