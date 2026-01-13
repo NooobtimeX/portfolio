@@ -50,7 +50,7 @@
 		"date-fns": "^4.1.0",
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-react": "^8.6.0",
-		"framer-motion": "^12.24.0",
+		"framer-motion": "^12.26.1",
 		"heroicons": "^2.2.0",
 		"input-otp": "^1.4.2",
 		"lucide-react": "^0.476.0",
@@ -61,9 +61,9 @@
 		"react": "^19.2.3",
 		"react-day-picker": "^9.13.0",
 		"react-dom": "^19.2.3",
-		"react-hook-form": "^7.70.0",
+		"react-hook-form": "^7.71.0",
 		"react-icons": "^5.5.0",
-		"react-resizable-panels": "^4.2.2",
+		"react-resizable-panels": "^4.4.0",
 		"recharts": "2.15.4",
 		"sonner": "^2.0.7",
 		"tailwind-merge": "^3.4.0",
@@ -74,8 +74,8 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.3.3",
 		"@next/eslint-plugin-next": "^16.1.1",
-		"@types/node": "^20.19.27",
-		"@types/react": "^19.2.7",
+		"@types/node": "^20.19.28",
+		"@types/react": "^19.2.8",
 		"@types/react-dom": "^19.2.3",
 		"autoprefixer": "^10.4.23",
 		"eslint": "^9.39.2",
@@ -87,6 +87,6 @@
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.52.0"
+		"typescript-eslint": "^8.53.0"
 	}
 }
