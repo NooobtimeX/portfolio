@@ -1,6 +1,7 @@
 "use client";
 
 import ComicSeparator from "@/components/ComicSeparator";
+import ComicPop from "@/components/motion/ComicPop";
 import AbilityPreview from "@/components/section/AbilityPreview";
 import IssuePreview from "@/components/section/IssuePreview";
 import TimelinePreview from "@/components/section/TimelinePreview";
@@ -53,22 +54,15 @@ const Home: React.FC = () => {
 						{/* LEFT: IMPACT TEXT */}
 						<div className="relative z-20 order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left">
 							{/* Speech Bubble / Intro */}
-							<motion.div
-								initial={{ scale: 0, opacity: 0 }}
-								animate={{ scale: 1, opacity: 1 }}
-								transition={{
-									type: "spring",
-									stiffness: 260,
-									damping: 20,
-									delay: 0.2,
-								}}
+							<ComicPop
+								delay={0.2}
 								className="relative mb-6 self-start hidden lg:block"
 							>
 								<div className="bg-white text-black font-[Bangers] text-xl px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] rounded-[50%_20%_60%_30%]">
 									THE NEW HERO IN TECH!
 								</div>
 								<div className="absolute -bottom-2 left-6 w-4 h-4 bg-white border-b-4 border-r-4 border-black transform rotate-45"></div>
-							</motion.div>
+							</ComicPop>
 
 							{/* Main Title Stack */}
 							<div className="relativ space-y-2 mb-8 transform -rotate-2">
@@ -111,10 +105,8 @@ const Home: React.FC = () => {
 							</motion.p>
 
 							{/* Action Buttons */}
-							<motion.div
-								initial={{ y: 50, opacity: 0 }}
-								animate={{ y: 0, opacity: 1 }}
-								transition={{ delay: 0.6 }}
+							<ComicPop
+								delay={0.6}
 								className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
 							>
 								<Button
@@ -131,7 +123,7 @@ const Home: React.FC = () => {
 								>
 									<Link href="https://github.com/NooobtimeX">GITHUB BASE</Link>
 								</Button>
-							</motion.div>
+							</ComicPop>
 						</div>
 
 						{/* RIGHT: HERO AVATAR */}

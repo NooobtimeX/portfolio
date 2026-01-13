@@ -16,7 +16,7 @@ const ComicPop: React.FC<ComicPopProps> = ({
 }) => {
 	return (
 		<motion.div
-			initial={{ scale: 0, opacity: 0 }}
+			initial={{ scale: 0.8, opacity: 0 }}
 			animate={{ scale: 1, opacity: 1 }}
 			transition={{
 				type: "spring",
