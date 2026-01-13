@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap");
 @import "tailwindcss";
 @plugin 'tailwindcss-animate';
 
@@ -224,7 +223,7 @@
 	/* Utility for buttons to make them look like comic actions */
 	.comic-button {
 		@apply font-bold tracking-wider uppercase transition-transform active:scale-95;
-		font-family: "Bangers", cursive;
+		font-family: var(--font-bangers), cursive;
 	}
 
 	/* Smooth scrolling */
@@ -315,7 +314,7 @@
 	h4,
 	h5,
 	h6 {
-		font-family: "Bangers", system-ui, cursive;
+		font-family: var(--font-bangers), system-ui, cursive;
 		letter-spacing: 0.05em;
 		@apply font-normal uppercase;
 		/* Bangers is naturally bold */
@@ -340,7 +339,7 @@
 	div,
 	li,
 	a {
-		font-family: "Inter", sans-serif;
+		font-family: var(--font-inter), sans-serif;
 	}
 
 	/* Button Base overrides */

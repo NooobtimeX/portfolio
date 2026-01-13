@@ -144,7 +144,7 @@ const Home: React.FC = () => {
 											alt={personalData.name}
 											className="object-cover scale-110 hover:scale-100 transition-transform duration-700"
 										/>
-										<AvatarFallback className="text-9xl font-[Bangers] bg-zinc-900 text-primary">
+										<AvatarFallback className="text-9xl font-[Bangers] bg-card text-primary">
 											{personalData.name.charAt(0)}
 										</AvatarFallback>
 									</Avatar>
