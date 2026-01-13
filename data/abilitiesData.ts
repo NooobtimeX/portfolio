@@ -1,4 +1,4 @@
-import type { SkillGroup } from "@/interface";
+import type { AbilityGroup } from "@/interface";
 import {
 	artificialIntelligence,
 	css,
@@ -27,14 +27,14 @@ import {
 	vercel,
 	woocommerce,
 	wordpress,
-} from "./technologies";
+} from "./abilities";
 
-export const skillsData: SkillGroup[] = [
+export const abilitiesData: AbilityGroup[] = [
 	{
 		category: "Frontend & UI",
-		description: "Modern web development and user interface technologies",
+		description: "Modern web development and user interface abilities",
 		icon: "material-symbols:laptop-chromebook",
-		skills: [
+		abilities: [
 			nextjs,
 			react,
 			typescript,
@@ -50,19 +50,19 @@ export const skillsData: SkillGroup[] = [
 		category: "Backend",
 		description: "Server-side development and data management",
 		icon: "material-symbols:database",
-		skills: [nodejs, nestjs, postgresql, mongodb, prisma, nats, redis],
+		abilities: [nodejs, nestjs, postgresql, mongodb, prisma, nats, redis],
 	},
 	{
 		category: "DevOps & Cloud",
 		description: "Deployment, cloud services, and development workflow",
 		icon: "material-symbols:cloud",
-		skills: [vercel, railway, firebase, docker, github],
+		abilities: [vercel, railway, firebase, docker, github],
 	},
 	{
 		category: "Marketing & Tools",
 		description: "Digital marketing, analytics, and AI tools",
 		icon: "material-symbols:trending-up",
-		skills: [
+		abilities: [
 			seo,
 			googleAnalytics,
 			googleAds,

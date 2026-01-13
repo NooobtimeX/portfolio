@@ -13,18 +13,18 @@ interface IssueCardProps {
 	project: Project;
 	index: number;
 	variant?: "featured" | "grid";
-	showAllTechnologies?: boolean;
+	showAllAbilities?: boolean;
 }
 
 const IssueCard: React.FC<IssueCardProps> = ({
 	project,
 	index,
 	variant = "grid",
-	showAllTechnologies = false,
+	showAllAbilities = false,
 }) => {
-	const technologiesToShow = showAllTechnologies
-		? project.technologies
-		: project.technologies.slice(0, 3);
+	const abilitiesToShow = showAllAbilities
+		? project.abilities
+		: project.abilities.slice(0, 3);
 
 	// Comic Issue Number based on index or ID logic
 	const issueNumber = `#${String(index + 1).padStart(3, "0")}`;
@@ -73,21 +73,21 @@ const IssueCard: React.FC<IssueCardProps> = ({
 								</p>
 
 								<div className="flex flex-wrap gap-2 mb-8">
-									{technologiesToShow.map((tech, idx) => (
+									{abilitiesToShow.map((ability, idx) => (
 										<Badge
 											key={idx}
 											variant="outline"
 											className="font-bold border-white/30 text-white/80 rounded-none uppercase text-xs px-2 py-1"
 										>
-											{tech.name}
+											{ability.name}
 										</Badge>
 									))}
-									{!showAllTechnologies && project.technologies.length > 3 && (
+									{!showAllAbilities && project.abilities.length > 3 && (
 										<Badge
 											variant="outline"
 											className="font-bold border-white/30 text-white/80 rounded-none uppercase text-xs px-2 py-1"
 										>
-											+{project.technologies.length - 3} MORE
+											+{project.abilities.length - 3} MORE
 										</Badge>
 									)}
 								</div>
@@ -166,12 +166,12 @@ const IssueCard: React.FC<IssueCardProps> = ({
 
 					<div className="space-y-4 mt-auto">
 						<div className="flex flex-wrap gap-2">
-							{technologiesToShow.slice(0, 3).map((tech, idx) => (
+							{abilitiesToShow.slice(0, 3).map((ability, idx) => (
 								<span
 									key={idx}
 									className="text-[10px] font-bold uppercase font-[Inter] text-white/60 bg-white/5 px-2 py-1 border border-white/10"
 								>
-									{tech.name}
+									{ability.name}
 								</span>
 							))}
 						</div>

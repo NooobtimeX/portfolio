@@ -1,4 +1,4 @@
-export enum SkillLevel {
+export enum AbilityLevel {
 	Beginner = "Beginner",
 	Intermediate = "Intermediate",
 	Advanced = "Advanced",

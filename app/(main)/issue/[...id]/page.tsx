@@ -176,7 +176,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 							</div>
 						</motion.div>
 
-						{/* Technologies - Right Panel */}
+						{/* Abilities - Right Panel */}
 						<motion.div
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -188,7 +188,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									ARSENAL
 								</h2>
 								<div className="space-y-4">
-									{project.technologies.map((tech, index) => (
+									{project.abilities.map((ability, index) => (
 										<motion.div
 											key={index}
 											initial={{ opacity: 0, x: 20 }}
@@ -196,14 +196,17 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 											transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
 											className="flex items-center gap-4 p-3 border-2 border-white/10 hover:border-primary hover:bg-primary/10 transition-colors bg-black"
 										>
-											<Icon icon={tech.icon} className="w-8 h-8 text-primary" />
+											<Icon
+												icon={ability.icon}
+												className="w-8 h-8 text-primary"
+											/>
 											<div>
 												<h4 className="font-[Bangers] text-xl text-white tracking-wide uppercase">
-													{tech.name}
+													{ability.name}
 												</h4>
-												{tech.category && (
+												{ability.category && (
 													<p className="text-xs text-muted-foreground font-[Inter] uppercase font-bold tracking-wider">
-														{tech.category}
+														{ability.category}
 													</p>
 												)}
 											</div>
@@ -248,7 +251,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									project={relatedProject}
 									index={index}
 									variant="grid"
-									showAllTechnologies={false}
+									showAllAbilities={false}
 								/>
 							))}
 					</div>

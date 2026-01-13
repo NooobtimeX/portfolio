@@ -6,13 +6,7 @@ import {
 	Position,
 } from "@/enum";
 import type { Affiliation, AffiliationItem } from "@/interface";
-import {
-	nextjs,
-	nodejs,
-	postgresql,
-	prisma,
-	typescript,
-} from "../technologies";
+import { nextjs, nodejs, postgresql, prisma, typescript } from "../abilities";
 
 export const freelanceBlitzwerk: Affiliation = {
 	id: "freelance-blitzwerk",
@@ -28,7 +22,7 @@ export const freelanceBlitzwerkAffiliation: AffiliationItem = {
 	position: Position.FullStackDeveloper,
 	description:
 		"Collaborative freelance work developing modern web applications for various clients.",
-	technologies: [nextjs, typescript, nodejs, postgresql, prisma],
+	abilities: [nextjs, typescript, nodejs, postgresql, prisma],
 	type: AffiliationType.Freelance,
 	startDate: "2025-01-01",
 	endDate: "2025-12-31",

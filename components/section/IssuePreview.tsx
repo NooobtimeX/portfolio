@@ -47,7 +47,7 @@ export default function IssuePreview() {
 							project={project}
 							index={index}
 							variant="featured"
-							showAllTechnologies={false}
+							showAllAbilities={false}
 						/>
 					))}
 				</div>

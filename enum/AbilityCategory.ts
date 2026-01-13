@@ -1,4 +1,4 @@
-export enum SkillCategory {
+export enum AbilityCategory {
 	Frontend = "Frontend",
 	Backend = "Backend",
 	Database = "Database",

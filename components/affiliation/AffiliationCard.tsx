@@ -88,18 +88,18 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 
 					<div className="mt-auto">
 						<div className="flex flex-wrap gap-1.5">
-							{item.technologies?.slice(0, 5).map((tech, idx) => (
+							{item.abilities?.slice(0, 5).map((ability, idx) => (
 								<Badge
 									key={idx}
 									variant="outline"
 									className="text-[9px] uppercase font-bold border-white/20 text-white/60 rounded-none px-1.5 py-0"
 								>
-									{tech.name}
+									{ability.name}
 								</Badge>
 							))}
-							{item.technologies && item.technologies.length > 5 && (
+							{item.abilities && item.abilities.length > 5 && (
 								<span className="text-[10px] text-zinc-500 font-bold">
-									+{item.technologies.length - 5}
+									+{item.abilities.length - 5}
 								</span>
 							)}
 						</div>

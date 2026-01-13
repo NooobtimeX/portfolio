@@ -148,15 +148,15 @@ export default function AffiliationPreview() {
 												</span>
 											</div>
 
-											{/* Tech Stack */}
+											{/* Ability Stack */}
 											<div className="flex flex-wrap gap-2">
-												{affiliation.technologies.map((tech, techIndex) => (
+												{affiliation.abilities.map((ability, abilityIndex) => (
 													<Badge
-														key={techIndex}
+														key={abilityIndex}
 														variant="outline"
 														className="text-[10px] uppercase font-bold border-white/40 text-white/80 rounded-none hover:bg-white hover:text-black transition-colors"
 													>
-														{tech.name}
+														{ability.name}
 													</Badge>
 												))}
 											</div>

@@ -1,5 +1,5 @@
 import { AffiliationId } from "@/enum";
-import { Technology } from "./Technology";
+import { Ability } from "./Ability";
 
 // Project interface
 export interface Project {
@@ -11,7 +11,7 @@ export interface Project {
 		banner: string; // Used for project detail page header
 		photos: string[]; // Gallery of project screenshots/photos
 	};
-	technologies: Technology[];
+	abilities: Ability[];
 	links: {
 		github?: string;
 		live?: string;

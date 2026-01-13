@@ -1,6 +1,6 @@
 import { AffiliationId } from "@/enum";
 import type { Project } from "@/interface";
-import { googleAds, nextjs, tailwindcss, vercel } from "../technologies";
+import { googleAds, nextjs, tailwindcss, vercel } from "../abilities";
 
 export const rsMedal: Project = {
 	id: "rs-medal",
@@ -12,7 +12,7 @@ export const rsMedal: Project = {
 		banner: "/project/RSMEDAL.png",
 		photos: ["/project/RSMEDAL.png"],
 	},
-	technologies: [nextjs, vercel, tailwindcss, googleAds],
+	abilities: [nextjs, vercel, tailwindcss, googleAds],
 	links: {
 		live: "https://www.rs-medal.com",
 	},

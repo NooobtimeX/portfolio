@@ -1,5 +1,5 @@
 import type { Project } from "@/interface";
-import { nextjs, tailwindcss, vercel } from "../technologies";
+import { nextjs, tailwindcss, vercel } from "../abilities";
 
 export const prettierConfig: Project = {
 	id: "prettier-config",
@@ -11,7 +11,7 @@ export const prettierConfig: Project = {
 		banner: "/project/prettier.png",
 		photos: ["/project/prettier.png"],
 	},
-	technologies: [nextjs, vercel, tailwindcss],
+	abilities: [nextjs, vercel, tailwindcss],
 	links: {
 		live: "https://prettier-config-generator.com/",
 	},

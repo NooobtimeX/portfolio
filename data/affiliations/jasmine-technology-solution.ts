@@ -6,7 +6,7 @@ import {
 	Position,
 } from "@/enum";
 import type { Affiliation, AffiliationItem } from "@/interface";
-import { mongodb, nestjs, nextjs } from "../technologies";
+import { mongodb, nestjs, nextjs } from "../abilities";
 
 export const jasmineTechnologySolution: Affiliation = {
 	id: "jasmine-technology-solution",
@@ -22,7 +22,7 @@ export const jasmineTechnologySolutionAffiliation: AffiliationItem = {
 	position: Position.Developer,
 	description:
 		"Technology consulting company specializing in enterprise software solutions.",
-	technologies: [nextjs, nestjs, mongodb],
+	abilities: [nextjs, nestjs, mongodb],
 	type: AffiliationType.Work,
 	startDate: "2025-07-16",
 };

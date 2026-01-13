@@ -14,14 +14,14 @@ import {
 	tailwindcss,
 	typescript,
 	vercel,
-} from "@/data/technologies";
+} from "@/data/abilities";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function AbilityPreview() {
-	// Show highlighted skills
-	const highlightedSkills = [
+	// Show highlighted abilities
+	const highlightedAbilities = [
 		nextjs,
 		react,
 		typescript,
@@ -58,11 +58,11 @@ export default function AbilityPreview() {
 					<div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/80 z-[-1] rounded-full"></div>
 				</motion.div>
 
-				{/* Skills Grid */}
+				{/* Abilities Grid */}
 				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
-					{highlightedSkills.map((skill, index) => (
+					{highlightedAbilities.map((ability, index) => (
 						<motion.div
-							key={skill.name}
+							key={ability.name}
 							initial={{ opacity: 0, scale: 0.8 }}
 							whileInView={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -71,11 +71,11 @@ export default function AbilityPreview() {
 							className="bg-card border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col items-center gap-4 group"
 						>
 							<div className="w-16 h-16 flex items-center justify-center bg-primary text-white border-2 border-black rounded-full shadow-[2px_2px_0px_0px_black] group-hover:rotate-12 transition-transform duration-300">
-								<Icon icon={skill.icon} className="w-8 h-8" />
+								<Icon icon={ability.icon} className="w-8 h-8" />
 							</div>
 							<div className="text-center">
 								<h3 className="text-xl font-[Bangers] uppercase text-white tracking-wide mb-1">
-									{skill.name}
+									{ability.name}
 								</h3>
 								<div className="h-1 w-12 bg-primary mx-auto"></div>
 							</div>

@@ -44,7 +44,7 @@ const IssuePage: React.FC = () => {
 								project={project}
 								index={index}
 								variant="grid"
-								showAllTechnologies={false}
+								showAllAbilities={false}
 							/>
 						))}
 					</div>

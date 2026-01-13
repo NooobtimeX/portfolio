@@ -17,7 +17,7 @@ import {
 	seo,
 	woocommerce,
 	wordpress,
-} from "../technologies";
+} from "../abilities";
 
 export const ruamsukPlating: Affiliation = {
 	id: "ruamsuk-plating",
@@ -33,7 +33,7 @@ export const ruamsukPlatingAdvisor: AffiliationItem = {
 	position: Position.Advisor,
 	description:
 		"Providing strategic technology advice and overseeing IT infrastructure upgrades.",
-	technologies: [
+	abilities: [
 		onlineMarketing,
 		artificialIntelligence,
 		seo,
@@ -49,7 +49,7 @@ export const ruamsukPlatingSenior: AffiliationItem = {
 	position: Position.SeniorITSupport,
 	description:
 		"Leading trophy and award manufacturing company specializing in custom plaques and medals.",
-	technologies: [
+	abilities: [
 		onlineMarketing,
 		artificialIntelligence,
 		seo,
@@ -66,7 +66,7 @@ export const ruamsukPlatingJunior: AffiliationItem = {
 	position: Position.JuniorITSupport,
 	description:
 		"Developing WordPress websites and managing digital marketing campaigns for a leading trophy and award manufacturing company.",
-	technologies: [
+	abilities: [
 		wordpress,
 		woocommerce,
 		css,

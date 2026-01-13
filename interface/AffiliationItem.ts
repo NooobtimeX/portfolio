@@ -1,6 +1,6 @@
 import { AffiliationType, Position } from "@/enum";
+import { Ability } from "./Ability";
 import { Affiliation } from "./Affiliation";
-import { Technology } from "./Technology";
 
 // AffiliationItem interface
 export interface AffiliationItem {
@@ -8,7 +8,7 @@ export interface AffiliationItem {
 	affiliation: Affiliation;
 	position: Position;
 	description: string;
-	technologies: Technology[];
+	abilities: Ability[];
 	type: AffiliationType;
 	startDate: string;
 	endDate?: string;

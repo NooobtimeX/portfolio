@@ -18,7 +18,7 @@ export const born: AffiliationItem = {
 	affiliation: privateLife,
 	position: Position.NewBorn,
 	description: "The beginning of the journey.",
-	technologies: [],
+	abilities: [],
 	type: AffiliationType.LifeEvent,
 	startDate: "1999-01-01",
 };

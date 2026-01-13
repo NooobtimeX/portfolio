@@ -9,7 +9,7 @@ import {
 	redis,
 	shadcnui,
 	typescript,
-} from "../technologies";
+} from "../abilities";
 
 export const looklookPet: Project = {
 	id: "looklook-pet",
@@ -31,7 +31,7 @@ export const looklookPet: Project = {
 			"/project/looklook-pet/8.webp",
 		],
 	},
-	technologies: [
+	abilities: [
 		nextjs,
 		shadcnui,
 		nestjs,

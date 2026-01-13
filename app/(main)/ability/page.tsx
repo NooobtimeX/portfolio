@@ -1,6 +1,6 @@
 "use client";
 
-import { skillsData } from "@/data/skills";
+import { abilitiesData } from "@/data/abilitiesData";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import React from "react";
@@ -31,11 +31,11 @@ const AbilityPage: React.FC = () => {
 					</p>
 				</motion.div>
 
-				{/* Skills organized by category */}
+				{/* Abilities organized by category */}
 				<div className="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
-					{skillsData.map((skillGroup, groupIndex) => (
+					{abilitiesData.map((abilityGroup, groupIndex) => (
 						<motion.div
-							key={skillGroup.category}
+							key={abilityGroup.category}
 							initial={{ opacity: 0, x: groupIndex % 2 === 0 ? -50 : 50 }}
 							whileInView={{ opacity: 1, x: 0 }}
 							transition={{ duration: 0.6, delay: groupIndex * 0.1 }}
@@ -49,11 +49,11 @@ const AbilityPage: React.FC = () => {
 									<div className="absolute -top-4 -left-4 w-6 h-6 bg-white border-2 border-black transform rotate-45 z-20"></div>
 
 									<div className="w-16 h-16 flex items-center justify-center bg-primary text-white border-4 border-black shadow-[4px_4px_0px_0px_black] transform -rotate-3">
-										<Icon icon={skillGroup.icon} className="w-8 h-8" />
+										<Icon icon={abilityGroup.icon} className="w-8 h-8" />
 									</div>
 									<div className="flex-1">
 										<h3 className="text-3xl md:text-4xl font-[Bangers] uppercase text-white tracking-wide leading-none">
-											{skillGroup.category}
+											{abilityGroup.category}
 										</h3>
 										<div className="h-2 w-full bg-white/10 mt-2 rounded-full overflow-hidden">
 											<div className="h-full bg-primary w-3/4 animate-pulse"></div>
@@ -61,20 +61,20 @@ const AbilityPage: React.FC = () => {
 									</div>
 								</div>
 
-								{/* Skills Grid */}
+								{/* Abilities Grid */}
 								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-									{skillGroup.skills.map((skill) => (
+									{abilityGroup.abilities.map((ability) => (
 										<motion.div
-											key={skill.name}
+											key={ability.name}
 											whileHover={{ scale: 1.05 }}
 											className="flex flex-col items-center justify-center gap-2 p-3 border-2 border-white/10 hover:border-primary hover:bg-primary/20 transition-all cursor-default bg-black/50"
 										>
 											<Icon
-												icon={skill.icon}
+												icon={ability.icon}
 												className="w-8 h-8 text-primary mb-1"
 											/>
 											<span className="font-[Bangers] text-sm md:text-base text-white tracking-wide uppercase text-center line-clamp-1">
-												{skill.name}
+												{ability.name}
 											</span>
 										</motion.div>
 									))}
