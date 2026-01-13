@@ -6,6 +6,7 @@ import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface AffiliationCardProps {
@@ -86,7 +87,7 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 						</p>
 					)}
 
-					<div className="mt-auto">
+					<div className="mt-auto space-y-4">
 						<div className="flex flex-wrap gap-1.5">
 							{item.abilities?.slice(0, 5).map((ability, idx) => (
 								<Badge
@@ -102,6 +103,14 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 									+{item.abilities.length - 5}
 								</span>
 							)}
+						</div>
+
+						<div className="pt-2">
+							<Link href={`/affiliation/${item.id}`} className="block w-full">
+								<button className="w-full bg-white text-black font-[Bangers] py-2 px-4 border-2 border-black uppercase text-lg tracking-wider hover:bg-primary hover:text-white hover:shadow-[4px_4px_0px_0px_white] transition-all transform hover:-translate-y-1 cursor-pointer">
+									MISSION BRIEF
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>
