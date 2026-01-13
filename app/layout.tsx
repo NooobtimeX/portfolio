@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 	abstract:
 		"Portfolio | Wongsaphat Puangsorn - Thammasat University Student and Software Developer from Thailand",
 	description:
-		"Portfolio | Wongsaphat Puangsorn - Specializing in modern web development, I turn ideas into seamless digital experiences by building robust web applications using the latest technologies.",
+		"Portfolio | Wongsaphat Puangsorn - Specializing in modern web development, I turn ideas into seamless digital affiliations by building robust web applications using the latest technologies.",
 	keywords:
 		"Wongsaphat Puangsorn, NooobtimeX, Thammasat University, Software Developer, Thailand, Portfolio, Resume, Frontend, CV",
 	icons: "/favicon.ico",

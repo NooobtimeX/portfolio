@@ -1,7 +1,7 @@
 // Export all enums from their respective files
-export { Company } from "./Company";
-export { ExperienceId } from "./ExperienceId";
-export { ExperienceType } from "./ExperienceType";
+export { AffiliationEntityType } from "./AffiliationEntityType";
+export { AffiliationId } from "./AffiliationId";
+export { AffiliationType } from "./AffiliationType";
 export { Location } from "./Location";
 export { Position } from "./Position";
 export { SkillCategory } from "./SkillCategory";

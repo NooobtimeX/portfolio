@@ -1,5 +1,6 @@
 // Export all interfaces from their respective files
-export type { Experience } from "./Experience";
+export type { Affiliation } from "./Affiliation";
+export type { AffiliationItem } from "./AffiliationItem";
 export type { IconInfo } from "./IconInfo";
 export type { IconObject, default as MenuItem } from "./menuItem";
 export type { PersonalData } from "./PersonalData";

@@ -6,4 +6,6 @@ export enum Position {
 	SeniorITSupport = "Senior IT Support",
 	JuniorITSupport = "Junior IT Support",
 	Advisor = "Advisor",
+	NewBorn = "Newborn",
+	Student = "Student",
 }

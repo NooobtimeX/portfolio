@@ -45,10 +45,10 @@ const NavigationFooter = () => {
 						</Link>
 						<span className="text-white/20">|</span>
 						<Link
-							href="/timeline"
+							href="/affiliation"
 							className="hover:text-primary transition-colors hover:underline decoration-wavy underline-offset-4"
 						>
-							Timeline
+							Affiliation
 						</Link>
 					</div>
 

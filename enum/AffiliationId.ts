@@ -1,4 +1,4 @@
-export enum ExperienceId {
+export enum AffiliationId {
 	JasmineTechnologySolution = "jasmine-tech",
 	FreelanceBlitzwerk = "freelance-blitzwerk",
 	RuamsukPlatingSenior = "ruamsuk-senior",

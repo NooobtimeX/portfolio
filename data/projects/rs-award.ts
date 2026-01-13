@@ -1,4 +1,4 @@
-import { ExperienceId } from "@/enum";
+import { AffiliationId } from "@/enum";
 import type { Project } from "@/interface";
 import { googleAds, nextjs, tailwindcss, vercel } from "../technologies";
 
@@ -17,5 +17,5 @@ export const rsAward: Project = {
 		live: "https://www.rs-award.com",
 	},
 	startDate: "2022-03-01",
-	linkedExperienceId: ExperienceId.RuamsukPlatingJunior,
+	linkedAffiliationId: AffiliationId.RuamsukPlatingJunior,
 };

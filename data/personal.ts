@@ -6,12 +6,12 @@ export const personalData: PersonalData = {
 	name: "WONGSAPHAT PUANGSORN",
 	title: "Full Stack Developer",
 	tagline:
-		"Specializing in modern web development, I turn ideas into seamless digital experiences by building robust web applications using the latest technologies.",
+		"Specializing in modern web development, I turn ideas into seamless digital affiliations by building robust web applications using the latest technologies.",
 	avatar: "/profile/NooobtimeX.webp",
 	about: {
 		bio: "I am a passionate full-stack developer with expertise in modern web technologies. I love creating beautiful, functional, and user-friendly applications that solve real-world problems.",
 		highlights: [
-			"3+ years of web development experience",
+			"3+ years of web development affiliation",
 			"Expert in React, Next.js, and Node.js",
 			"Strong background in UI/UX design",
 			"Passionate about clean code and best practices",

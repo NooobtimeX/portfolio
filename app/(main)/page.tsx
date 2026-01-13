@@ -3,8 +3,8 @@
 import ComicSeparator from "@/components/ComicSeparator";
 import ComicPop from "@/components/motion/ComicPop";
 import AbilityPreview from "@/components/section/AbilityPreview";
+import AffiliationPreview from "@/components/section/AffiliationPreview";
 import IssuePreview from "@/components/section/IssuePreview";
-import TimelinePreview from "@/components/section/TimelinePreview";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { personalData } from "@/data/personal";
@@ -165,7 +165,7 @@ const Home: React.FC = () => {
 			<ComicSeparator />
 			<IssuePreview />
 			<ComicSeparator />
-			<TimelinePreview />
+			<AffiliationPreview />
 		</div>
 	);
 };

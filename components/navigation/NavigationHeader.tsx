@@ -25,12 +25,12 @@ export default function NavigationHeader() {
 			},
 		},
 		{
-			title: "TIMELINE",
-			href: "/timeline",
+			title: "AFFILIATIONS",
+			href: "/affiliation",
 			icon: {
-				name: "History",
-				icon: "material-symbols:history-edu",
-				description: "The Complete Saga",
+				name: "Business",
+				icon: "material-symbols:domain",
+				description: "Companies & Career",
 			},
 		},
 	];

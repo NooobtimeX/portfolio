@@ -1,5 +1,5 @@
 // Export all data from their respective files
-export { experienceData } from "./experience";
+export { affiliationData } from "./affiliationData";
 export { personalData } from "./personal";
 export { projectsData } from "./projects";
 export { skillsData } from "./skills";

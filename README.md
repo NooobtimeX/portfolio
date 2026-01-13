@@ -13,7 +13,7 @@
 
 <p align="center">
   <b>A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS.</b><br>
-  Showcases skills, projects, experience, and contact information for Wongsaphat Puangsorn, a software developer from Thailand.
+  Showcases skills, projects, affiliation, and contact information for Wongsaphat Puangsorn, a software developer from Thailand.
 </p>
 
 ---
@@ -21,7 +21,7 @@
 ## ✨ Features
 
 - 🖥️ **Modern UI**: Built with React, Next.js, and Tailwind CSS
-- 📄 **Sections**: Hero, Skills, Projects, Experience, Contact
+- 📄 **Sections**: Hero, Skills, Projects, Affiliation, Contact
 - 📱 **Responsive Navigation**: Desktop, tablet, and mobile headers
 - 🌗 **Theme Support**: Light/dark mode via Radix UI and next-themes
 - 🎬 **Animated Transitions**: Framer Motion and custom SectionTransition

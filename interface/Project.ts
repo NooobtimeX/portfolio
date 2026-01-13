@@ -1,4 +1,4 @@
-import { ExperienceId } from "@/enum";
+import { AffiliationId } from "@/enum";
 import { Technology } from "./Technology";
 
 // Project interface
@@ -18,5 +18,5 @@ export interface Project {
 	};
 	startDate: string; // YYYY-MM-DD
 	endDate?: string; // YYYY-MM-DD or undefined if ongoing/single release
-	linkedExperienceId?: ExperienceId; // ID of the Experience this project belongs to
+	linkedAffiliationId?: AffiliationId; // ID of the Affiliation this project belongs to
 }

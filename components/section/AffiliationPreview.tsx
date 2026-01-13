@@ -2,45 +2,48 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { experienceData } from "@/data/experience";
-import { Company } from "@/enum";
-import { formatExperienceDuration, isCurrentPosition } from "@/lib/utils";
+import { affiliationData } from "@/data/affiliationData";
+import { AffiliationEntityType } from "@/enum";
+import type { Affiliation } from "@/interface";
+import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function TimelinePreview() {
-	// Group consecutive experiences by company
-	const groupedExperiences: Array<{
-		company: Company;
-		logo?: string;
-		location: string;
-		experiences: typeof experienceData;
+export default function AffiliationPreview() {
+	// Group consecutive affiliations
+	const groupedAffiliations: Array<{
+		affiliation: Affiliation;
+		affiliations: typeof affiliationData;
 	}> = [];
 
-	for (let i = 0; i < experienceData.length; i++) {
-		const exp = experienceData[i];
+	for (let i = 0; i < affiliationData.length; i++) {
+		const aff = affiliationData[i];
 		if (
-			groupedExperiences.length > 0 &&
-			groupedExperiences[groupedExperiences.length - 1].company === exp.company
+			groupedAffiliations.length > 0 &&
+			groupedAffiliations[groupedAffiliations.length - 1].affiliation.id ===
+				aff.affiliation.id
 		) {
-			groupedExperiences[groupedExperiences.length - 1].experiences.push(exp);
+			groupedAffiliations[groupedAffiliations.length - 1].affiliations.push(
+				aff
+			);
 		} else {
-			groupedExperiences.push({
-				company: exp.company,
-				logo: exp.logo,
-				location: exp.location,
-				experiences: [exp],
+			groupedAffiliations.push({
+				affiliation: aff.affiliation,
+				affiliations: [aff],
 			});
 		}
 	}
 
 	// Only show the first group (latest company) as preview
-	const displayedGroups = groupedExperiences.slice(0, 1);
+	const displayedGroups = groupedAffiliations.slice(0, 1);
 
 	return (
-		<section id="timeline" className="py-20 relative bg-black overflow-hidden">
+		<section
+			id="affiliation"
+			className="py-20 relative bg-black overflow-hidden"
+		>
 			{/* Background elements */}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,theme(colors.primary.DEFAULT)_0%,transparent_40%)] opacity-20 pointer-events-none"></div>
 
@@ -62,11 +65,11 @@ export default function TimelinePreview() {
 					</div>
 				</motion.div>
 
-				{/* Timeline */}
+				{/* Affiliation */}
 				<div className="relative max-w-3xl mx-auto mb-16">
 					{displayedGroups.map((group, groupIndex) => (
 						<motion.div
-							key={group.company + groupIndex}
+							key={group.affiliation.id + groupIndex}
 							initial={{ opacity: 0, y: 50 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: groupIndex * 0.2 }}
@@ -74,14 +77,14 @@ export default function TimelinePreview() {
 							className="relative mb-0"
 						>
 							<div className="max-w-3xl mx-auto">
-								{/* Company Info Panel */}
+								{/* Company/Affiliation Info Panel */}
 								<div className="mb-8 md:mb-0">
 									<div className="inline-block bg-white p-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform md:ml-8">
 										<div className="flex items-center gap-4">
-											{group.logo && (
+											{group.affiliation.logo && (
 												<Image
-													src={group.logo}
-													alt={`${group.company} logo`}
+													src={group.affiliation.logo}
+													alt={`${group.affiliation.name} logo`}
 													width={60}
 													height={60}
 													className="rounded-none border-2 border-black"
@@ -89,15 +92,18 @@ export default function TimelinePreview() {
 											)}
 											<div>
 												<h3 className="font-[Bangers] text-2xl uppercase tracking-wide text-black">
-													{group.company}
+													{group.affiliation.name}
 												</h3>
-												<Badge
-													variant="outline"
-													className="text-xs font-[Inter] border-black text-black gap-1 rounded-none px-2"
-												>
-													<Icon icon="material-symbols:location-on" />
-													{group.location}
-												</Badge>
+												{group.affiliation.type ===
+													AffiliationEntityType.Company && (
+													<Badge
+														variant="outline"
+														className="text-xs font-[Inter] border-black text-black gap-1 rounded-none px-2"
+													>
+														<Icon icon="material-symbols:location-on" />
+														{group.affiliation.location}
+													</Badge>
+												)}
 											</div>
 										</div>
 									</div>
@@ -105,9 +111,9 @@ export default function TimelinePreview() {
 
 								{/* Role Details Panel */}
 								<div className="relative">
-									{group.experiences.map((experience, expIdx) => (
+									{group.affiliations.map((affiliation, expIdx) => (
 										<motion.div
-											key={experience.id}
+											key={affiliation.id}
 											className={`bg-card md:mx-0 border-4 border-white p-6 shadow-[8px_8px_0px_0px_white] relative z-10 ${expIdx > 0 ? "mt-6" : ""}`}
 										>
 											<div className="absolute -top-3 -right-3 w-6 h-6 bg-white border-2 border-black z-20 transform rotate-45"></div>
@@ -115,10 +121,10 @@ export default function TimelinePreview() {
 
 											<div className="flex flex-wrap items-center justify-between gap-2 mb-4 border-b-2 border-white/20 pb-4">
 												<h4 className="font-[Bangers] text-xl md:text-2xl text-white uppercase tracking-wide">
-													{experience.position}
+													{affiliation.position}
 												</h4>
 
-												{isCurrentPosition(experience.endDate) && (
+												{isCurrentPosition(affiliation.endDate) && (
 													<Badge className="bg-primary text-white font-[Bangers] tracking-widest border-2 border-white rounded-none animate-pulse">
 														ACTIVE MISSION
 													</Badge>
@@ -131,20 +137,20 @@ export default function TimelinePreview() {
 													className="w-4 h-4 text-primary"
 												/>
 												<span className="font-bold">
-													{formatExperienceDuration(
-														experience.startDate,
-														experience.endDate
+													{formatAffiliationDuration(
+														affiliation.startDate,
+														affiliation.endDate
 													)}
 												</span>
 												<span className="text-zinc-500">|</span>
 												<span className="uppercase text-xs font-bold tracking-wider">
-													{experience.type}
+													{affiliation.type}
 												</span>
 											</div>
 
 											{/* Tech Stack */}
 											<div className="flex flex-wrap gap-2">
-												{experience.technologies.map((tech, techIndex) => (
+												{affiliation.technologies.map((tech, techIndex) => (
 													<Badge
 														key={techIndex}
 														variant="outline"
@@ -168,7 +174,7 @@ export default function TimelinePreview() {
 						asChild
 						className="bg-transparent text-white border-4 border-white font-[Bangers] text-xl px-10 py-6 hover:bg-white hover:text-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all"
 					>
-						<Link href="/origin">READ FULL ORIGIN STORY</Link>
+						<Link href="/affiliation">VIEW CAREER HISTORY</Link>
 					</Button>
 				</div>
 			</div>
