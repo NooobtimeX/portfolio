@@ -63,7 +63,7 @@ const AbilityPage: React.FC = () => {
 
 								{/* Skills Grid */}
 								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-									{skillGroup.skills.map((skill, skilmaklIndex) => (
+									{skillGroup.skills.map((skill) => (
 										<motion.div
 											key={skill.name}
 											whileHover={{ scale: 1.05 }}

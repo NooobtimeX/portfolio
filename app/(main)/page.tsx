@@ -73,7 +73,7 @@ const Home: React.FC = () => {
 									className="font-[Bangers] text-4xl md:text-6xl text-white tracking-wider stroke-black"
 									style={{ textShadow: "4px 4px 0px #000" }}
 								>
-									HELLO, I'M
+									HELLO, I&apos;M
 								</motion.h2>
 								<motion.h1
 									initial={{ scale: 0.8, opacity: 0 }}
