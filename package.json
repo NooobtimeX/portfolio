@@ -5,8 +5,8 @@
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev --turbopack",
-		"format": "npx prettier . --write",
-		"lint:fix": "eslint . --fix",
+		"lint": "eslint . && prettier . --check",
+		"lint:fix": "eslint . --fix && prettier . --write",
 		"start": "next start"
 	},
 	"dependencies": {
