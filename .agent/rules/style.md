@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Portfolio Style Guide: Marvel Comic (Silk Theme)
 
 This repository follows a strict **Dark Marvel Comic** aesthetic inspired by the character Silk (Cindy Moon). All UI contributions must adhere to these design principles.
@@ -53,3 +57,19 @@ This repository follows a strict **Dark Marvel Comic** aesthetic inspired by the
 - ❌ Gradients that look "corporate" or "SaaS-like".
 - ❌ Minimalist "Clean" design (unless contained within a specific content area).
 - ❌ Light mode or gray backgrounds.
+
+## 8. Animation Details
+
+- **Framework**: Use **Framer Motion** for all complex animations.
+- **Performance**: Ensure animations are hardware accelerated (transform, opacity). Avoid animating layout properties (width, height, top, left) when possible.
+- **Responsiveness**: Animations should be subtle or disabled on "prefers-reduced-motion".
+- **Timing**: Use snappy, spring-based transitions (e.g., \`type: "spring", stiffness: 300, damping: 20\`) rather than slow linear eases.
+
+## 9. Animation Comic Style
+
+- **Entrance**: Use specific "ComicPop" effect for cards and modals. Scale up from 0.8 with a slight overshoot (bounciness) to simulate a comic panel popping onto the page.
+- **Speech Bubbles**: Tooltips and notifications should expand like speech bubbles, originating from the speaker/source.
+- **Action Impacts**: On click or major interaction, use small "burst" animations or shake effects.
+- **Text**: Staggered character reveal for headings to mimic lettering being written or appearing dynamically.
+- **Transitions**: Slide-in panels with jagged edges or "page turn" effects are preferred over simple fades.
+  EOF
