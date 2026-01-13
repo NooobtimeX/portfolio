@@ -1,5 +1,6 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { affiliationData } from "@/data/affiliationData";
@@ -7,7 +8,6 @@ import { AffiliationEntityType } from "@/enum";
 import type { Affiliation } from "@/interface";
 import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -49,13 +49,7 @@ export default function AffiliationPreview() {
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 				{/* Header */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}
-					className="text-center mb-20"
-				>
+				<ComicPop className="text-center mb-20">
 					<div className="inline-block relative">
 						<div className="bg-white text-black px-10 py-4 border-4 border-black shadow-[8px_8px_0px_0px_white] transform -rotate-1">
 							<h2 className="text-4xl md:text-6xl font-[Bangers] uppercase tracking-wider">
@@ -63,17 +57,14 @@ export default function AffiliationPreview() {
 							</h2>
 						</div>
 					</div>
-				</motion.div>
+				</ComicPop>
 
 				{/* Affiliation */}
 				<div className="relative max-w-3xl mx-auto mb-16">
 					{displayedGroups.map((group, groupIndex) => (
-						<motion.div
+						<ComicPop
 							key={group.affiliation.id + groupIndex}
-							initial={{ opacity: 0, y: 50 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: groupIndex * 0.2 }}
-							viewport={{ once: true }}
+							delay={groupIndex * 0.2}
 							className="relative mb-0"
 						>
 							<div className="max-w-3xl mx-auto">
@@ -112,7 +103,7 @@ export default function AffiliationPreview() {
 								{/* Role Details Panel */}
 								<div className="relative">
 									{group.affiliations.map((affiliation, expIdx) => (
-										<motion.div
+										<ComicPop
 											key={affiliation.id}
 											className={`bg-card md:mx-0 border-4 border-white p-6 shadow-[8px_8px_0px_0px_white] relative z-10 ${expIdx > 0 ? "mt-6" : ""}`}
 										>
@@ -160,11 +151,11 @@ export default function AffiliationPreview() {
 													</Badge>
 												))}
 											</div>
-										</motion.div>
+										</ComicPop>
 									))}
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					))}
 				</div>
 

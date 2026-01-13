@@ -1,10 +1,10 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { Badge } from "@/components/ui/badge";
 import { AffiliationItem } from "@/interface";
 import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -18,13 +18,7 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 	const isCurrent = isCurrentPosition(item.endDate);
 
 	return (
-		<motion.div
-			initial={{ opacity: 0, scale: 0.9 }}
-			whileInView={{ opacity: 1, scale: 1 }}
-			transition={{ duration: 0.4, delay: index * 0.1 }}
-			viewport={{ once: true }}
-			className="h-full"
-		>
+		<ComicPop delay={index * 0.1} className="h-full">
 			<div className="comic-panel h-full flex flex-col bg-card border-4 border-white shadow-[8px_8px_0px_0px_white] hover:shadow-[12px_12px_0px_0px_rgba(255,50,50,1)] hover:-translate-y-2 transition-all duration-300 group relative">
 				{/* Image Section / Logo Section */}
 				<div className="relative aspect-video border-b-4 border-white overflow-hidden bg-white flex items-center justify-center p-8">
@@ -115,7 +109,7 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</ComicPop>
 	);
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { AnimatePresence, motion } from "framer-motion";
@@ -65,11 +66,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 			{/* Thumbnail Grid */}
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				{images.map((image, index) => (
-					<motion.div
+					<ComicPop
 						key={index}
-						initial={{ opacity: 0, scale: 0.9 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ duration: 0.3, delay: index * 0.1 }}
+						delay={index * 0.1}
 						className="group relative aspect-square overflow-hidden border-2 border-white bg-black cursor-pointer shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white] transition-all"
 						onClick={() => {
 							setSelectedImageIndex(index);
@@ -87,7 +86,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, title }) => {
 							className="object-cover group-hover:scale-110 transition-transform duration-500"
 						/>
 						<div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-multiply" />
-					</motion.div>
+					</ComicPop>
 				))}
 			</div>
 

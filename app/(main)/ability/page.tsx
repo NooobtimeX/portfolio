@@ -1,8 +1,8 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { abilitiesData } from "@/data/abilitiesData";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import React from "react";
 
 const AbilityPage: React.FC = () => {
@@ -13,10 +13,9 @@ const AbilityPage: React.FC = () => {
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 				{/* Header Section */}
-				<motion.div
+				<ComicPop
 					initial={{ opacity: 0, rotate: -2, scale: 0.9 }}
 					animate={{ opacity: 1, rotate: 0, scale: 1 }}
-					transition={{ duration: 0.6 }}
 					className="text-center mb-20 relative"
 				>
 					<div className="inline-block bg-white text-black px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -29,17 +28,17 @@ const AbilityPage: React.FC = () => {
 					<p className="mt-8 text-xl text-gray-400 font-[Bangers] uppercase tracking-wide max-w-2xl mx-auto">
 						A comprehensive breakdown of technical capabilities and arsenal
 					</p>
-				</motion.div>
+				</ComicPop>
 
 				{/* Abilities organized by category */}
 				<div className="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
 					{abilitiesData.map((abilityGroup, groupIndex) => (
-						<motion.div
+						<ComicPop
 							key={abilityGroup.category}
 							initial={{ opacity: 0, x: groupIndex % 2 === 0 ? -50 : 50 }}
 							whileInView={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: groupIndex * 0.1 }}
-							viewport={{ once: true }}
+							delay={groupIndex * 0.1}
+							triggerOnce={true}
 							className="relative group perspective-1000"
 						>
 							{/* Panel Container */}
@@ -64,7 +63,7 @@ const AbilityPage: React.FC = () => {
 								{/* Abilities Grid */}
 								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
 									{abilityGroup.abilities.map((ability) => (
-										<motion.div
+										<ComicPop
 											key={ability.name}
 											whileHover={{ scale: 1.05 }}
 											className="flex flex-col items-center justify-center gap-2 p-3 border-2 border-white/10 hover:border-primary hover:bg-primary/20 transition-all cursor-default bg-black/50"
@@ -76,14 +75,14 @@ const AbilityPage: React.FC = () => {
 											<span className="font-[Bangers] text-sm md:text-base text-white tracking-wide uppercase text-center line-clamp-1">
 												{ability.name}
 											</span>
-										</motion.div>
+										</ComicPop>
 									))}
 								</div>
 
 								{/* Decorative elements */}
 								<div className="absolute -right-3 -bottom-3 w-10 h-10 border-r-4 border-b-4 border-primary z-[-1]"></div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					))}
 				</div>
 

@@ -1,9 +1,9 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Issue } from "@/interface";
-import { motion } from "framer-motion";
 import { ArrowRightIcon, GithubIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,13 +31,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 
 	if (variant === "featured") {
 		return (
-			<motion.div
-				initial={{ opacity: 0, y: 50 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, delay: index * 0.1 }}
-				viewport={{ once: true }}
-				className="group relative"
-			>
+			<ComicPop delay={index * 0.1} className="group relative">
 				{/* Comic Panel Container - Double Page Spread Style */}
 				<div className="relative bg-black border-4 border-white shadow-[12px_12px_0px_0px_white] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 overflow-hidden">
 					{/* Corner Tag */}
@@ -119,18 +113,12 @@ const IssueCard: React.FC<IssueCardProps> = ({
 						</div>
 					</div>
 				</div>
-			</motion.div>
+			</ComicPop>
 		);
 	}
 
 	return (
-		<motion.div
-			initial={{ opacity: 0, scale: 0.9 }}
-			whileInView={{ opacity: 1, scale: 1 }}
-			transition={{ duration: 0.4, delay: index * 0.1 }}
-			viewport={{ once: true }}
-			className="h-full"
-		>
+		<ComicPop delay={index * 0.1} className="h-full">
 			<div className="comic-panel h-full flex flex-col bg-card border-4 border-white shadow-[8px_8px_0px_0px_white] hover:shadow-[12px_12px_0px_0px_rgba(255,50,50,1)] hover:-translate-y-2 transition-all duration-300 group">
 				{/* Image Section */}
 				<div className="relative aspect-video border-b-4 border-white overflow-hidden">
@@ -185,7 +173,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</ComicPop>
 	);
 };
 

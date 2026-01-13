@@ -66,43 +66,43 @@ const Home: React.FC = () => {
 
 							{/* Main Title Stack */}
 							<div className="relativ space-y-2 mb-8 transform -rotate-2">
-								<motion.h2
+								<ComicPop
 									initial={{ x: -100, opacity: 0 }}
 									animate={{ x: 0, opacity: 1 }}
-									transition={{ duration: 0.5 }}
+									triggerOnce={true}
 									className="font-[Bangers] text-4xl md:text-6xl text-white tracking-wider stroke-black"
 									style={{ textShadow: "4px 4px 0px #000" }}
 								>
 									HELLO, I&apos;M
-								</motion.h2>
-								<motion.h1
+								</ComicPop>
+								<ComicPop
 									initial={{ scale: 0.8, opacity: 0 }}
 									animate={{ scale: 1, opacity: 1 }}
-									transition={{ duration: 0.5, delay: 0.1 }}
+									delay={0.1}
 									className="font-[Bangers] text-7xl md:text-9xl text-primary leading-[0.85] tracking-tight drop-shadow-[5px_5px_0px_rgba(255,255,255,1)]"
 								>
 									{personalData.name.split(" ")[0]}
-								</motion.h1>
-								<motion.div
+								</ComicPop>
+								<ComicPop
 									initial={{ x: 100, opacity: 0 }}
 									animate={{ x: 0, opacity: 1 }}
-									transition={{ duration: 0.5, delay: 0.2 }}
+									delay={0.2}
 									className="bg-white inline-block transform rotate-2 mt-2"
 								>
 									<span className="block font-[Bangers] text-3xl md:text-5xl text-black px-4 py-1 border-4 border-black">
 										{personalData.title}
 									</span>
-								</motion.div>
+								</ComicPop>
 							</div>
 
-							<motion.p
+							<ComicPop
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
-								transition={{ delay: 0.4 }}
+								delay={0.4}
 								className="text-lg md:text-xl text-gray-300 font-[Inter] max-w-xl leading-relaxed mb-8 bg-black/50 backdrop-blur-sm p-4 border-l-4 border-primary"
 							>
 								{personalData.tagline}
-							</motion.p>
+							</ComicPop>
 
 							{/* Action Buttons */}
 							<ComicPop
@@ -127,10 +127,9 @@ const Home: React.FC = () => {
 						</div>
 
 						{/* RIGHT: HERO AVATAR */}
-						<motion.div
+						<ComicPop
 							initial={{ scale: 0.8, opacity: 0, rotate: 5 }}
 							animate={{ scale: 1, opacity: 1, rotate: 0 }}
-							transition={{ duration: 0.8, type: "spring" }}
 							className="order-1 lg:order-2 relative flex justify-center"
 						>
 							<div className="relative w-80 h-80 md:w-[450px] md:h-[450px]">
@@ -155,7 +154,7 @@ const Home: React.FC = () => {
 									Kwan
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					</motion.div>
 				</div>
 			</section>

@@ -1,5 +1,6 @@
 "use client";
 
+import ComicPop from "@/components/motion/ComicPop";
 import { Button } from "@/components/ui/button";
 import {
 	docker,
@@ -16,7 +17,6 @@ import {
 	vercel,
 } from "@/data/abilities";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function AbilityPreview() {
@@ -43,30 +43,21 @@ export default function AbilityPreview() {
 
 			<div className="container mx-auto px-4 relative z-10">
 				{/* Header Section with Tape Effect */}
-				<motion.div
-					initial={{ opacity: 0, rotate: -2 }}
-					whileInView={{ opacity: 1, rotate: 0 }}
-					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}
-					className="text-center mb-16 relative"
-				>
+				<ComicPop className="text-center mb-16 relative">
 					<div className="inline-block bg-white text-black px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-2">
 						<h2 className="text-4xl md:text-6xl font-[Bangers] uppercase tracking-wider">
 							TOP ABILITIES
 						</h2>
 					</div>
 					<div className="absolute -top-4 -left-4 w-12 h-12 bg-primary/80 z-[-1] rounded-full"></div>
-				</motion.div>
+				</ComicPop>
 
 				{/* Abilities Grid */}
 				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
 					{highlightedAbilities.map((ability, index) => (
-						<motion.div
+						<ComicPop
 							key={ability.name}
-							initial={{ opacity: 0, scale: 0.8 }}
-							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.4, delay: index * 0.1 }}
-							viewport={{ once: true }}
+							delay={index * 0.1}
 							whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
 							className="bg-card border-4 border-white p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col items-center gap-4 group"
 						>
@@ -79,7 +70,7 @@ export default function AbilityPreview() {
 								</h3>
 								<div className="h-1 w-12 bg-primary mx-auto"></div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					))}
 				</div>
 

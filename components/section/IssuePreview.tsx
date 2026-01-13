@@ -1,8 +1,8 @@
 "use client";
 
 import IssueCard from "@/components/issue/IssueCard";
+import ComicPop from "@/components/motion/ComicPop";
 import { issuesData } from "@/data/issues";
-import { motion } from "framer-motion";
 
 export default function IssuePreview() {
 	return (
@@ -13,13 +13,7 @@ export default function IssuePreview() {
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 				{/* Header */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}
-					className="text-center mb-20 relative"
-				>
+				<ComicPop className="text-center mb-20 relative">
 					<div className="inline-block relative">
 						{/* Background splash */}
 						<div className="absolute inset-0 bg-primary transform rotate-2 blur-sm opacity-50"></div>
@@ -38,7 +32,7 @@ export default function IssuePreview() {
 					<p className="mt-8 text-muted-foreground text-xl font-[Bangers] tracking-wide max-w-2xl mx-auto uppercase">
 						A showcase of my recent work and creative solutions
 					</p>
-				</motion.div>
+				</ComicPop>
 
 				<div className="space-y-24 mb-12">
 					{issuesData.map((issue, index) => (

@@ -1,11 +1,11 @@
 "use client";
 
 import AffiliationCard from "@/components/affiliation/AffiliationCard";
+import ComicPop from "@/components/motion/ComicPop";
 import { Button } from "@/components/ui/button";
 import { affiliationData } from "@/data/affiliationData";
 import { formatAffiliationDuration } from "@/lib/utils";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import { ArrowLeftIcon, CalendarIcon, MapPinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,10 +47,9 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 			{/* Navigation */}
 			<section className="relative z-20 mb-8">
 				<div className="container mx-auto px-4">
-					<motion.div
+					<ComicPop
 						initial={{ opacity: 0, x: -20 }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.6 }}
 					>
 						<Button
 							asChild
@@ -61,7 +60,7 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 								BACK TO LOGS
 							</Link>
 						</Button>
-					</motion.div>
+					</ComicPop>
 				</div>
 			</section>
 
@@ -70,10 +69,9 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-12 items-start">
 						{/* Left Column - Entity Logo/Panel */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
 							animate={{ opacity: 1, scale: 1, rotate: -1 }}
-							transition={{ duration: 0.8 }}
 							className="relative group perspective-1000"
 						>
 							<div className="relative border-4 border-white bg-white shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:rotate-0 transition-all duration-300 aspect-video flex items-center justify-center p-12">
@@ -97,13 +95,13 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 									)}
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 
 						{/* Right Column - Affiliation Info */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, x: 30 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: 0.2 }}
+							delay={0.2}
 							className="space-y-8"
 						>
 							<div className="space-y-6 bg-card p-8 border-4 border-white shadow-[8px_8px_0px_0px_white] relative">
@@ -162,7 +160,7 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 									</div>
 								)}
 							</div>
-						</motion.div>
+						</ComicPop>
 					</div>
 				</div>
 			</section>
@@ -170,10 +168,10 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 			{/* Abilities Section */}
 			<section className="mb-20 relative">
 				<div className="container mx-auto px-4 relative z-10">
-					<motion.div
+					<ComicPop
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6, delay: 0.3 }}
+						delay={0.3}
 						className="bg-card border-4 border-white p-8 shadow-[8px_8px_0px_0px_white]"
 					>
 						<h2 className="font-[Bangers] text-4xl text-white uppercase tracking-wide mb-8 border-b-4 border-primary pb-2 inline-block">
@@ -182,11 +180,11 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 							{abilities.map((ability, index) => (
-								<motion.div
+								<ComicPop
 									key={index}
 									initial={{ opacity: 0, x: 20 }}
 									animate={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.3, delay: 0.4 + index * 0.05 }}
+									delay={0.4 + index * 0.05}
 									className="flex items-center gap-4 p-4 border-2 border-white/10 hover:border-primary hover:bg-primary/10 transition-colors bg-black group"
 								>
 									<div className="p-2 border-2 border-white/20 group-hover:border-primary transition-colors">
@@ -205,10 +203,10 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 											</p>
 										)}
 									</div>
-								</motion.div>
+								</ComicPop>
 							))}
 						</div>
-					</motion.div>
+					</ComicPop>
 				</div>
 			</section>
 
@@ -217,13 +215,7 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="border-t-4 border-white my-16 opacity-50"></div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						viewport={{ once: true }}
-						className="text-center mb-12"
-					>
+					<ComicPop className="text-center mb-12">
 						<div className="inline-block bg-white text-black px-8 py-3 border-4 border-black shadow-[8px_8px_0px_0px_white] transform rotate-1 mb-8">
 							<h2 className="text-3xl md:text-5xl font-[Bangers] uppercase tracking-wider">
 								MEANWHILE...
@@ -232,7 +224,7 @@ const AffiliationDetailPage: React.FC<AffiliationDetailPageProps> = ({
 						<p className="text-muted-foreground text-xl font-[Bangers] uppercase tracking-wide">
 							Discover other branches of my journey
 						</p>
-					</motion.div>
+					</ComicPop>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{affiliationData

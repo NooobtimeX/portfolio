@@ -1,9 +1,9 @@
 "use client";
 
 import AffiliationCard from "@/components/affiliation/AffiliationCard";
+import ComicPop from "@/components/motion/ComicPop";
 import { affiliationData } from "@/data/affiliationData";
 import { AffiliationEntityType } from "@/enum";
-import { motion } from "framer-motion";
 import React from "react";
 
 const AffiliationPage: React.FC = () => {
@@ -20,10 +20,9 @@ const AffiliationPage: React.FC = () => {
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
 				{/* Header */}
-				<motion.div
+				<ComicPop
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
 					className="text-center mb-24"
 				>
 					<div className="inline-block relative group">
@@ -36,7 +35,7 @@ const AffiliationPage: React.FC = () => {
 					<p className="mt-8 text-xl text-gray-400 font-[Bangers] uppercase tracking-wide">
 						Career & Companies
 					</p>
-				</motion.div>
+				</ComicPop>
 
 				{/* Grid */}
 				<section className="pb-20 relative">

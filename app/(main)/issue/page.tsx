@@ -1,8 +1,8 @@
 "use client";
 
 import IssueCard from "@/components/issue/IssueCard";
+import ComicPop from "@/components/motion/ComicPop";
 import { issuesData } from "@/data/issues";
-import { motion } from "framer-motion";
 import React from "react";
 
 const IssuePage: React.FC = () => {
@@ -13,7 +13,7 @@ const IssuePage: React.FC = () => {
 
 			{/* Header */}
 			<div className="container max-w-7xl mx-auto px-4 relative z-10 mb-16 text-center">
-				<motion.div
+				<ComicPop
 					initial={{ y: -50, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					className="inline-block relative"
@@ -23,15 +23,15 @@ const IssuePage: React.FC = () => {
 							ISSUE ARCHIVE
 						</h1>
 					</div>
-				</motion.div>
-				<motion.p
+				</ComicPop>
+				<ComicPop
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					transition={{ delay: 0.2 }}
+					delay={0.2}
 					className="mt-6 text-xl text-gray-400 font-[Bangers] uppercase tracking-wide"
 				>
 					Select an issue to read details
-				</motion.p>
+				</ComicPop>
 			</div>
 
 			{/* Issues Grid */}

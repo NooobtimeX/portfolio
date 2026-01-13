@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import ComicPop from "@/components/motion/ComicPop";
 import { ReactNode } from "react";
 
 interface SectionTransitionProps {
@@ -8,16 +8,7 @@ interface SectionTransitionProps {
 }
 
 const SectionTransition = ({ children }: SectionTransitionProps) => {
-	return (
-		<motion.div
-			initial={{ opacity: 0, y: 15 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: false, amount: "some" }}
-			transition={{ duration: 0.5 }}
-		>
-			{children}
-		</motion.div>
-	);
+	return <ComicPop triggerOnce={false}>{children}</ComicPop>;
 };
 
 export default SectionTransition;

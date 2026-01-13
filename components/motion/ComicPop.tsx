@@ -1,23 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { HTMLMotionProps, motion } from "framer-motion";
 import React from "react";
 
-interface ComicPopProps {
+interface ComicPopProps extends HTMLMotionProps<"div"> {
 	children: React.ReactNode;
 	delay?: number;
-	className?: string; // Allow passing classes for positioning etc.
+	className?: string;
+	triggerOnce?: boolean;
 }
 
 const ComicPop: React.FC<ComicPopProps> = ({
 	children,
 	delay = 0,
 	className = "",
+	triggerOnce = true,
+	...props
 }) => {
 	return (
 		<motion.div
 			initial={{ scale: 0.8, opacity: 0 }}
-			animate={{ scale: 1, opacity: 1 }}
+			whileInView={{ scale: 1, opacity: 1 }}
+			viewport={{ once: triggerOnce }}
 			transition={{
 				type: "spring",
 				stiffness: 260,
@@ -25,6 +29,7 @@ const ComicPop: React.FC<ComicPopProps> = ({
 				delay: delay,
 			}}
 			className={className}
+			{...props}
 		>
 			{children}
 		</motion.div>

@@ -2,10 +2,10 @@
 
 import ImageGallery from "@/components/issue/ImageGallery";
 import IssueCard from "@/components/issue/IssueCard";
+import ComicPop from "@/components/motion/ComicPop";
 import { Button } from "@/components/ui/button";
 import { issuesData } from "@/data/issues";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import { ArrowLeftIcon, ExternalLinkIcon, GithubIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,10 +35,9 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 			{/* Navigation */}
 			<section className="relative z-20 mb-8">
 				<div className="container mx-auto px-4">
-					<motion.div
+					<ComicPop
 						initial={{ opacity: 0, x: -20 }}
 						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.6 }}
 					>
 						<Button
 							asChild
@@ -49,7 +48,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 								BACK TO ARCHIVE
 							</Link>
 						</Button>
-					</motion.div>
+					</ComicPop>
 				</div>
 			</section>
 
@@ -58,10 +57,9 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-2 gap-12 items-start">
 						{/* Left Column - Cover Art */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
 							animate={{ opacity: 1, scale: 1, rotate: -1 }}
-							transition={{ duration: 0.8 }}
 							className="relative group perspective-1000"
 						>
 							<div className="relative border-4 border-white bg-black shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:rotate-0 transition-all duration-300">
@@ -79,13 +77,13 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									/>
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 
 						{/* Right Column - Issue Info */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, x: 30 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ duration: 0.6, delay: 0.2 }}
+							delay={0.2}
 							className="space-y-8"
 						>
 							<div className="space-y-6 bg-card p-8 border-4 border-white shadow-[8px_8px_0px_0px_white] relative">
@@ -140,7 +138,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									)}
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					</div>
 				</div>
 			</section>
@@ -150,10 +148,10 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="grid lg:grid-cols-3 gap-8 items-start">
 						{/* Issue Gallery - Left Panel */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 0.3 }}
+							delay={0.3}
 							className="lg:col-span-2"
 						>
 							<div className="bg-card border-4 border-white p-2 shadow-[8px_8px_0px_0px_white]">
@@ -173,13 +171,13 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 									)}
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 
 						{/* Abilities - Right Panel */}
-						<motion.div
+						<ComicPop
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 0.4 }}
+							delay={0.4}
 							className="space-y-6"
 						>
 							<div className="bg-card border-4 border-white p-6 shadow-[8px_8px_0px_0px_white] transform rotate-1 sticky top-24">
@@ -188,11 +186,11 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 								</h2>
 								<div className="space-y-4">
 									{issue.abilities.map((ability, index) => (
-										<motion.div
+										<ComicPop
 											key={index}
 											initial={{ opacity: 0, x: 20 }}
 											animate={{ opacity: 1, x: 0 }}
-											transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+											delay={0.5 + index * 0.1}
 											className="flex items-center gap-4 p-3 border-2 border-white/10 hover:border-primary hover:bg-primary/10 transition-colors bg-black"
 										>
 											<Icon
@@ -209,11 +207,11 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 													</p>
 												)}
 											</div>
-										</motion.div>
+										</ComicPop>
 									))}
 								</div>
 							</div>
-						</motion.div>
+						</ComicPop>
 					</div>
 				</div>
 			</section>
@@ -223,13 +221,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="border-t-4 border-white my-16 opacity-50"></div>
 
-					<motion.div
-						initial={{ opacity: 0, y: 30 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.6 }}
-						viewport={{ once: true }}
-						className="text-center mb-12"
-					>
+					<ComicPop className="text-center mb-12">
 						<div className="inline-block bg-white text-black px-8 py-3 border-4 border-black shadow-[8px_8px_0px_0px_white] transform rotate-1 mb-8">
 							<h2 className="text-3xl md:text-5xl font-[Bangers] uppercase tracking-wider">
 								MEANWHILE...
@@ -238,7 +230,7 @@ const IssueDetailPage: React.FC<IssueDetailPageProps> = ({ params }) => {
 						<p className="text-muted-foreground text-xl font-[Bangers] uppercase tracking-wide">
 							Check out these other issues
 						</p>
-					</motion.div>
+					</ComicPop>
 
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 						{issuesData
