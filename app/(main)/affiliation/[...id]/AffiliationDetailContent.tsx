@@ -7,6 +7,7 @@ import { affiliationData } from "@/data/affiliationData";
 import { formatAffiliationDuration } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { ArrowLeftIcon, CalendarIcon, MapPinIcon } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -141,7 +142,7 @@ const AffiliationDetailContent: React.FC<AffiliationDetailContentProps> = ({
 											className="comic-button bg-primary text-white border-2 border-white px-8 h-14 text-xl shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
 										>
 											<Link
-												href={affiliation.url}
+												href={affiliation.url as Route}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center gap-2"

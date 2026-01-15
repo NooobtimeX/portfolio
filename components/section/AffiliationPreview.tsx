@@ -9,6 +9,7 @@ import { AffiliationEntityType } from "@/enum";
 import type { AffiliationItem } from "@/interface";
 import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -136,7 +137,7 @@ export default function AffiliationPreview() {
 											size="sm"
 											className="comic-button-sm bg-primary text-white border-2 border-white font-[Bangers] tracking-wider hover:bg-white hover:text-black transition-all w-full md:w-auto"
 										>
-											<Link href={`/affiliation/${affiliation.id}`}>
+											<Link href={`/affiliation/${affiliation.id}` as Route}>
 												MISSION BRIEF
 											</Link>
 										</Button>

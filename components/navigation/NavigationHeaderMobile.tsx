@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/drawer";
 import MenuItem from "@/interface/menuItem";
 import { Icon } from "@iconify/react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -65,7 +66,7 @@ export default function NavigationHeaderMobile({
 						{menuItems.map((item) => (
 							<DrawerClose asChild key={item.href}>
 								<Link
-									href={item.href}
+									href={item.href as Route}
 									className="group flex items-center justify-between p-4 border-2 border-white/20 hover:border-primary hover:bg-primary/10 transition-colors"
 									title={item.icon.description}
 								>

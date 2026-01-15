@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { AffiliationItem } from "@/interface";
 import { formatAffiliationDuration, isCurrentPosition } from "@/lib/utils";
 import { Icon } from "@iconify/react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -100,7 +101,10 @@ const AffiliationCard: React.FC<AffiliationCardProps> = ({ item, index }) => {
 						</div>
 
 						<div className="pt-2">
-							<Link href={`/affiliation/${item.id}`} className="block w-full">
+							<Link
+								href={`/affiliation/${item.id}` as Route}
+								className="block w-full"
+							>
 								<button className="w-full bg-white text-black font-[Bangers] py-2 px-4 border-2 border-black uppercase text-lg tracking-wider hover:bg-primary hover:text-white hover:shadow-[4px_4px_0px_0px_white] transition-all transform hover:-translate-y-1 cursor-pointer">
 									MISSION BRIEF
 								</button>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { issuesData } from "@/data/issues";
 import { Icon } from "@iconify/react";
 import { ArrowLeftIcon, ExternalLinkIcon, GithubIcon } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -104,7 +105,7 @@ const IssueDetailContent: React.FC<IssueDetailContentProps> = ({ id }) => {
 											className="comic-button bg-primary text-white border-2 border-white px-8 h-14 text-xl shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
 										>
 											<Link
-												href={issue.links.live}
+												href={issue.links.live as Route}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center gap-2"
@@ -122,7 +123,7 @@ const IssueDetailContent: React.FC<IssueDetailContentProps> = ({ id }) => {
 											className="comic-button bg-black text-white border-2 border-white px-8 h-14 text-xl hover:bg-zinc-900 shadow-[4px_4px_0px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_white]"
 										>
 											<Link
-												href={issue.links.github}
+												href={issue.links.github as Route}
 												target="_blank"
 												rel="noopener noreferrer"
 												className="flex items-center gap-2"

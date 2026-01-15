@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Issue } from "@/interface";
 import { ArrowRightIcon, GithubIcon } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -92,7 +93,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 									asChild
 									className="flex-1 bg-white text-black font-[Bangers] text-xl uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:scale-105 transition-transform h-12"
 								>
-									<Link href={`/issue/${issue.id}`}>
+									<Link href={`/issue/${issue.id}` as Route}>
 										READ ISSUE
 										<ArrowRightIcon className="ml-2 w-5 h-5" />
 									</Link>
@@ -104,7 +105,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 										variant="outline"
 										className="border-2 border-white bg-black text-white hover:bg-white hover:text-black transition-colors w-12 h-12 rounded-none"
 									>
-										<Link href={issue.links.github} target="_blank">
+										<Link href={issue.links.github as Route} target="_blank">
 											<GithubIcon className="w-6 h-6" />
 										</Link>
 									</Button>
@@ -168,7 +169,7 @@ const IssueCard: React.FC<IssueCardProps> = ({
 							asChild
 							className="w-full bg-white text-black font-[Bangers] text-lg uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(255,50,50,1)] transition-all"
 						>
-							<Link href={`/issue/${issue.id}`}>VIEW ISSUE</Link>
+							<Link href={`/issue/${issue.id}` as Route}>VIEW ISSUE</Link>
 						</Button>
 					</div>
 				</div>

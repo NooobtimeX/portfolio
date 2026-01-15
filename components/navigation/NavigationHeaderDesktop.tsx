@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/tooltip";
 import MenuItem from "@/interface/menuItem";
 import { Icon } from "@iconify/react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -55,7 +56,7 @@ export default function NavigationHeaderDesktop({
 							<Tooltip key={item.href}>
 								<TooltipTrigger asChild>
 									<Link
-										href={item.href}
+										href={item.href as Route}
 										className={`
                                             group relative px-8 py-4 h-full flex items-center justify-center
                                             font-[Bangers] text-xl uppercase tracking-wide text-zinc-400
