@@ -1,9 +1,11 @@
+import { affiliationData } from "@/data/affiliationData";
+import { issuesData } from "@/data/issues";
 import { MetadataRoute } from "next";
 
 const domain = "https://nooobtimex.me";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	return [
+	const staticRoutes: MetadataRoute.Sitemap = [
 		{
 			url: `${domain}`,
 			lastModified: new Date(),
@@ -29,4 +31,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			priority: 0.8,
 		},
 	];
+
+	const affiliationRoutes: MetadataRoute.Sitemap = affiliationData.map(
+		(item) => ({
+			url: `${domain}/affiliation/${item.id}`,
+			lastModified: new Date(),
+			changeFrequency: "monthly",
+			priority: 0.6,
+		})
+	);
+
+	const issueRoutes: MetadataRoute.Sitemap = issuesData.map((item) => ({
+		url: `${domain}/issue/${item.id}`,
+		lastModified: new Date(),
+		changeFrequency: "monthly",
+		priority: 0.7,
+	}));
+
+	return [...staticRoutes, ...affiliationRoutes, ...issueRoutes];
 }
