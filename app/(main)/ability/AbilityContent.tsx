@@ -1,98 +1,116 @@
 "use client";
 
 import ComicPop from "@/components/motion/ComicPop";
+import { AbilityCard } from "@/components/ui/ability-card";
+import { ComicPanel } from "@/components/ui/comic-panel";
 import { abilitiesData } from "@/data/abilitiesData";
+import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import React from "react";
 
 const AbilityContent: React.FC = () => {
 	return (
-		<div className="min-h-screen w-full relative bg-black pt-24 pb-20 overflow-x-hidden">
-			{/* Background Halftone Pattern */}
-			<div className="fixed inset-0 comic-halftone opacity-20 pointer-events-none"></div>
+		<div className="min-h-screen w-full relative bg-black pt-28 pb-24 overflow-x-hidden">
+			{/* Background Elements */}
+			<div className="fixed inset-0 comic-halftone opacity-15 pointer-events-none z-0"></div>
+			<div className="fixed top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900/50 via-black to-black pointer-events-none z-0"></div>
 
 			<div className="container max-w-7xl mx-auto px-4 relative z-10">
-				{/* Header Section */}
+				{/* Hero Section */}
 				<ComicPop
-					initial={{ opacity: 0, rotate: -2, scale: 0.9 }}
-					animate={{ opacity: 1, rotate: 0, scale: 1 }}
-					className="text-center mb-20 relative"
+					initial={{ opacity: 0, scale: 0.8, y: -50 }}
+					animate={{ opacity: 1, scale: 1, y: 0 }}
+					className="text-center mb-24 relative"
 				>
-					<div className="inline-block bg-white text-black px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-						<h1 className="text-5xl md:text-7xl font-[Bangers] uppercase tracking-wider">
-							ABILITIES
-						</h1>
+					<div className="relative inline-block z-10">
+						<div className="absolute inset-0 bg-primary skew-x-12 translate-x-2 translate-y-2"></div>
+						<div className="relative bg-white border-4 border-black px-10 py-6 skew-x-12">
+							<h1 className="text-6xl md:text-8xl font-[Bangers] uppercase tracking-wider text-black transform -skew-x-12">
+								ABILITIES
+							</h1>
+						</div>
 					</div>
-					<div className="absolute -top-6 -right-6 w-16 h-16 bg-primary/80 z-[-1] rounded-full animate-pulse"></div>
 
-					<p className="mt-8 text-xl text-gray-400 font-[Bangers] uppercase tracking-wide max-w-2xl mx-auto">
-						A comprehensive breakdown of technical capabilities and arsenal
+					<p className="mt-8 text-2xl text-white font-[Bangers] uppercase tracking-wide max-w-3xl mx-auto text-shadow-sm">
+						&quot;My comprehensive arsenal of technical skills and
+						superpowers&quot;
 					</p>
 				</ComicPop>
 
-				{/* Abilities organized by category */}
-				<div className="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
+				{/* Staggered Grid Layout */}
+				<div className="flex flex-col gap-24">
 					{abilitiesData.map((abilityGroup, groupIndex) => (
-						<ComicPop
+						<div
 							key={abilityGroup.category}
-							initial={{ opacity: 0, x: groupIndex % 2 === 0 ? -50 : 50 }}
-							whileInView={{ opacity: 1, x: 0 }}
-							delay={groupIndex * 0.1}
-							triggerOnce={true}
-							className="relative group perspective-1000"
+							className={cn(
+								"flex flex-col md:flex-row gap-8 md:gap-12 items-start",
+								groupIndex % 2 !== 0 ? "md:flex-row-reverse" : ""
+							)}
 						>
-							{/* Panel Container */}
-							<div className="bg-card border-4 border-white p-6 md:p-8 shadow-[12px_12px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 transform preserve-3d">
-								{/* Header Badge */}
-								<div className="flex items-center gap-4 mb-8 border-b-4 border-white pb-6 relative">
-									<div className="absolute -top-4 -left-4 w-6 h-6 bg-white border-2 border-black transform rotate-45 z-20"></div>
-
-									<div className="w-16 h-16 flex items-center justify-center bg-primary text-white border-4 border-black shadow-[4px_4px_0px_0px_black] transform -rotate-3">
-										<Icon icon={abilityGroup.icon} className="w-8 h-8" />
+							{/* Category Info Panel */}
+							<ComicPop
+								initial={{ opacity: 0, x: groupIndex % 2 === 0 ? -100 : 100 }}
+								whileInView={{ opacity: 1, x: 0 }}
+								viewport={{ once: true, margin: "-100px" }}
+								className="w-full md:w-1/3 flex-shrink-0 relative z-10"
+							>
+								<ComicPanel
+									rotate={groupIndex % 2 === 0 ? -2 : 2}
+									className="bg-zinc-900 border-white p-8"
+								>
+									{/* Floating Badge */}
+									<div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 bg-primary border-4 border-black flex items-center justify-center rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+										<Icon
+											icon={abilityGroup.icon}
+											className="w-8 h-8 text-white -rotate-45"
+										/>
 									</div>
-									<div className="flex-1">
-										<h3 className="text-3xl md:text-4xl font-[Bangers] uppercase text-white tracking-wide leading-none">
+
+									<div className="mt-8 text-center space-y-4">
+										<h2 className="text-4xl md:text-5xl font-[Bangers] text-white uppercase tracking-wide leading-none">
 											{abilityGroup.category}
-										</h3>
-										<div className="h-2 w-full bg-white/10 mt-2 rounded-full overflow-hidden">
-											<div className="h-full bg-primary w-3/4 animate-pulse"></div>
-										</div>
-									</div>
-								</div>
+										</h2>
 
-								{/* Abilities Grid */}
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-									{abilityGroup.abilities.map((ability) => (
-										<ComicPop
+										{/* Separation Line */}
+										<div className="w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-4"></div>
+
+										<p className="font-sans text-gray-300 leading-relaxed text-sm md:text-base">
+											{abilityGroup.description}
+										</p>
+									</div>
+								</ComicPanel>
+							</ComicPop>
+
+							{/* Abilities Grid - "Masonry" feel */}
+							<div className="w-full md:w-2/3">
+								<div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6">
+									{abilityGroup.abilities.map((ability, idx) => (
+										<AbilityCard
 											key={ability.name}
-											whileHover={{ scale: 1.05 }}
-											className="flex flex-col items-center justify-center gap-2 p-3 border-2 border-white/10 hover:border-primary hover:bg-primary/20 transition-all cursor-default bg-black/50"
-										>
-											<Icon
-												icon={ability.icon}
-												className="w-8 h-8 text-primary mb-1"
-											/>
-											<span className="font-[Bangers] text-sm md:text-base text-white tracking-wide uppercase text-center line-clamp-1">
-												{ability.name}
-											</span>
-										</ComicPop>
+											index={idx}
+											name={ability.name}
+											icon={ability.icon}
+										/>
 									))}
 								</div>
-
-								{/* Decorative elements */}
-								<div className="absolute -right-3 -bottom-3 w-10 h-10 border-r-4 border-b-4 border-primary z-[-1]"></div>
 							</div>
-						</ComicPop>
+						</div>
 					))}
 				</div>
 
-				{/* Footer Element */}
-				<div className="mt-20 text-center opacity-50">
-					<div className="inline-block border-2 border-white px-4 py-1 transform rotate-2">
-						<span className="font-[Bangers] text-white tracking-widest">
-							DATA UPDATED: 2025
-						</span>
-					</div>
+				{/* Final CTA / Footer */}
+				<div className="mt-32 mb-12 text-center">
+					<ComicPop
+						initial={{ scale: 0.9, opacity: 0 }}
+						whileInView={{ scale: 1, opacity: 1 }}
+						className="inline-block"
+					>
+						<div className="bg-primary text-white border-4 border-white px-8 py-3 rotate-1 hover:-rotate-1 transition-transform">
+							<span className="font-[Bangers] text-2xl tracking-widest">
+								LVL {new Date().getFullYear() - 2020} || READY FOR ACTION
+							</span>
+						</div>
+					</ComicPop>
 				</div>
 			</div>
 		</div>
