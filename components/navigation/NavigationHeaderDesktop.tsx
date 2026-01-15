@@ -1,11 +1,8 @@
 "use client";
 
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { ComicPanel } from "@/components/ui/comic-panel";
+import { ComicTooltip } from "@/components/ui/comic-tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import MenuItem from "@/interface/menuItem";
 import { Icon } from "@iconify/react";
 import type { Route } from "next";
@@ -22,7 +19,7 @@ export default function NavigationHeaderDesktop({
 	return (
 		<div className="flex w-full items-center justify-between p-2 mx-auto mt-4 max-w-5xl">
 			{/* Main Header Container - Comic Strip Style */}
-			<div className="flex items-center justify-between w-full bg-black border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] transform -rotate-1 hover:rotate-0 transition-transform duration-300 z-50">
+			<ComicPanel className="flex items-center justify-between w-full bg-black z-50 p-0 overflow-hidden">
 				{/* Logo Section */}
 				<div className="relative flex items-center gap-3 px-6 py-3 border-r-4 border-white bg-black overflow-hidden group/logo">
 					{/* Web Pattern Background */}
@@ -50,30 +47,12 @@ export default function NavigationHeaderDesktop({
 				</div>
 
 				{/* Navigation Items */}
-				<div className="flex items-center flex-1 justify-center bg-card relative overflow-hidden">
+				<div className="flex items-center flex-1 justify-center bg-card relative overflow-hidden h-full">
 					<TooltipProvider>
 						{menuItems.map((item, index) => (
-							<Tooltip key={item.href}>
-								<TooltipTrigger asChild>
-									<Link
-										href={item.href as Route}
-										className={`
-                                            group relative px-8 py-4 h-full flex items-center justify-center
-                                            font-[Bangers] text-xl uppercase tracking-wide text-zinc-400
-                                            hover:text-white transition-all
-                                            ${index !== menuItems.length - 1 ? "border-r-4 border-white" : ""}
-                                        `}
-									>
-										<span className="relative z-10 group-hover:scale-110 group-hover:rotate-2 transition-transform duration-200 drop-shadow-md">
-											{item.title}
-										</span>
-										{/* Hover Effect Background */}
-										<div className="absolute inset-0 bg-primary/0 group-hover:bg-primary transition-colors duration-300 ease-out" />
-										{/* Hover Web Effect */}
-										<div className="absolute inset-0 comic-web-pattern opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-									</Link>
-								</TooltipTrigger>
-								<TooltipContent className="bg-black border-2 border-white text-white font-[Bangers] tracking-wide rounded-none shadow-[4px_4px_0px_0px_white]">
+							<ComicTooltip
+								key={item.href}
+								content={
 									<div className="flex items-center gap-2">
 										<Icon
 											icon={item.icon.icon}
@@ -81,15 +60,33 @@ export default function NavigationHeaderDesktop({
 										/>
 										<span>{item.icon.description}</span>
 									</div>
-								</TooltipContent>
-							</Tooltip>
+								}
+							>
+								<Link
+									href={item.href as Route}
+									className={`
+                                        group relative px-8 py-4 h-full flex items-center justify-center
+                                        font-[Bangers] text-xl uppercase tracking-wide text-zinc-400
+                                        hover:text-white transition-all
+                                        ${index !== menuItems.length - 1 ? "border-r-4 border-white" : ""}
+                                    `}
+								>
+									<span className="relative z-10 group-hover:scale-110 group-hover:rotate-2 transition-transform duration-200 drop-shadow-md">
+										{item.title}
+									</span>
+									{/* Hover Effect Background */}
+									<div className="absolute inset-0 bg-primary/0 group-hover:bg-primary transition-colors duration-300 ease-out" />
+									{/* Hover Web Effect */}
+									<div className="absolute inset-0 comic-web-pattern opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+								</Link>
+							</ComicTooltip>
 						))}
 					</TooltipProvider>
 				</div>
 
 				{/* End Cap / Decorative */}
-				<div className="w-12 bg-[radial-gradient(circle,white_2px,transparent_2.5px)] bg-[length:8px_8px] opacity-20"></div>
-			</div>
+				<div className="w-12 h-full bg-[radial-gradient(circle,white_2px,transparent_2.5px)] bg-[length:8px_8px] opacity-20 self-stretch"></div>
+			</ComicPanel>
 		</div>
 	);
 }
