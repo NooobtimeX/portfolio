@@ -31,18 +31,28 @@ const IssueCard: React.FC<IssueCardProps> = ({
 	const issueNumber = `#${String(index + 1).padStart(3, "0")}`;
 
 	if (variant === "featured") {
+		const isEven = index % 2 === 0;
+
 		return (
 			<ComicPop delay={index * 0.1} className="group relative">
 				{/* Comic Panel Container - Double Page Spread Style */}
 				<div className="relative bg-black border-4 border-white shadow-[12px_12px_0px_0px_white] hover:shadow-[8px_8px_0px_0px_rgba(255,50,50,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300 overflow-hidden">
 					{/* Corner Tag */}
-					<div className="absolute top-0 right-0 z-20 bg-primary text-white font-[Bangers] text-xl px-4 py-2 border-l-4 border-b-4 border-black">
+					<div
+						className={`absolute top-0 z-20 bg-primary text-white font-[Bangers] text-xl px-4 py-2 border-b-4 border-black ${
+							isEven ? "left-0 border-r-4" : "right-0 border-l-4"
+						}`}
+					>
 						FEATURED ISSUE {issueNumber}
 					</div>
 
 					<div className="grid md:grid-cols-2 gap-0">
 						{/* Image Panel */}
-						<div className="relative h-64 md:h-auto overflow-hidden border-b-4 md:border-b-0 md:border-r-4 border-white">
+						<div
+							className={`relative h-64 md:h-auto overflow-hidden border-b-4 md:border-b-0 border-white ${
+								isEven ? "md:order-1 md:border-r-4" : "md:order-2 md:border-l-4"
+							}`}
+						>
 							<div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 							<Image
 								src={issue.images.banner}
@@ -55,9 +65,19 @@ const IssueCard: React.FC<IssueCardProps> = ({
 						</div>
 
 						{/* Content Panel */}
-						<div className="p-8 flex flex-col justify-between relative bg-card">
+						<div
+							className={`p-8 flex flex-col justify-between relative bg-card ${
+								isEven ? "md:order-2" : "md:order-1"
+							}`}
+						>
 							{/* Dialogue Box Tail */}
-							<div className="hidden md:block absolute top-[20%] -left-6 w-6 h-6 bg-card border-l-4 border-b-4 border-white transform rotate-45 z-20"></div>
+							<div
+								className={`hidden md:block absolute top-[20%] w-6 h-6 bg-card border-b-4 border-white transform z-20 ${
+									isEven
+										? "-left-[14px] border-l-4 rotate-45"
+										: "-right-[14px] border-r-4 -rotate-45"
+								}`}
+							></div>
 
 							<div>
 								<h3 className="font-[Bangers] text-4xl md:text-5xl text-white uppercase tracking-wide mb-4 leading-none">
